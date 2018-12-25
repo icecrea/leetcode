@@ -1,8 +1,0 @@
-# maven ignore
-#target/
-
-# idea ignore
-#.idea/
-#*.ipr
-#*.iml
-#*.iws
