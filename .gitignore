@@ -1,8 +1,8 @@
 # maven ignore
-target/
+#target/
 
 # idea ignore
-.idea/
-*.ipr
-*.iml
-*.iws
+#.idea/
+#*.ipr
+#*.iml
+#*.iws
