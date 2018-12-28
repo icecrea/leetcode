@@ -56,19 +56,27 @@ public class LeetCode141_LinkedListCycle {
 
     /**
      * 快慢指针法 如果有环最终会相遇
+     * 注意快指针起点是head.next 与慢指针分开 不然循环会直接终止
+     * 1 - 3 - 4 - 6  3为环交点
+     * fast 3- 6 -4 - 3 -6 - 4
+     * low  1- 3 -4 - 6- 3 - 4
+     *
      * @param head
      * @return
      */
     public boolean hasCycle2(ListNode head) {
-        Set<ListNode> nodesSeen = new HashSet<>();
-        while (head != null) {
-            if (nodesSeen.contains(head)) {
-                return true;
-            } else {
-                nodesSeen.add(head);
-            }
-            head = head.next;
+        if (head == null || head.next == null) {
+            return false;
         }
-        return false;
+        ListNode slow = head;
+        ListNode fast = head;
+        while (slow != fast) {
+            if (fast == null || fast.next == null) {
+                return false;
+            }
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return true;
     }
 }
