@@ -56,7 +56,7 @@ public class LeetCode206_ReverseLinkedList {
             return head;
         }
         ListNode newNode = reverseListRecur(head.next);
-        //反转头节点的下一个节点的next指针
+        //反转头节点的下一个节点的next指针 head.next对应的是 反转后链表的尾指针，而node.next是反转后的头指针的下一个节点，此处注意区分
         head.next.next = head;
         //反转头节点的next指针，将头节点作为尾节点
         head.next = null;
