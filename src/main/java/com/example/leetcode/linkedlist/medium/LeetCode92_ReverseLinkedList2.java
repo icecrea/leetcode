@@ -18,7 +18,8 @@ import com.example.leetcode.linkedlist.pojo.ListNode;
  **/
 public class LeetCode92_ReverseLinkedList2 {
     /**
-     * 思路 ： 切开链表，再拼装
+     * 思路 ：注意保存反转链表的头节点的前一个节点
+     * 注意反转后对原链表的拼接
      *
      * @param head
      * @param m
@@ -30,18 +31,25 @@ public class LeetCode92_ReverseLinkedList2 {
         dummyHead.next = head;
         // 最终为 m 位置的前一点
         ListNode mPre = dummyHead;
-        // 最终为 n 位置的后一点
-        ListNode nNext;
-        // 待反转的两点
-        ListNode cur;
-        ListNode next;
         for (int i = 0; i < m - 1; i++) {
             mPre = mPre.next;
         }
-        cur = mPre.next;
-        next = cur.next;
-        nNext = next;
-        for (int i = 0; i < n - m; i++) {
+        reversePart(mPre, n - m);
+        return dummyHead.next;
+    }
+
+
+    /**
+     * 从mPre节点的下一个节点开始反转，反转其中size个
+     *
+     * @param mPre
+     * @param size
+     */
+    private void reversePart(ListNode mPre, int size) {
+        ListNode cur = mPre.next;
+        ListNode next = cur.next;
+        ListNode nNext = next;
+        for (int i = 0; i < size; i++) {
             // 进行反转
             nNext = next.next;
             next.next = cur;
@@ -49,12 +57,12 @@ public class LeetCode92_ReverseLinkedList2 {
             cur = next;
             next = nNext;
         }
+
+
         // 反转完毕，mPre的next对应的节点，是反转前这段的头节点，反转后这段的尾节点，next指向最后一段头节点
         mPre.next.next = nNext;
         //将mpre的next节点，指向反转后的尾节点，应该是现在该段的头节点
         mPre.next = cur;
-        return dummyHead.next;
     }
-
 
 }
