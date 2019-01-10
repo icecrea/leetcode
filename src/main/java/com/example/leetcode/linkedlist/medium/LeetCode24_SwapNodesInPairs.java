@@ -1,7 +1,6 @@
 package com.example.leetcode.linkedlist.medium;
 
 import com.example.leetcode.linkedlist.pojo.ListNode;
-import org.junit.Test;
 
 /**
  * @description: 两两交换链表中的节点
