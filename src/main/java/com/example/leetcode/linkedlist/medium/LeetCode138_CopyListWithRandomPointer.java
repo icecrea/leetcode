@@ -3,7 +3,6 @@ package com.example.leetcode.linkedlist.medium;
 import com.example.leetcode.linkedlist.pojo.RandomListNode;
 
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @description: 复制带随机指针的链表
@@ -58,6 +57,11 @@ public class LeetCode138_CopyListWithRandomPointer {
      */
     HashMap<RandomListNode, RandomListNode> visited = new HashMap<RandomListNode, RandomListNode>();
 
+    /**
+     * 从Map中找到对应的拷贝的节点，可以理解成是数值上是和原链表一一对应
+     * @param node
+     * @return
+     */
     public RandomListNode getClonedNode(RandomListNode node) {
         // If the node exists then
         if (node != null) {

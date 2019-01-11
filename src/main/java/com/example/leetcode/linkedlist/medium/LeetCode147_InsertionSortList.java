@@ -28,5 +28,29 @@ import com.example.leetcode.linkedlist.pojo.ListNode;
  * @create: 2019-01-03 20:57
  **/
 public class LeetCode147_InsertionSortList {
+    public ListNode insertionSortList(ListNode head) {
+        if (head == null) {
+            return head;
+        }
+        //通过dummy节点构造链表
+        ListNode dummy = new ListNode(0);
+        ListNode cur = head;
+        ListNode pre = dummy;
+        ListNode next;
+        while (cur != null) {
+            next = cur.next;
+            pre = dummy;
+            //找到插入的位置的前一个节点pre
+            while (pre.next != null && pre.next.val < cur.val) {
+                pre = pre.next;
+            }
+            //在pre与pre.next之间插入cur
+            cur.next = pre.next;
+            pre.next = cur;
+            cur = next;
+        }
 
+        //不能返回head head节点可能会被移动
+        return dummy.next;
+    }
 }
