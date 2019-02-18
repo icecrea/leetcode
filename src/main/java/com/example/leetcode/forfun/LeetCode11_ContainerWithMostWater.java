@@ -9,7 +9,7 @@ import java.util.HashMap;
  * @author: icecrea
  * @create: 2018-12-24 17:48
  **/
-public class Leetcode11_ContainerWithMostWater {
+public class LeetCode11_ContainerWithMostWater {
 
     /**
      * leetcode 11 盛水最多的容器

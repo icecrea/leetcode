@@ -1,12 +1,7 @@
 package com.example.leetcode.array;
 
-import com.google.common.base.Joiner;
-import org.junit.Test;
-
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * @description: 两数之和
@@ -24,6 +19,13 @@ import java.util.Set;
  * @create: 2019-01-14 23:05
  **/
 public class LeetCode1_TwoSum {
+    /**
+     * 简单暴力 不推荐
+     *
+     * @param nums
+     * @param target
+     * @return
+     */
     public int[] twoSum(int[] nums, int target) {
         for (int i = 0; i < nums.length; i++) {
             for (int j = i + 1; j < nums.length; j++) {
@@ -35,6 +37,13 @@ public class LeetCode1_TwoSum {
         return null;
     }
 
+    /**
+     * 使用Hashmap 时间复杂度On
+     *
+     * @param nums
+     * @param target
+     * @return
+     */
     public int[] twoSum2(int[] nums, int target) {
         int size = (int) ((float) nums.length / 0.75F + 1.0F);
         Map<Integer, Integer> map = new HashMap<>(size);
@@ -50,6 +59,13 @@ public class LeetCode1_TwoSum {
         return null;
     }
 
+    /**
+     * 方法二的优化 两数之和=target 可以在遍历的时候进行查询
+     *
+     * @param nums
+     * @param target
+     * @return
+     */
     public int[] twoSum3(int[] nums, int target) {
         int size = (int) ((float) nums.length / 0.75F + 1.0F);
         Map<Integer, Integer> map = new HashMap<>(size);
