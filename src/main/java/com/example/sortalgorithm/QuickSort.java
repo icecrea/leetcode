@@ -45,4 +45,43 @@ public class QuickSort {
             quickSort(a, i + 1, high);
         }
     }
+
+
+
+
+
+    public void quickSortGT(int[] a, int p, int r) {
+        if(p>=r){
+            return;
+        }
+        //获取分区点
+        int q= partitionGT(a,p,r);
+        quickSortGT(a,p,q);
+        quickSortGT(a,q+1,r);
+    }
+
+    /**
+     * @param a
+     * @param p
+     * @param r 最后一位下标
+     */
+    public int partitionGT(int[] a, int p, int r) {
+        int pivot = a[r];
+        int i = p;
+        for (int j = p; j < r; j++) {
+            if (a[j] < pivot) {
+                int tmp = a[j];
+                a[j] = a[i];
+                a[i] = tmp;
+                i++;
+            }
+        }
+
+        int tmp = a[i];
+        a[i] = a[r];
+        a[r] = tmp;
+        return i;
+    }
+
+
 }
