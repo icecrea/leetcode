@@ -45,8 +45,7 @@ public class array21 {
         //数组新赋值的下标
         int index = 0;
         for (int i = index + 1; i < nums.length; i++) {
-            if (nums[i] == nums[index]) {
-            } else {
+            if (nums[i] != nums[index]) {
                 nums[++index] = nums[i];
             }
         }
