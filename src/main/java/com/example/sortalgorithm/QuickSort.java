@@ -10,16 +10,16 @@ public class QuickSort {
      * 以a[0]为基准数，将比这个数小的放左边，比这个数大的放右边
      */
     public static int partition(int[] a, int low, int high) {
-        int temp = a[low];
+        int pivot = a[low];
         while (low < high) {
-            while (low < high && a[high] >= temp) {
+            while (low < high && a[high] >= pivot) {
                 high--;
             }
             if (low < high) {
                 a[low] = a[high];
                 low++;
             }
-            while (low < high && a[low] < temp) {
+            while (low < high && a[low] < pivot) {
                 low++;
             }
             if (low < high) {
@@ -27,7 +27,7 @@ public class QuickSort {
                 high--;
             }
         }
-        a[low] = temp;
+        a[low] = pivot;
         return low;
     }
 
@@ -61,6 +61,7 @@ public class QuickSort {
     }
 
     /**
+     * 可以优化，利用哨兵，减少交换次数
      * @param a
      * @param p
      * @param r 最后一位下标
@@ -82,6 +83,5 @@ public class QuickSort {
         a[r] = tmp;
         return i;
     }
-
 
 }
