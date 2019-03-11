@@ -1,10 +1,5 @@
 package com.example.topinterview.easy;
 
-import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * @description: 加一
  * 给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一。
@@ -27,5 +22,17 @@ import java.util.List;
  * @create: 2019-02-21 22:19
  **/
 public class array27 {
-
+    public int[] plusOne(int[] digits) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < digits.length; i++) {
+            sb.append(digits[i]);
+        }
+        int z = Integer.parseInt(sb.toString()) + 1;
+        String s = String.valueOf(z);
+        int arr[] = new int[s.length()];
+        for (int i = 0;i<s.length();i++){
+            arr[i]= Integer.valueOf(s.charAt(i)+"");
+        }
+        return arr;
+    }
 }
