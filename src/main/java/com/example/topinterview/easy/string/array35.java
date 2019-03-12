@@ -21,5 +21,25 @@ package com.example.topinterview.easy.string;
  * @create: 2019-03-12 12:55
  **/
 public class array35 {
-
+    /**
+     * 很像上一题唯一字符，都是小写字母，且需要条件为字母出现次数，用int[26]数组来解决
+     * @param s
+     * @param t
+     * @return
+     */
+    public boolean isAnagram(String s, String t) {
+        int[] cs = new int[26];
+        for(int i=0;i<s.length();i++){
+            cs[s.charAt(i) - 'a']++;
+        }
+        for(int i=0;i<t.length();i++){
+            cs[t.charAt(i) - 'a']--;
+        }
+        for(int i=0;i<cs.length;i++){
+            if(cs[i]!=0){
+                return false;
+            }
+        }
+        return true;
+    }
 }
