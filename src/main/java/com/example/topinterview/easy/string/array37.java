@@ -94,15 +94,15 @@ public class array37 {
     /**
      * 解决溢出思路：
      * 依次取数乘10+余 递归计算，long型求和判断大小 （其实也可以用array33整数反转的方法判断溢出，看选择）
-     *
+     * 注意先trim后判断 不然charAt(0)可能抛出异常
      * @param str
      * @return
      */
     public static int myAtoi2(String str) {
+        str = str.trim();
         if (str == null || str.length() == 0) {
             return 0;
         }
-        str = str.trim();
         char firstChar = str.charAt(0);
         int sign = 1, start = 0, len = str.length();
         long sum = 0;
