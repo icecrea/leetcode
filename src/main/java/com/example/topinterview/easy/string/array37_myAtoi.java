@@ -48,7 +48,7 @@ package com.example.topinterview.easy.string;
  * @author: icecrea
  * @create: 2019-03-12 20:28
  **/
-public class array37 {
+public class array37_myAtoi {
     /**
      * &&运算符优先级高于或
      *

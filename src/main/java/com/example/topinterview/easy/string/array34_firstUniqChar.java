@@ -17,7 +17,7 @@ package com.example.topinterview.easy.string;
  * @author: icecrea
  * @create: 2019-03-12 12:48
  **/
-public class array34 {
+public class array34_firstUniqChar {
 
     /**
      * 小写字母 可以用26整形数组存出现次数，下标通过char类型相减变成整数，对应从a到z

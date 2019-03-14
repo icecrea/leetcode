@@ -22,7 +22,7 @@ package com.example.topinterview.easy.string;
  * @author: icecrea
  * @create: 2019-03-11 19:26
  **/
-public class array33 {
+public class array33_reverse {
 
     /**
      * 使用long 偏取巧

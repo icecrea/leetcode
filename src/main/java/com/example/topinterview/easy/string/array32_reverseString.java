@@ -21,7 +21,7 @@ package com.example.topinterview.easy.string;
  * @author: icecrea
  * @create: 2019-03-11 19:22
  **/
-public class array32 {
+public class array32_reverseString {
     public void reverseString(char[] s) {
         for (int i = 0; i < s.length / 2; i++) {
             char tmp = s[i];

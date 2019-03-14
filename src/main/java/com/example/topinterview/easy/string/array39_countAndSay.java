@@ -36,7 +36,7 @@ package com.example.topinterview.easy.string;
  * @author: icecrea
  * @create: 2019-03-13 13:07
  **/
-public class array39 {
+public class array39_countAndSay {
     public String countAndSay(int n) {
         String s = "1";
         int k;

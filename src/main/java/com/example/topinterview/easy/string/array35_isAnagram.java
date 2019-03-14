@@ -20,7 +20,7 @@ package com.example.topinterview.easy.string;
  * @author: icecrea
  * @create: 2019-03-12 12:55
  **/
-public class array35 {
+public class array35_isAnagram {
     /**
      * 很像上一题唯一字符，都是小写字母，且需要条件为字母出现次数，用int[26]数组来解决
      *

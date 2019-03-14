@@ -17,7 +17,7 @@ package com.example.topinterview.easy.string;
  * @author: icecrea
  * @create: 2019-03-12 19:54
  **/
-public class array36 {
+public class array36_isPalindrome {
     /**
      * 用java自带的方法解决 注意大小写，非数字字母的过滤，以及equals使用string类型的才有重写.
      * @param s
