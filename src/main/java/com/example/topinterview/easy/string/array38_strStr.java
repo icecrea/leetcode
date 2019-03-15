@@ -91,6 +91,9 @@ public class array38_strStr {
      */
     public int strStrKmp(String haystack, String needle) {
 
+        if(needle.length()==0){
+            return 0;
+        }
         int[] next = getNext(needle);
 
         int i = 0;
