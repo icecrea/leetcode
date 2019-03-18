@@ -1,4 +1,4 @@
-package com.example.topinterview.easy;
+package com.example.topinterview.easy.array;
 
 import org.junit.Test;
 
@@ -23,7 +23,7 @@ import java.util.Arrays;
  * @author: icecrea
  * @create: 2019-02-20 09:51
  **/
-public class array25 {
+public class array25_singleNumber {
     /**
      * 若该数组有序，且有一个元素只出现一次，以步数2向后遍历，那么一定会存在a[i] != a[i+1]
      * 但排序时间复杂度不满足线性

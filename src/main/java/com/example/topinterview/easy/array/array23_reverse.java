@@ -1,4 +1,4 @@
-package com.example.topinterview.easy;
+package com.example.topinterview.easy.array;
 
 /**
  * @description: 旋转数组
@@ -26,7 +26,7 @@ package com.example.topinterview.easy;
  * @author: icecrea
  * @create: 2019-02-20 09:06
  **/
-public class array23 {
+public class array23_reverse {
     /**
      * 可以先整体反序，然后以k下标处分割，两部分再次反序
      *

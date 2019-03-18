@@ -1,4 +1,4 @@
-package com.example.topinterview.easy;
+package com.example.topinterview.easy.array;
 
 /**
  * @description: 两数之和 （做过）
@@ -15,7 +15,7 @@ package com.example.topinterview.easy;
  * @author: icecrea
  * @create: 2019-02-26 11:30
  **/
-public class array29 {
+public class array29_twoSum {
     public int[] twoSum(int[] nums, int target) {
         for (int i = 0; i < nums.length; i++) {
             for (int j = i + 1; j < nums.length; j++) {

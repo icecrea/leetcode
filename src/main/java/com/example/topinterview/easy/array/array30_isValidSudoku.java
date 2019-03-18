@@ -1,4 +1,4 @@
-package com.example.topinterview.easy;
+package com.example.topinterview.easy.array;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -54,7 +54,7 @@ import java.util.Set;
  * @author: icecrea
  * @create: 2019-02-26 11:31
  **/
-public class array30 {
+public class array30_isValidSudoku {
     /**
      * 通过计算可知，当行号为 i，列号为 j 的时候，所处的子九宫格号为 k = i / 3 * 3 + j / 3，
      * 比如第3行第2列处在第3个子九宫格中

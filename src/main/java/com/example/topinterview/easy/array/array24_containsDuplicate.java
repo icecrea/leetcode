@@ -1,4 +1,4 @@
-package com.example.topinterview.easy;
+package com.example.topinterview.easy.array;
 
 import java.util.HashMap;
 
@@ -23,7 +23,7 @@ import java.util.HashMap;
  * @author: icecrea
  * @create: 2019-02-20 09:44
  **/
-public class array24 {
+public class array24_containsDuplicate {
     public boolean containsDuplicate(int[] nums) {
         HashMap<Integer, Integer> map = new HashMap();
         for (int i = 0; i < nums.length; i++) {

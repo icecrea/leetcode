@@ -1,4 +1,4 @@
-package com.example.topinterview.easy;
+package com.example.topinterview.easy.array;
 
 /**
  * @description: 从排序数组中删除重复项
@@ -40,7 +40,7 @@ package com.example.topinterview.easy;
  * @author: icecrea
  * @create: 2019-02-19 09:18
  **/
-public class array21 {
+public class array21_removeDuplicates {
     public int removeDuplicates(int[] nums) {
         //数组新赋值的下标
         int index = 0;

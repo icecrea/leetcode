@@ -1,4 +1,4 @@
-package com.example.topinterview.easy;
+package com.example.topinterview.easy.array;
 
 /**
  * @description: 加一
@@ -21,7 +21,7 @@ package com.example.topinterview.easy;
  * @author: icecrea
  * @create: 2019-02-21 22:19
  **/
-public class array27 {
+public class array27_plusOne {
     public int[] plusOne(int[] digits) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < digits.length; i++) {

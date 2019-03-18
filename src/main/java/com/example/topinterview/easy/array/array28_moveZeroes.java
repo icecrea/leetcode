@@ -1,4 +1,4 @@
-package com.example.topinterview.easy;
+package com.example.topinterview.easy.array;
 
 /**
  * @description: 移动零
@@ -15,7 +15,7 @@ package com.example.topinterview.easy;
  * @author: icecrea
  * @create: 2019-02-26 10:41
  **/
-public class array28 {
+public class array28_moveZeroes {
     /**
      * 不等于0的依次从0给数组赋值，剩下的数组位置全置为0
      * @param nums

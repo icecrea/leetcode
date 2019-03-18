@@ -1,4 +1,4 @@
-package com.example.topinterview.easy;
+package com.example.topinterview.easy.array;
 
 /**
  * @description: 买卖股票的最佳时机 II
@@ -29,7 +29,7 @@ package com.example.topinterview.easy;
  * @author: icecrea
  * @create: 2019-02-19 09:57
  **/
-public class array22 {
+public class array22_maxProfit {
     /**
      * 波峰波谷法
      * 画图可看出，两个波峰波谷差值和，是一定大于两者最大的绝对值差的

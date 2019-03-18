@@ -1,4 +1,4 @@
-package com.example.topinterview.easy;
+package com.example.topinterview.easy.array;
 
 import java.util.*;
 
@@ -26,7 +26,7 @@ import java.util.*;
  * @author: icecrea
  * @create: 2019-02-20 10:49
  **/
-public class array26 {
+public class array26_intersect {
     /**
      * 用Map来建立nums1中字符和其出现个数之间的映射, 然后遍历nums2数组，
      * 如果当前字符在Map中的个数大于0，则将此字符加入结果res中，然后Map的对应值自减1
