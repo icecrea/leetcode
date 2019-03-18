@@ -30,23 +30,21 @@ public class array42_removeNthFromEnd {
      * @return
      */
     public ListNode removeNthFromEnd(ListNode head, int n) {
+        int len = 0;
         ListNode dummy = new ListNode(0);
         dummy.next = head;
-        int length = 0;
-        ListNode first = head;
-        while (first != null) {
-            length++;
-            first = first.next;
+        ListNode node = dummy;
+        while (node.next != null) {
+            len++;
+            node = node.next;
         }
-        length -= n;
-        first = dummy;
-        while (length > 0) {
-            length--;
-            first = first.next;
+        node = dummy;
+        len = len - n;
+        for (int i = 0; i < len; i++) {
+            node = node.next;
         }
-        first.next = first.next.next;
+        node.next = node.next.next;
         return dummy.next;
     }
-
 
 }
