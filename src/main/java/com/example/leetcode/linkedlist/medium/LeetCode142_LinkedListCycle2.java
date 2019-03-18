@@ -42,6 +42,8 @@ public class LeetCode142_LinkedListCycle2 {
      * 此刻慢指针再走n步会回到c点 ，即BC + CB =n
      * 说明AB = CB
      * 此刻设置头指针 当头指针到环入口时， 慢指针也同时到环入口
+     *
+     * 如果表头是环入口点 ，此刻慢指针也在入口点，不用特殊考虑
      * @param head
      * @return
      */
