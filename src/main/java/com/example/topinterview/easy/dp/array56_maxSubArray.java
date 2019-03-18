@@ -22,7 +22,7 @@ public class array56_maxSubArray {
         for (int i = 0; i < nums.length; i++) {
             if (maxToCur >= 0) {
                 maxToCur += nums[i];
-            }else {
+            } else {
                 maxToCur = nums[i];
             }
             maxSoFar = Math.max(maxToCur, maxSoFar);
