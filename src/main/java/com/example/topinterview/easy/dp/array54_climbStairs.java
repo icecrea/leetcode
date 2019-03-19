@@ -47,4 +47,16 @@ public class array54_climbStairs {
         }
         return a[n];
     }
+
+    public int climbStairs2(int n) {
+        int prePre = 1;
+        int pre = 1;
+        int result = 1;
+        for (int i = 2; i <= n; i++) {
+            result = pre + prePre;
+            prePre = pre;
+            pre = result;
+        }
+        return result;
+    }
 }

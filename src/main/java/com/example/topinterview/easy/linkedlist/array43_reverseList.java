@@ -18,6 +18,33 @@ import org.junit.Test;
  **/
 public class array43_reverseList {
     /**
+     * 非递归
+     * @param head
+     * @return
+     */
+    public ListNode reverseList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode p = head;
+        ListNode q = p.next;
+        head.next = null;
+        ListNode r;
+
+        while (q != null) {
+            //因为有指针反转，所以需要提前保留下一个step要处理的指针
+            r = q.next;
+            //指针反转
+            q.next = p;
+            //后移一位
+            p = q;
+            q = r;
+        }
+        return p;
+    }
+
+    /**
      * 递归方法
      * @param head
      * @return
