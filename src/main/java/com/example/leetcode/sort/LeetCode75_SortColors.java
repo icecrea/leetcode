@@ -2,8 +2,6 @@ package com.example.leetcode.sort;
 
 import org.junit.Test;
 
-import java.util.HashMap;
-
 /**
  * @description: 颜色分类
  * 给定一个包含红色、白色和蓝色，一共 n 个元素的数组，原地对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。
@@ -55,15 +53,40 @@ public class LeetCode75_SortColors {
         }
     }
 
-    private void swap(int[] nums, int i, int j){
+    private void swap(int[] nums, int i, int j) {
         int tmp = nums[i];
         nums[i] = nums[j];
         nums[j] = tmp;
     }
 
+    /**
+     * 比上面方法又减少了比较操作
+     * @param nums
+     */
+    public void sortColors3(int[] nums) {
+        int red = 0;
+        int blue = nums.length - 1;
+        for (int i = 0; i <= blue; i++) {
+            if (nums[i] == 0) {
+                int temp = nums[i];
+                nums[i] = nums[red];
+                nums[red] = temp;
+
+                red++;
+            } else if (nums[i] == 2) {
+                int temp = nums[i];
+                nums[i] = nums[blue];
+                nums[blue] = temp;
+
+                i--;
+                blue--;
+            }
+        }
+    }
+
     @Test
     public void test() {
-        sortColors(new int[]{2, 0, 2, 1, 1, 0});
+        sortColors3(new int[]{2, 0, 2, 1, 1, 0});
     }
 
 }
