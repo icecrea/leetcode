@@ -24,7 +24,7 @@ import com.example.leetcode.linkedlist.pojo.ListNode;
  **/
 public class LeetCode147_InsertionSortList {
 
-    public ListNode insertionSortList(ListNode head) {
+    public ListNode insertionSortList2(ListNode head) {
         if (head == null) {
             return head;
         }
@@ -51,7 +51,7 @@ public class LeetCode147_InsertionSortList {
      * @param head
      * @return
      */
-    public ListNode insertionSortList2(ListNode head) {
+    public ListNode insertionSortList(ListNode head) {
         if (head == null || head.next == null) {
             return head;
         }
