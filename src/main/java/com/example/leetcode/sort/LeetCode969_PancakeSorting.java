@@ -45,8 +45,12 @@ public class LeetCode969_PancakeSorting {
     public List<Integer> pancakeSort(int[] A) {
         List<Integer> res = new ArrayList<>();
         // 每次反转 确定最后一个数字是正确的
-        for (int x = A.length, i; x > 0; --x) {
-            for (i = 0; A[i] != x; ++i){}
+        for (int x = A.length; x > 0; --x) {
+            int i = 0;
+            // 注意没有相同的 可能超上限情况
+            while (A[i] != x && i < x - 1) {
+                i++;
+            }
             reverse(A, i + 1);
             res.add(i + 1);
             reverse(A, x);
@@ -57,6 +61,7 @@ public class LeetCode969_PancakeSorting {
 
     /**
      * 反转前k个数字
+     *
      * @param A
      * @param k
      */
@@ -68,10 +73,11 @@ public class LeetCode969_PancakeSorting {
         }
     }
 
+
     @Test
-    public void test(){
-        // [3, 4, 2, 3, 1, 2, 1, 1]
-        System.out.println(pancakeSort(new int[]{3,2,4,1}));
+    public void test() {
+        int[] a = new int[]{3, 2, 4, 1};
+        System.out.println(pancakeSort(a));
         /**
          * 3 2 4 1
          *
@@ -87,8 +93,13 @@ public class LeetCode969_PancakeSorting {
          * 1 2 3 4  1
          * 1 2 3 4  1
          */
-    }
 
+//        int[] a= new int[]{1, 4, 3, 3};
+//        System.out.println(pancakeSort(a));
+        for (int z : a) {
+            System.out.println(z);
+        }
+    }
 
 
 }

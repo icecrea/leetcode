@@ -38,7 +38,7 @@ import java.util.PriorityQueue;
  * @author: icecrea
  * @create: 2019-04-09 15:40
  **/
-public class LeetCode973_kClosestPointsToOrigin {
+public class LeetCode973_KClosestPointsToOrigin {
     public int[][] kClosest(int[][] points, int K) {
         Arrays.sort(points, new Comparator<int[]>() {
             @Override
