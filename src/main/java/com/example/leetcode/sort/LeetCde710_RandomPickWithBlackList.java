@@ -56,6 +56,12 @@ public class LeetCde710_RandomPickWithBlackList {
     Random r;
     Map<Integer, Integer> map;
 
+    /**
+     * 图可参考
+     * https://leetcode.com/problems/random-pick-with-blacklist/discuss/144624/Java-O(B)-O(1)-HashMap
+     * @param N
+     * @param blacklist
+     */
     public LeetCde710_RandomPickWithBlackList(int N, int[] blacklist) {
         map = new HashMap();
         for (int b : blacklist) {
