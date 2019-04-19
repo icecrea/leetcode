@@ -24,7 +24,7 @@ import com.example.leetcode.linkedlist.pojo.TreeNode;
 public class Sword17_Mirror {
 
     /**
-     * 从上到下交换左右节点
+     * 从上到下,先交换根节点的左右节点，然后对根节点的左右节点递归进行交换
      * @param root
      */
     public void Mirror(TreeNode root) {
