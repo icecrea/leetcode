@@ -1,5 +1,7 @@
 package com.example.sortalgorithm;
 
+import org.junit.Test;
+
 /**
  * @description: 直接插入排序
  * @author: icecrea
@@ -21,6 +23,15 @@ public class InsertSort {
                 }
                 a[j + 1] = temp;
             }
+        }
+    }
+
+    @Test
+    public void test(){
+        int a[] = new int[]{5,1};
+        insertSort(a);
+        for (int i : a) {
+            System.out.println(i);
         }
     }
 }

@@ -1,5 +1,7 @@
 package com.example.sortalgorithm;
 
+import org.junit.Test;
+
 /**
  * @description: 归并排序
  * @author: icecrea
@@ -30,13 +32,22 @@ public class MergeSort {
 
     public static void mergeSort(int[] a, int first, int last, int[] temp) {
         if (first < last) {
-            int mid = (first + last) / 2;
+            int mid = first + (last - first) / 2;
             //左边有序
             mergeSort(a, first, mid, temp);
             //右边有序
             mergeSort(a, mid + 1, last, temp);
             //合并两个有序数列
             mergeArray(a, first, mid, last, temp);
+        }
+    }
+
+    @Test
+    public void test() {
+        int a[] = new int[]{5, 1, 7, 88, 4};
+        mergeSort(a, 0, 4, new int[5]);
+        for (int i : a) {
+            System.out.println(i);
         }
     }
 }

@@ -6,6 +6,8 @@ import com.example.leetcode.linkedlist.pojo.ListNode;
 /**
  * @description: 两个链表的第一个公共节点
  * 输入两个链表，找出它们的第一个公共结点。
+ *
+ * 链表有公共节点，公共节点后部分肯定是相同的，所以差别在公共节点前
  * @author: icecrea
  * @create: 2019-05-08 22:32
  **/
@@ -31,7 +33,7 @@ public class Sword35_FindFirstCommonNode {
             }
         } else if (length1 < length2) {
             int len = length2 - length1;
-            // 先遍历链表1，遍历的长度就是两链表的长度差
+            // 先遍历链表2，遍历的长度就是两链表的长度差
             while (len > 0) {
                 current2 = current2.next;
                 len--;

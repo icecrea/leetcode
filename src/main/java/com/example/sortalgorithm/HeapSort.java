@@ -1,5 +1,7 @@
 package com.example.sortalgorithm;
 
+import org.junit.Test;
+
 /**
  * @description: 堆排序
  * @author: icecrea
@@ -51,6 +53,34 @@ public class HeapSort {
             a[0] = a[i];
             a[i] = temp;
             sift(a, 0, i);
+        }
+    }
+
+    /**
+     * 5
+     * 4   3
+     * 21
+     *
+     * 3
+     * 4   5
+     * 21
+     *
+     */
+    @Test
+    public void test(){
+        int a[] = new int[]{5,4,3,2,1};
+        sift(a, 0, 5);
+        for (int i : a) {
+            System.out.println(i);
+        }
+    }
+
+    @Test
+    public void test2(){
+        int a[] = new int[]{1,2,3,4,5};
+        heapSort(a);
+        for (int i : a) {
+            System.out.println(i);
         }
     }
 }

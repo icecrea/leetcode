@@ -1,5 +1,7 @@
 package com.example.sortalgorithm;
 
+import org.junit.Test;
+
 /**
  * @description: 快速排序
  * @author: icecrea
@@ -46,22 +48,38 @@ public class QuickSort {
         }
     }
 
+    @Test
+    public void test1() {
+        int a[] = new int[]{5, 1, 7, 88, 4};
+        quickSort(a, 0, 4);
+        for (int i : a) {
+            System.out.println(i);
+        }
+    }
 
-
+    @Test
+    public void test2() {
+        int a[] = new int[]{5, 1, 7, 88, 4};
+        quickSortGT(a, 0, 4);
+        for (int i : a) {
+            System.out.println(i);
+        }
+    }
 
 
     public void quickSortGT(int[] a, int p, int r) {
-        if(p>=r){
+        if (p >= r) {
             return;
         }
         //获取分区点
-        int q= partitionGT(a,p,r);
-        quickSortGT(a,p,q);
-        quickSortGT(a,q+1,r);
+        int q = partitionGT(a, p, r);
+        quickSortGT(a, p, q);
+        quickSortGT(a, q + 1, r);
     }
 
     /**
      * 可以优化，利用哨兵，减少交换次数
+     *
      * @param a
      * @param p
      * @param r 最后一位下标
