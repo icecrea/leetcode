@@ -69,8 +69,11 @@ public class Sword47_StrToInt {
 
     @Test
     public void test() {
-        int i = new Sword47_StrToInt().StrToInt("2147483648");
-        System.out.println(i);
+        System.out.println(new Sword47_StrToInt().StrToInt("2147483648"));
+        System.out.println(new Sword47_StrToInt().StrToInt("-2147483648"));
+        System.out.println(new Sword47_StrToInt().StrToInt("-2147483649"));
+        System.out.println(new Sword47_StrToInt().StrToInt("-2147483647"));
+
         int max = Integer.MAX_VALUE;
         int min = Integer.MIN_VALUE;
 
