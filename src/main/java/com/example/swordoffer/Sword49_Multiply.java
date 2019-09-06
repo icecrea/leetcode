@@ -45,6 +45,7 @@ public class Sword49_Multiply {
      * 剑指offer解法
      * 结合画图， 构造上三角和下三角，每一行的乘积值为B[i]，左上到右下对角线的值均为1，每行从左往右为a[0]-a[n-1], 最后返回B
      * 通过计算三角的乘积最终求值
+     *
      * @param A
      * @return
      */
@@ -58,7 +59,7 @@ public class Sword49_Multiply {
                 B[i] = B[i - 1] * A[i - 1];
             }
             int temp = 1;
-            //计算上三角
+            //计算上三角 (因此此时下三角已经计算入b[i]了，所以不能再用B累乘，从后往前累乘A[j+1]赋值即可)
             for (int j = length - 2; j >= 0; j--) {
                 temp *= A[j + 1];
                 B[j] *= temp;
