@@ -27,7 +27,8 @@ public class Sword47_StrToInt {
 
 
     /**
-     * int型溢出后为-2145481649，通过溢出前后比较
+     *
+     *
      * @param str
      * @return
      */
@@ -46,43 +47,59 @@ public class Sword47_StrToInt {
             start = 1;
             symbol = -1;
         }
-        int result = 0;
+        long result = 0;
         for (int i = start; i < chars.length; i++) {
             if (chars[i] > '9' || chars[i] < '0') {
                 return 0;
             }
 
-            int sum = result * 10 + (chars[i] - '0');
+            //位运算 =  n*10 + a[i]
+            result = (result << 1) + (result << 3) + (chars[i] & 0xf);
 
-            if ((sum - (chars[i] - '0')) / 10 != result) {
+            if (symbol == 1 && result > Integer.MAX_VALUE) {
+                return 0;
+            }
+            if (symbol == -1 && (-1) * result < Integer.MIN_VALUE) {
                 return 0;
             }
 
-            result = result * 10 + (int) (chars[i] - '0');
 
         }
         // 注意，当value=-2147483648时，value=-value
         result = symbol * result;
-        return result;
+        return (int) result;
     }
 
 
     @Test
     public void test() {
         System.out.println(new Sword47_StrToInt().StrToInt("2147483648"));
+        System.out.println(new Sword47_StrToInt().StrToInt("2147483647"));
         System.out.println(new Sword47_StrToInt().StrToInt("-2147483648"));
-        System.out.println(new Sword47_StrToInt().StrToInt("-2147483649"));
         System.out.println(new Sword47_StrToInt().StrToInt("-2147483647"));
+        System.out.println(new Sword47_StrToInt().StrToInt("-2147483649"));
+
 
         int max = Integer.MAX_VALUE;
-        int min = Integer.MIN_VALUE;
-
-        System.out.println(Integer.MAX_VALUE);
-        System.out.println(Integer.MIN_VALUE);
-
+        System.out.println("MAX :" + Integer.MAX_VALUE);
         max += 2000000;
-        System.out.println(max);
+        System.out.println("MAX+ :" + max);
 
 
+        int min = Integer.MIN_VALUE;
+        System.out.println("MIN :" + Integer.MIN_VALUE);
+        min -= 2000000;
+        System.out.println("MIN- :" + min);
+
+
+        int res = 4;
+        // 乘8 + 乘2 = 乘10
+        res = (res << 1) + (res << 3);
+        System.out.println(res);
+
+        // ascii码8位，字符‘0’-‘9’后四位二进制ascii码，对应其字符代表的数字
+        System.out.println('8' & 0xf);
+        System.out.println('3' & 0xf);
+        System.out.println('0' & 0xf);
     }
 }

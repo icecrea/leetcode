@@ -13,23 +13,33 @@ public class InsertSort {
      * 监视哨：无需重复判断数组下标是否越界，将每个a[i]赋给a[0]，当比较到0个位置时自动成立退出循环
      * 稳定的排序算法
      */
-    public static void insertSort(int[] a) {
-        int i, j;
-        for (i = 1; i < a.length; i++) {
-            if (a[i] < a[i - 1]) {
-                int temp = a[i];
-                for (j = i - 1; j >= 0 && a[j] > temp; j--) {
+    public static void insertionSort(int[] a, int n) {
+        if (n <= 1) {
+            return;
+        }
+
+        for (int i = 1; i < n; ++i) {
+            int value = a[i];
+            int j = i - 1;
+            // 查找插入的位置
+            for (; j >= 0; --j) {
+                if (a[j] > value) {
+                    // 数据移动
                     a[j + 1] = a[j];
+                } else {
+                    break;
                 }
-                a[j + 1] = temp;
             }
+            // 插入数据
+            a[j + 1] = value;
         }
     }
 
+
     @Test
-    public void test(){
-        int a[] = new int[]{5,1};
-        insertSort(a);
+    public void test() {
+        int a[] = new int[]{5, 1};
+        insertionSort(a, a.length);
         for (int i : a) {
             System.out.println(i);
         }

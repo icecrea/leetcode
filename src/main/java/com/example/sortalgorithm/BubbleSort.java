@@ -14,6 +14,10 @@ public class BubbleSort {
      * 稳定的排序算法
      */
     public static void bubbleSort(int[] a) {
+        if (a.length <= 1) {
+            return;
+        }
+
         boolean flag = true;
         for (int i = 0; i < a.length - 1; i++) {
             if (flag == false) {
@@ -30,4 +34,30 @@ public class BubbleSort {
             }
         }
     }
+
+
+    public void bubbleSort(int[] a, int n) {
+        if (n <= 1) {
+            return;
+        }
+
+        for (int i = 0; i < n; ++i) {
+            // 提前退出冒泡循环的标志位
+            boolean flag = false;
+            for (int j = 0; j < n - i - 1; ++j) {
+                if (a[j] > a[j + 1]) {
+                    int tmp = a[j];
+                    a[j] = a[j + 1];
+                    a[j + 1] = tmp;
+                    // 表示有数据交换
+                    flag = true;
+                }
+            }
+            // 没有数据交换，提前退出
+            if (!flag) {
+                break;
+            }
+        }
+    }
+
 }
