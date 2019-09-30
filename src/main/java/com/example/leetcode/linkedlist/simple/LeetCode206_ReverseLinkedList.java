@@ -30,16 +30,16 @@ public class LeetCode206_ReverseLinkedList {
         ListNode p = head;
         ListNode q = p.next;
         head.next = null;
-        ListNode r;
+        ListNode next;
 
         while (q != null) {
             //因为有指针反转，所以需要提前保留下一个step要处理的指针
-            r = q.next;
+            next = q.next;
             //指针反转
             q.next = p;
             //后移一位
             p = q;
-            q = r;
+            q = next;
         }
         return p;
     }
