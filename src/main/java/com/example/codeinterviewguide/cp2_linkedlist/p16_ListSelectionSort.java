@@ -8,6 +8,12 @@ import com.example.leetcode.linkedlist.pojo.ListNode;
  * @create: 2019-09-30
  **/
 public class p16_ListSelectionSort {
+    /**
+     * 时间复杂度O（N^2） 空间复杂度O（1）
+     *
+     * @param head
+     * @return
+     */
     public static ListNode selectionSort(ListNode head) {
         ListNode tail = null; // sorted part tail
         ListNode cur = head; // unsorted part head
@@ -31,6 +37,11 @@ public class p16_ListSelectionSort {
         return head;
     }
 
+    /**
+     * 如果最小节点是头节点 返回的是null
+     * @param head
+     * @return
+     */
     public static ListNode getSmallestPreListNode(ListNode head) {
         ListNode smallPre = null;
         ListNode small = head;

@@ -13,10 +13,11 @@ public class p19_MergeTwoLinkedLists {
             return head1 != null ? head1 : head2;
         }
         ListNode head = head1.val < head2.val ? head1 : head2;
+        //cur1和head指针指向同一个节点
         ListNode cur1 = head == head1 ? head1 : head2;
         ListNode cur2 = head == head1 ? head2 : head1;
         ListNode pre = null;
-        ListNode next = null;
+        ListNode next;
         while (cur1 != null && cur2 != null) {
             if (cur1.val <= cur2.val) {
                 pre = cur1;
@@ -29,6 +30,7 @@ public class p19_MergeTwoLinkedLists {
                 cur2 = next;
             }
         }
+        //连接剩下的节点
         pre.next = cur1 == null ? cur2 : cur1;
         return head;
     }

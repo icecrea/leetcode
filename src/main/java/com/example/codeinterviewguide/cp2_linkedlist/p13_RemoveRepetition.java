@@ -6,15 +6,21 @@ import java.util.HashSet;
 
 /**
  * @description: 删除无序单链表中值重复出现的节点
+ * 如 1-2-3-3-4-4-2-1-1-null 删除重复之后为 1-2-3-4-null
+ * 要求两种方法 1.时间复杂O（N） 方法二2.额外空间复杂度O（1）
  * @author: icecrea
  * @create: 2019-09-30
  **/
 public class p13_RemoveRepetition {
+    /**
+     * 哈希表 时间复杂度O1 空间复杂度On
+     * @param head
+     */
     public static void removeRep1(ListNode head) {
         if (head == null) {
             return;
         }
-        HashSet<Integer> set = new HashSet<Integer>();
+        HashSet<Integer> set = new HashSet<>();
         ListNode pre = head;
         ListNode cur = head.next;
         set.add(head.val);
@@ -29,10 +35,14 @@ public class p13_RemoveRepetition {
         }
     }
 
+    /**
+     * 时间复杂度On^2 空间复杂度O1
+     * @param head
+     */
     public static void removeRep2(ListNode head) {
         ListNode cur = head;
-        ListNode pre = null;
-        ListNode next = null;
+        ListNode pre;
+        ListNode next;
         while (cur != null) {
             pre = cur;
             next = cur.next;
