@@ -1,4 +1,4 @@
-package com.example.codeinterviewguide.cp9_others;
+package com.example.codeinterviewguide.cp9_others.lru;
 
 import com.google.common.collect.Lists;
 
