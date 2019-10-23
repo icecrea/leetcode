@@ -10,7 +10,7 @@ package com.example.swordoffer;
  * @author: icecrea
  * @create: 2019-04-17 11:08
  **/
-public class Sword1_FindInArray {
+public class Sword01_FindInArray {
 
     /**
      * 从左下角开始查找 向上数字递减，向右数字递增

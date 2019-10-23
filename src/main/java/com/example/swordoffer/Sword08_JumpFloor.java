@@ -7,7 +7,7 @@ package com.example.swordoffer;
  * @author: icecrea
  * @create: 2019-04-18 00:10
  **/
-public class Sword8_JumpFloor {
+public class Sword08_JumpFloor {
     public int JumpFloor(int target) {
         if (target == 1) {
             return 1;

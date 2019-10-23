@@ -8,7 +8,7 @@ import java.util.Stack;
  * @author: icecrea
  * @create: 2019-04-17 13:09
  **/
-public class Sword5_QueuingWithTwoStacks {
+public class Sword05_QueuingWithTwoStacks {
 
     Stack<Integer> stack1 = new Stack<Integer>();
     Stack<Integer> stack2 = new Stack<Integer>();

@@ -11,7 +11,7 @@ import java.util.Stack;
  * @author: icecrea
  * @create: 2019-04-17 11:46
  **/
-public class Sword3_printLinkedList {
+public class Sword03_printLinkedList {
 
     public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
         Stack<Integer> stack = new Stack<>();

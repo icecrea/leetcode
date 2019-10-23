@@ -7,7 +7,7 @@ package com.example.swordoffer;
  * @author: icecrea
  * @create: 2019-04-17 13:29
  **/
-public class Sword6_MinNumberInRotateArray {
+public class Sword06_MinNumberInRotateArray {
     /**
      * 思路二分查找
      *

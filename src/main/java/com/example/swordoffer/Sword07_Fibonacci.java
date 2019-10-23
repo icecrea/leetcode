@@ -6,7 +6,7 @@ package com.example.swordoffer;
  * @author: icecrea
  * @create: 2019-04-17 23:54
  **/
-public class Sword7_Fibonacci {
+public class Sword07_Fibonacci {
 
     public int Fibonacci(int n) {
         if (n == 0) {
