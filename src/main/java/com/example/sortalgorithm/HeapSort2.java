@@ -3,33 +3,35 @@ package com.example.sortalgorithm;
 import org.junit.Test;
 
 /**
- * @description: 堆排序 只能从数组下标1开始计算，则左子节点为2i，右子节点为2i+1，父节点为i/2
+ * @description: 堆排序 从数组下标0开始计算，则左子节点为2i+1，右子节点为2i+2，父节点为(i-1)/2
  * @author: icecrea
- * @create: 2018-12-18 17:37
+ * @create: 2019-10-23
  **/
-public class HeapSort {
+public class HeapSort2 {
+
 
     /**
-     * 构建堆 从下标1到下标n
-     * 从后往前处理数组，每个数据都是从上往下堆化
+     * 构建堆 从下标0到下标n
+     * 从后往前处理数组，每个数据都是从上往下堆化。从下方第一个非叶子节点起
+     * 如 2 3 8 4 5 从3开始，即下标1 = n/2-1
      */
     private static void buildHeap(int[] a, int n) {
-        for (int i = n / 2; i >= 1; --i) {
+        for (int i = n / 2 - 1; i >= 0; --i) {
             heapify(a, n, i);
         }
     }
 
     /**
-     * 堆化操作 将数组a中，以i开始，n结束的数组调整为大根堆
+     * 堆化操作 将数组a中，从下标i开始，到下标n结束的数组调整为大根堆
      */
     private static void heapify(int[] a, int n, int i) {
         while (true) {
             int maxIndex = i;
-            if (i * 2 <= n && a[maxIndex] < a[i * 2]) {
-                maxIndex = i * 2;
-            }
             if (i * 2 + 1 <= n && a[maxIndex] < a[i * 2 + 1]) {
                 maxIndex = i * 2 + 1;
+            }
+            if (i * 2 + 2 <= n && a[maxIndex] < a[i * 2 + 2]) {
+                maxIndex = i * 2 + 2;
             }
             //已经是大根堆了
             if (maxIndex == i) {
@@ -59,10 +61,10 @@ public class HeapSort {
         buildHeap(a, n);
 
         int k = n;
-        while (k > 1) {
-            swap(a, 1, k);
+        while (k > 0) {
+            swap(a, 0, k);
             --k;
-            heapify(a, k, 1);
+            heapify(a, k, 0);
         }
     }
 
