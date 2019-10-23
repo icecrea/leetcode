@@ -28,45 +28,36 @@ public class Sword57_PrintZigZag {
         //s2存偶数层节点
         Stack<TreeNode> s2 = new Stack<>();
 
-        ArrayList<ArrayList<Integer>> list = new ArrayList<>();
+        ArrayList<ArrayList<Integer>> allList = new ArrayList<>();
 
         while (!s1.empty() || !s2.empty()) {
+            ArrayList<Integer> list = new ArrayList<>();
             if ((layer & 1) == 1) {
-                ArrayList<Integer> temp = new ArrayList<>();
                 while (!s1.empty()) {
                     TreeNode node = s1.pop();
                     if (node != null) {
-                        temp.add(node.val);
-                        System.out.print(node.val + " ");
+                        list.add(node.val);
                         s2.push(node.left);
                         s2.push(node.right);
                     }
                 }
-                if (!temp.isEmpty()) {
-                    list.add(temp);
-                    layer++;
-                    System.out.println();
-                }
             } else {
-                ArrayList<Integer> temp = new ArrayList<>();
                 while (!s2.empty()) {
                     TreeNode node = s2.pop();
                     if (node != null) {
-                        temp.add(node.val);
-                        System.out.print(node.val + " ");
+                        list.add(node.val);
                         //注意此时的顺序是反过来的，先右节点后左节点入栈
                         s1.push(node.right);
                         s1.push(node.left);
                     }
                 }
-                if (!temp.isEmpty()) {
-                    list.add(temp);
-                    layer++;
-                    System.out.println();
-                }
+            }
+            if (!list.isEmpty()) {
+                allList.add(list);
+                layer++;
             }
         }
-        return list;
+        return allList;
     }
 
 }
