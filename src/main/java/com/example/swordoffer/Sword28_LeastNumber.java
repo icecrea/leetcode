@@ -15,36 +15,13 @@ import java.util.PriorityQueue;
 public class Sword28_LeastNumber {
 
     /**
-     * 全部放进小根堆，取前面k个
-     *
-     * @param input
-     * @param k
-     * @return
-     */
-    public ArrayList<Integer> GetLeastNumbers_Solution(int[] input, int k) {
-        if (k > input.length) {
-            return new ArrayList<>();
-        }
-        ArrayList<Integer> list = new ArrayList<>();
-        PriorityQueue<Integer> queue = new PriorityQueue();
-        for (Integer i : input) {
-            queue.add(i);
-        }
-        for (int i = 0; i < k; i++) {
-            Integer poll = queue.poll();
-            list.add(poll);
-        }
-        return list;
-    }
-
-    /**
      * 维护容量为k的大根堆
      *
      * @param input
      * @param k
      * @return
      */
-    public ArrayList<Integer> GetLeastNumbers_Solution2(int[] input, int k) {
+    public ArrayList<Integer> GetLeastNumbers(int[] input, int k) {
         ArrayList<Integer> result = new ArrayList<>();
         int length = input.length;
         if (k > length || k == 0) {
@@ -67,7 +44,7 @@ public class Sword28_LeastNumber {
 
     @Test
     public void test() {
-        ArrayList<Integer> integers = GetLeastNumbers_Solution2(new int[]{4, 5, 1, 6, 2, 7, 3, 8}, 4);
+        ArrayList<Integer> integers = GetLeastNumbers(new int[]{4, 5, 1, 6, 2, 7, 3, 8}, 4);
         System.out.println(integers);
     }
 }
