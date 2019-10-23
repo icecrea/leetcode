@@ -10,75 +10,66 @@ import org.junit.Test;
 public class HeapSort {
 
     /**
-     * 筛选法调整堆算法 将以LOW为根节点的子树调整成小顶堆
+     * 构建堆
+     * 从后往前处理数组，每个数据都是从上往下堆化
+     */
+    private static void buildHeap(int[] a, int n) {
+        for (int i = n / 2; i >= 1; --i) {
+            heapify(a, n, i);
+        }
+    }
+
+    /**
+     * 堆化操作 将数组a中，以i开始，n结束的数组调整为大根堆
+     */
+    private static void heapify(int[] a, int n, int i) {
+        while (true) {
+            int maxIndex = i;
+            if (i * 2 <= n && a[maxIndex] < a[i * 2]) {
+                maxIndex = i * 2;
+            }
+            if (i * 2 + 1 <= n && a[maxIndex] < a[i * 2 + 1]) {
+                maxIndex = i * 2 + 1;
+            }
+            //已经是大根堆了
+            if (maxIndex == i) {
+                break;
+            }
+            swap(a, i, maxIndex);
+            //指针i移动到maxIndex下标处，继续进行下层堆化
+            i = maxIndex;
+        }
+    }
+
+    private static void swap(int a[], int x, int y) {
+        int tmp = a[x];
+        a[x] = a[y];
+        a[y] = tmp;
+    }
+
+
+    /**
+     * 在构造堆后，数组中第一个元素即堆顶为最大值。将它和最后一个元素交换，即最大值放到了n位置，再通过堆化的方法，将后续n-1个元素构造成堆。重复过程直到堆中只剩下一个元素。
      *
      * @param a
-     * @param low
-     * @param high
+     * @param n 数据的个数，数组a中的数据从下标1到n的位置
      */
-    public static void sift(int[] a, int low, int high) {
-        int i = low;
-        int j = 2 * i + 1;
-        int temp = a[i];
-        while (j < high) {
-            if (j < high - 1 && a[j] > a[j + 1]) {
-                j++;
-            }
-            //若父母结点值较大
-            if (temp > a[j]) {
-                //孩子节点中较小值上移
-                a[i] = a[j];
-                i = j;
-                j = 2 * i + 1;
-            } else {
-                //退出循环
-                j = high + 1;
-            }
-        }
-        a[i] = temp;
-    }
+    public static void sort(int[] a, int n) {
+        //1.构造大根堆
+        buildHeap(a, n);
 
-    /**
-     * 重在理解筛选法调整堆 通过它构造堆 和 调整堆
-     * 每次通过每次构造小顶堆获得最小值，依次获得有序序列
-     * 为无序序列创建堆的时候时堆完全二叉树从下往上筛选，最后一个非叶子节点编号[n/2]-1
-     * 时间复杂度最坏情况O(n*log2n) 不稳定的排序算法
-     */
-    public static void heapSort(int[] a) {
-        for (int i = a.length / 2 - 1; i >= 0; i--) {
-            sift(a, i, a.length);
-        }
-        for (int i = a.length - 1; i > 0; i--) {
-            int temp = a[0];
-            a[0] = a[i];
-            a[i] = temp;
-            sift(a, 0, i);
-        }
-    }
-
-    /**
-     * 5
-     * 4   3
-     * 21
-     *
-     * 3
-     * 4   5
-     * 21
-     *
-     */
-    @Test
-    public void test(){
-        int a[] = new int[]{5,4,3,2,1};
-        sift(a, 0, 5);
-        for (int i : a) {
-            System.out.println(i);
+        int k = n;
+        while (k > 1) {
+            swap(a, 1, k);
+            --k;
+            heapify(a, k, 1);
         }
     }
 
     @Test
-    public void test2(){
-        int a[] = new int[]{1,2,3,4,5};
-        heapSort(a);
+    public void test() {
+        int[] a = new int[]{0, 7, 5, 19, 8, 4, 1, 20, 13, 16};
+        sort(a, 9);
         for (int i : a) {
             System.out.println(i);
         }
