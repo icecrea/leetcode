@@ -50,15 +50,15 @@ public class HeapSort {
 
     /**
      * 在构造堆后，数组中第一个元素即堆顶为最大值。将它和最后一个元素交换，即最大值放到了n位置，再通过堆化的方法，将后续n-1个元素构造成堆。重复过程直到堆中只剩下一个元素。
+     * 只能排序从1开始的数组部分
      *
      * @param a
-     * @param n 数据的个数，数组a中的数据从下标1到n的位置
      */
-    public static void sort(int[] a, int n) {
+    public static void sort(int[] a) {
         //1.构造大根堆
-        buildHeap(a, n);
+        buildHeap(a, a.length - 1);
 
-        int k = n;
+        int k = a.length - 1;
         while (k > 1) {
             swap(a, 1, k);
             --k;
@@ -69,7 +69,7 @@ public class HeapSort {
     @Test
     public void test() {
         int[] a = new int[]{50, 7, 5, 19, 8, 4, 1, 20, 13, 16};
-        sort(a, 9);
+        sort(a);
         for (int i : a) {
             System.out.println(i);
         }
