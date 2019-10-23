@@ -11,96 +11,55 @@ import java.util.ArrayList;
 public class Sword18_PrintMatrix {
 
     public ArrayList<Integer> printMatrix(int[][] array) {
-        ArrayList<Integer> result = new ArrayList<Integer>();
-        if (array.length == 0) {
-            return result;
+        ArrayList<Integer> list = new ArrayList<>();
+        int row = array.length;
+        int col = array[0].length;
+
+        int start = 0;
+        while (col > start * 2 && row > start * 2) {
+            printMatrixInCircle(array, row, col, start, list);
+            ++start;
         }
-        int n = array.length, m = array[0].length;
-        if (m == 0) {
-            return result;
-        }
-        int layers = (Math.min(n, m) - 1) / 2 + 1;
-        for (int i = 0; i < layers; i++) {
-            //左至右
-            for (int k = i; k < m - i; k++) {
-                result.add(array[i][k]);
-            }
-            //右上至右下
-            for (int j = i + 1; j < n - i; j++) {
-                result.add(array[j][m - i - 1]);
-            }
-            //右至左
-            for (int k = m - i - 2; (k >= i) && (n - i - 1 != i); k--) {
-                result.add(array[n - i - 1][k]);
-            }
-            //左下至左上
-            for (int j = n - i - 2; (j > i) && (m - i - 1 != i); j--) {
-                result.add(array[j][i]);
-            }
-        }
-        return result;
+        return list;
     }
 
-
     /**
-     * 顺着走，即向右->向下->向左->向上，一共要走（长*宽）步。遇到边界就改变方向，当向上碰到顶的时候，四个边界都缩小。思路简单，一个循环即可
-     * @param matrix
-     * @return
+     * 打印一圈的过程 注意最后一圈可能产生退化，导致只有一行，一列，甚至一个数字。 这时打印一圈就不在需要4步，可能需要3/2/1步。需要分析每一步前提条件
+     * 第一步是总需要的
+     * 第二部前提：终止行号大于起始行号 反例：如a[3][4] 最后一圈
+     * 第三步前提：圈内至少两行两列。即除了终止行号大于起始行号，还要终止列号大于起始列号 反例：如a[4][3]最后一圈
+     * 第四步前提：圈内至少三行两列。因此要求终止行号比起始行号至少大2，且终止列号大于起始列号
      */
-    public ArrayList<Integer> printMatrix2(int[][] matrix) {
-        int xLength, yLength;
-        if ((yLength = matrix.length) == 0 || (xLength = matrix[0].length) == 0) {
-            return null;
+    void printMatrixInCircle(int[][] a, int row, int col, int start, ArrayList<Integer> list) {
+        //终止列号 这一圈能到的最大列号
+        int endX = col - 1 - start;
+        //终止行号 这一圈能到的最大行号
+        int endY = row - 1 - start;
+
+        //从左到右打印一行
+        for (int i = start; i <= endX; i++) {
+            list.add(a[start][i]);
         }
-        int length = xLength * yLength;
-        int x = 0, y = 0;
-        int left = 0, right = xLength - 1, ceil = 0, floor = yLength - 1;
-        int dir = 0;
-        ArrayList<Integer> arr = new ArrayList<>(length);
-        while (length > 0) {
-            arr.add(matrix[y][x]);
-            switch (dir) {
-                case 0:
-                    if (x == right) {
-                        ceil++;
-                        y++;
-                        dir = 1;
-                    } else {
-                        x++;
-                    }
-                    break;
-                case 1:
-                    if (y == floor) {
-                        right--;
-                        x--;
-                        dir = 2;
-                    } else {
-                        y++;
-                    }
-                    break;
-                case 2:
-                    if (x == left) {
-                        floor--;
-                        y--;
-                        dir = 3;
-                    } else {
-                        x--;
-                    }
-                    break;
-                case 3:
-                    if (y == ceil) {
-                        left++;
-                        x++;
-                        dir = 0;
-                    } else {
-                        y--;
-                    }
-                    break;
-                default:
-                    break;
+
+        //从上往下打印一列 前提：终止行号大于起始行号
+        if (start < endY) {
+            for (int i = start + 1; i <= endY; ++i) {
+                list.add(a[i][endX]);
             }
-            length--;
+
+            //从右到左打印一行 前提：除了终止行号大于其实行号，还要终止列号大于起始列号
+            if (start < endX && start < endY) {
+                for (int i = endX - 1; i >= start; --i) {
+                    list.add(a[endY][i]);
+                }
+            }
+
+            //从下到上打印一列 前提：终止行号比起始行号至少大2，且终止列号大于起始列号
+            if (start < endX && start < endY - 1) {
+                for (int i = endY - 1; i >= start + 1; --i) {
+                    list.add(a[i][start]);
+                }
+            }
         }
-        return arr;
     }
 }

@@ -10,7 +10,7 @@ import java.util.Stack;
  * @author: icecrea
  * @create: 2019-04-22 12:52
  **/
-public class Sword25_Convert {
+public class Sword25_BSTToDoubleLinkedList {
 
     public TreeNode ConvertBSTToBiList(TreeNode root) {
         if (root == null) {
