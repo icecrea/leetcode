@@ -43,11 +43,12 @@ public class QuickSort {
      * 不稳定的排序算法
      */
     public static void quickSort(int[] a, int low, int high) {
-        if (low < high) {
-            int i = partition(a, low, high);
-            quickSort(a, low, i);
-            quickSort(a, i + 1, high);
+        if (low >= high) {
+            return;
         }
+        int i = partition(a, low, high);
+        quickSort(a, low, i -1);
+        quickSort(a, i + 1, high);
     }
 
     /**
