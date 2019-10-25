@@ -19,9 +19,9 @@ import com.example.leetcode.linkedlist.pojo.ListNode;
 public class LeetCode24_SwapNodesInPairs {
 
     /**
-     * c  f  s
-     * d->1->2->3->4
-     * d->2->1->4->3
+     *
+     * 1->2->3->4
+     * 2->1->4->3
      *
      * @param head
      * @return
@@ -29,17 +29,15 @@ public class LeetCode24_SwapNodesInPairs {
     public ListNode swapPairs(ListNode head) {
         ListNode dummy = new ListNode(0);
         dummy.next = head;
-        ListNode current = dummy;
-        while (current.next != null && current.next.next != null) {
-            //先保留first和second指针
-            ListNode first = current.next;
-            ListNode second = current.next.next;
-            //调整first下一个节点指针 注意：这里调整到3而不是4，因为后续还会进行反转
-            first.next = second.next;
-            //注意指针的变化
-            current.next = second;
-            current.next.next = first;
-            current = current.next.next;
+        ListNode point = dummy;
+        while (point.next != null && point.next.next != null) {
+            ListNode swap1 = point.next;
+            ListNode swap2 = point.next.next;
+            // 注意语句顺序不要变动
+            point.next = swap2;
+            swap1.next = swap2.next;
+            swap2.next = swap1;
+            point = swap1;
         }
         return dummy.next;
     }
