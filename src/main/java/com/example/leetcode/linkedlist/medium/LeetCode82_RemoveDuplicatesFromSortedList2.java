@@ -33,7 +33,7 @@ public class LeetCode82_RemoveDuplicatesFromSortedList2 {
                 while (lastSame.next != null && pre.next.val == lastSame.next.val) {
                     lastSame = lastSame.next;
                 }
-                //移动指针指向，不真正移动指针，指针的移动在不同时候
+                //移动指针指向，不真正移动指针，指针的移动在不同时候 比如：有可能存在54448889这种情况
                 pre.next = lastSame.next;
             }
         }
