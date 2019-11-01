@@ -42,7 +42,7 @@ public class LeetCode33_SearchInRotatedSortedArray {
                     high = mid - 1;
                 }
             } else { //左侧是有序的
-                //判断查找的数是否在右区间中
+                //判断查找的数是否在左区间中
                 if (arr[mid] > target && arr[low] <= target) {
                     high = mid - 1;
                 } else {

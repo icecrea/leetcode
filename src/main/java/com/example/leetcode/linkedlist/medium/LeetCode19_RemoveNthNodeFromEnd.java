@@ -24,7 +24,7 @@ public class LeetCode19_RemoveNthNodeFromEnd {
 
     /**
      * 两个指针 一个比另一个快n步 快指针到终点，慢指针指向被移除节点
-     *
+     * 前提是n小于链表的长度，不然会空指针
      * @param head
      * @param n
      * @return
@@ -85,6 +85,7 @@ public class LeetCode19_RemoveNthNodeFromEnd {
     /**
      * 方法同第一个，设置快慢指针，只不过这次找到被移除节点的前一个节点
      * 这样可以快速移除操作
+     * 有可能删除的是第一个头节点 所以注意设置一个前置节点方便处理
      *
      * @param head
      * @param n
@@ -95,11 +96,9 @@ public class LeetCode19_RemoveNthNodeFromEnd {
         dummy.next = head;
         ListNode first = dummy;
         ListNode second = dummy;
-        // Advances first pointer so that the gap between first and second is n nodes apart
-        for (int i = 1; i <= n + 1; i++) {
+        for (int i = 0; i <= n; i++) {
             first = first.next;
         }
-        // Move first to the end, maintaining the gap
         while (first != null) {
             first = first.next;
             second = second.next;
