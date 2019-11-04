@@ -12,7 +12,7 @@ import java.util.Arrays;
  *
  * @author icecrea
  */
-public class LeetCode16_ThreeSumClosest {
+public class LeetCode16_3SumClosest {
     /**
      * 3个数 问题是最接近target 最接近可以通过变量绝对值比较来判断
      */
