@@ -10,33 +10,69 @@ package com.example.swordoffer;
 public class Sword48_Duplicate {
 
     /**
-     * TODO
-     * 思路： 所有数字都在0到n-1的范围，所以可以构造一个n长度的数组tmp，tmp的下标代表数字，tmp的值代表出现次数
-     *
-     * @param numbers     an array of integers
-     * @param length      the length of array numbers
-     * @param duplication (Output) the duplicated number in the array number,length of duplication array is 1,so using duplication[0] = ? in implementation;
-     *                    Here duplication like pointor in C/C++, duplication[0] equal *duplication in C/C++
-     *                    这里要特别注意~返回任意重复的一个，赋值duplication[0]
-     * @return true if the input is valid, and there are some duplications in the array number , otherwise false
+     * 核心是依据题目条件：所有数字在0到n-1的范围
+     * <p>
+     * 在java虚拟机规范中，JVM没有用于操作boolean的字节码指令，在编译后用int的数据类型代替boolean，此时boolean占4字节。
+     * 而boolean[]数组编译后会被byte[]数组代替，此时的boolean占1字节。
      */
-    public boolean duplicate(int numbers[], int length, int[] duplication) {
-        if (numbers == null || numbers.length == 0 || length == 0) {
+    public boolean duplicate(int arr[], int length, int[] duplication) {
+        if (arr == null) {
+            return false;
+        }
+        boolean[] hash = new boolean[length];
+        for (int i = 0; i < hash.length; i++) {
+            if (hash[arr[i]] == true) {
+                duplication[0] = arr[i];
+                return true;
+            }
+            hash[arr[i]] = true;
+        }
+        return false;
+    }
+
+
+    /**
+     * 不需要额外空间
+     * <p>
+     * 已知大小在0~n-1之间，假如无重复数字，则排序后数字i应该在下标i位置上。
+     * <p>
+     * 扫描数组，当扫描到下标i，比较该数字m，是否m=i。
+     * 如果相同扫描下一个。
+     * 如果不同，拿它和第m个数字进行比较：
+     * - 如果它和第m个数字相等，则找到了第一个重复数字。
+     * - 如果不相同，把第i个数字和第m个数字交换，把m放到属于它的位置。重复这个比较，交换的过程
+     * <p>
+     * 如 2，3，1，0，2，5，3
+     * <p>
+     * 第一次交换：1，3，2，0，2，5，3
+     * 第二次交换：3，1，2，0，2，5，3
+     * 第三次交换：0，1，2，3，2，5，3
+     * 第四次发现重复数字2
+     */
+    public boolean duplicate2(int arr[], int length, int[] duplication) {
+        if (arr == null) {
             return false;
         }
 
-        int tmp[] = new int[length];
-        for (int number : numbers) {
-            tmp[number]++;
-        }
+        for (int i = 0; i < length; i++) {
+            while (i != arr[i]) {
+                if (arr[i] == arr[arr[i]]) {
+                    duplication[0] = arr[i];
+                    return true;
+                }
 
-
-        for (int i = 0; i < tmp.length; i++) {
-            if (tmp[i] > 1) {
-                duplication[0] = i;
-                return true;
+                //交换
+                swap(arr, i, arr[i]);
             }
         }
+
         return false;
+    }
+
+
+    public void swap(int a[], int l, int r) {
+        int tmp = a[l];
+        a[l] = a[r];
+        a[r] = tmp;
     }
 }
