@@ -1,5 +1,7 @@
 package com.example.leetcode.array;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -80,6 +82,74 @@ public class LeetCode18_4Sum {
         list.add(nums[l]);
         list.add(nums[r]);
         return list;
+    }
+
+
+    /**
+     * 扩展： K数之和
+     *
+     * @param nums
+     * @param k
+     * @param target
+     * @return
+     */
+    public List<List<Integer>> KSum(int[] nums, int k, int target) {
+        Arrays.sort(nums);
+        return kSum(nums, 0, k, target);
+    }
+
+    /**
+     * 1, 0, -1, 0, -2, 2
+     */
+    private List<List<Integer>> kSum(int[] nums, int start, int k, int target) {
+        int len = nums.length;
+        List<List<Integer>> res = new ArrayList<>();
+        if (k == 2) {
+            int l = start, r = len - 1;
+            while (l < r) {
+
+                int sum = nums[l] + nums[r];
+                if (sum == target) {
+                    List<Integer> path = new ArrayList<>();
+                    path.add(nums[l]);
+                    path.add(nums[r]);
+                    res.add(path);
+                    while (l < r && nums[l] == nums[l + 1]) {
+                        l++;
+                    }
+                    while (l < r && nums[r] == nums[r - 1]) {
+                        r--;
+                    }
+                    l++;
+                    r--;
+                } else if (sum < target) {
+                    l++;
+                } else {
+                    r--;
+                }
+            }
+        } else {
+            for (int i = start; i < len - k + 1; i++) {
+                if (i > start && nums[i] == nums[i - 1]) {
+                    continue;
+                }
+                List<List<Integer>> temp = kSum(nums, i + 1, k - 1, target - nums[i]);
+                for (List<Integer> t : temp) {
+                    t.add(0, nums[i]);
+                }
+                res.addAll(temp);
+            }
+        }
+        return res;
+    }
+
+    @Test
+    public void test() {
+        int[] nums = new int[]{1, 0, -1, 0, -2, 2};
+        List<List<Integer>> lists = KSum(nums, 3, 0);
+        for (List<Integer> list : lists) {
+            System.out.println(list);
+        }
     }
 
 }
