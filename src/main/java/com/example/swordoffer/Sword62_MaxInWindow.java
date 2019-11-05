@@ -1,6 +1,6 @@
 package com.example.swordoffer;
 
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * 滑动窗口最大值：
@@ -11,12 +11,17 @@ import java.util.ArrayList;
 public class Sword62_MaxInWindow {
 
     public ArrayList<Integer> maxInWindows(int[] num, int size) {
-        if(num.length < size){
-
+        Queue q = new LinkedList<Integer>();
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(size, Collections.reverseOrder());
+        for (int i = 0; i < size; i++) {
+            q.offer(num[i]);
+            maxHeap.offer(num[i]);
         }
-        for (int i = size -1; i < num.length; i++) {
-
+        //
+        List result = new ArrayList();
+        for (int i = size; i < num.length; i++) {
+            result.add(maxHeap.poll());
+            q.offer(num[i]);
         }
-        return new ArrayList<>();
     }
 }

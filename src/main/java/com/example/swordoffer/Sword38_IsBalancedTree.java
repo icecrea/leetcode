@@ -3,7 +3,7 @@ package com.example.swordoffer;
 import com.example.leetcode.linkedlist.pojo.TreeNode;
 
 /**
- * @description: 平衡二叉树
+ * @description: 平衡二叉树 TODO 非递归
  * 输入一棵二叉树，判断该二叉树是否是平衡二叉树。
  * @author: icecrea
  * @create: 2019-05-09 08:54
