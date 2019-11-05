@@ -15,6 +15,10 @@ public class Sword29_FindGreatestSumOfSubArray {
 
 
     /**
+     * arr       6 -3 -2 7 -15 1 2 2
+     * maxToCur  6  3 1  8 -7  1 3 3
+     * max       6  6 6  8  8  8 8 8
+     * maxToCur指的到当前为止的最大数。所以如果上一个最大数小于0，就不用加到当前数的最大值中
      * @param array
      * @return
      */

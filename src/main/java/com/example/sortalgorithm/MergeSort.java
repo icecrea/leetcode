@@ -32,7 +32,7 @@ public class MergeSort {
 
     public static void mergeSort(int[] a, int first, int last, int[] temp) {
         if (first < last) {
-            int mid = first + (last - first) / 2;
+            int mid = first + ((last - first) >> 1);
             //左边有序
             mergeSort(a, first, mid, temp);
             //右边有序
