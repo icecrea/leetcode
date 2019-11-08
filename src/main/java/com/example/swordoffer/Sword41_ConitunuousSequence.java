@@ -14,37 +14,32 @@ import java.util.ArrayList;
  * @create: 2019-05-09 13:07
  **/
 public class Sword41_ConitunuousSequence {
+
     public ArrayList<ArrayList<Integer>> FindContinuousSequence(int sum) {
-        int small = 1;
-        int big = 2;
-        int mid = (1 + sum) / 2;
-        int curSum = small + big;
-        ArrayList<ArrayList<Integer>> list = new ArrayList<>();
-        while (small < mid) {
-            if (curSum == sum) {
-                ArrayList<Integer> integers = new ArrayList<>();
-                for (int i = small; i <= big; i++) {
-                    integers.add(i);
+        //存放结果
+        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+        //两个起点，相当于动态窗口的两边，根据其窗口内的值的和来确定窗口的位置和大小
+        int left = 1, right = 2;
+        //当low指针追上high指针时，退出循环，因为此时永远比Sum大，不可能再找到子序列。如Sum = 15,【[1, 2, 3, 4, 5]、[4, 5, 6]、[7, 8]】
+        while (right > left) {
+            //由于是连续的，差为1的一个序列，那么求和公式是(a0+an)*n/2
+            int cur = (right + left) * (right - left + 1) / 2;
+            //相等，那么就将窗口范围的所有数添加进结果集
+            if (cur == sum) {
+                ArrayList<Integer> list = new ArrayList<>();
+                for (int i = left; i <= right; i++) {
+                    list.add(i);
                 }
-                list.add(integers);
+                result.add(list);
+                left++;
+                //如果当前窗口内的值之和小于sum，那么右边窗口右移一下
+            } else if (cur < sum) {
+                right++;
+            } else {
+                //如果当前窗口内的值之和大于sum，那么左边窗口右移一下
+                left++;
             }
-
-            while (curSum > sum && small < mid) {
-                curSum -= small;
-                small++;
-
-                if (curSum == sum) {
-                    ArrayList<Integer> integers = new ArrayList<>();
-                    for (int i = small; i <= big; i++) {
-                        integers.add(i);
-                    }
-                    list.add(integers);
-                }
-            }
-
-            big++;
-            curSum += big;
         }
-        return list;
+        return result;
     }
 }
