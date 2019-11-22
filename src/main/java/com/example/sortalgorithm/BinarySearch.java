@@ -1,5 +1,7 @@
 package com.example.sortalgorithm;
 
+import org.junit.Test;
+
 /**
  * @description: 二分查找
  * 二分查找实现
@@ -10,12 +12,9 @@ package com.example.sortalgorithm;
  * 4.查找最后一个小于等于给定值的元素
  * <p>
  * 再进阶：循环有序数组何如二分查找？
- * @see com.example.leetcode.array.LeetCode33_SearchInRotatedSortedArray
- *
- *
  * @author: icecrea
  * @create: 2019-10-24
- *
+ * @see com.example.leetcode.array.LeetCode33_SearchInRotatedSortedArray
  **/
 public class BinarySearch {
 
@@ -169,5 +168,10 @@ public class BinarySearch {
         return -1;
     }
 
+    @Test
+    public void test(){
+        int a[] = new int[]{-1,1,2,3,4,5,10};
+        System.out.println(bsearch3(a, a.length, 3));
+    }
 
 }
