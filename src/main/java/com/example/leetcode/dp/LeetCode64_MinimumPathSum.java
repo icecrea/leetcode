@@ -45,9 +45,51 @@ public class LeetCode64_MinimumPathSum {
         return dp[row - 1][col - 1];
     }
 
+    /**
+     * 一维数组解法
+     * 1 4 5
+     * 2 7 6
+     * 6 8 7
+     *
+     * @return
+     */
+    public int minPathSum2(int[][] a) {
+        int row = a.length;
+        int col = a[0].length;
+        int[] dp = new int[col];
+
+        dp[0] = a[0][0];
+        for (int i = 1; i < col; i++) {
+            dp[i] = dp[i - 1] + a[0][i];
+        }
+        for (int i = 1; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if (j == 0) {
+                    dp[j] = dp[j] + a[i][j];
+                } else {
+                    dp[j] = Math.min(dp[j], dp[j - 1]) + a[i][j];
+                }
+            }
+        }
+        return dp[col - 1];
+    }
+
     @Test
     public void test() {
         int[][] c = {{1, 3, 1}, {1, 5, 1}, {4, 2, 1}};
         System.out.println(minPathSum(c));
+        System.out.println(minPathSum2(c));
+
+        /**
+         * 12
+         * 56
+         * 11
+         *
+         * 13
+         * 69
+         * 78
+         */
+        int[][] d = {{1, 2}, {5, 6}, {1, 1}};
+        System.out.println(minPathSum2(d));
     }
 }
