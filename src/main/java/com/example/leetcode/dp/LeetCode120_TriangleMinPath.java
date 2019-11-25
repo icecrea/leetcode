@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 三角形最小路径和
  * 给定一个三角形，找出自顶向下的最小路径和。每一步只能移动到下一行中相邻的结点上。
  *
  * 例如，给定三角形：
@@ -23,7 +24,7 @@ import java.util.List;
  *
  * 如果你可以只使用 O(n) 的额外空间（n 为三角形的总行数）来解决这个问题，那么你的算法会很加分。
  */
-public class LeetCode120_Triangle {
+public class LeetCode120_TriangleMinPath {
     /**
      * 2
      * 3 4
