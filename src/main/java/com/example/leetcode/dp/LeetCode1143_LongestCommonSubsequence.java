@@ -65,6 +65,12 @@ public class LeetCode1143_LongestCommonSubsequence {
      * dp数组定义：对于s1[1..i]和s2[1..j]，它们的 LCS 长度是dp[i][j]
      * dp[i][j] = dp[i-1][j-1] + 1;
      * dp[i][j] = max(dp[i-1][j],dp[i][j-1]);
+     *
+     *     a b c d e
+     *   0 0 0 0 0 0
+     * a 0 1
+     * c 0
+     * e 0
      */
     public int longestCommonSubsequence2(String text1, String text2) {
         char[] s1 = text1.toCharArray();
@@ -72,7 +78,7 @@ public class LeetCode1143_LongestCommonSubsequence {
         int dp[][] = new int[s1.length + 1][s2.length + 1];
         for (int i = 1; i <= s1.length; i++) {
             for (int j = 1; j <= s2.length; j++) {
-                if (s1[i-1] == s2[j-1]) {
+                if (s1[i - 1] == s2[j - 1]) {
                     dp[i][j] = dp[i - 1][j - 1] + 1;
                 } else {
                     dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
