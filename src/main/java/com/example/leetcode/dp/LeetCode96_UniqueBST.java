@@ -20,7 +20,7 @@ import org.junit.Test;
  *    2     1         2                 3
  *
  */
-public class LeetCode96_UniqueBinarySearchTrees {
+public class LeetCode96_UniqueBST {
 
     /**
      * 当 i=1 时，只有一个节点，f(1)=1f(1)=1.
