@@ -66,9 +66,12 @@ public class LeetCode121_BestTimeToBuyAndSellStock {
      * 优化关键在于数字是添加还是减少。添加新数，可以根据已有值推出最新值。而减少不一定能推导出，需要重新遍历
      */
     public int maxProfit3(int prices[]) {
+        if (prices == null || prices.length == 0) {
+            return 0;
+        }
         int maxprofit = 0;
         int curMin = prices[0];
-        for (int sell = 1; sell < prices.length - 1; sell++) {
+        for (int sell = 1; sell < prices.length; sell++) {
             curMin = Math.min(curMin, prices[sell]);
             maxprofit = Math.max(maxprofit, prices[sell] - curMin);
         }
