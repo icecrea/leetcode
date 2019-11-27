@@ -50,10 +50,55 @@ public class LeetCode05_LongestPalindromicSubstring {
         return s.substring(l + 1, r);
     }
 
+    /**
+     * TODO dp方法
+     * dp[i][j] str[i] - str[j]是否是回文子串
+     * dp[i][j] = dp[i+1][j-1] && str[i]==str[j]
+     * 初始化：对角线为单个字符，设为0
+     * 初始化一字母和二字母的回文，然后找到所有三字母回文，并依此类推
+     */
+    public String longestPalindrome2(String s) {
+        //  长度为1，返回当前串
+        if (s.length() == 1) {
+            return s;
+        }
+        //长度为2并且两个字符相等则返回
+        if (s.length() == 2 && s.charAt(0) == s.charAt(1)) {
+            return s;
+        }
+        //用于标记dp[j][i]即从j到i是否是回文串；
+        //如dp[1][5]＝＝true则表示字符串索引位置从1到5的子串是回文串。
+        boolean[][] dp = new boolean[s.length()][s.length()];
+        //最长回文串初始最大为0
+        int maxlen = 0;
+        //对应的maxlen的开始索引位置
+        int beginIndex = 0;
+        //对应的maxlen的结束索引位置
+        int lastIndex = 0;
+        for (int i = 0; i < s.length(); i++) {
+            int j = i;
+            while (j >= 0) {
+                //满足上述的第三个条件，即当前s.charAt(i)==s.charAt(j)并
+                //且s[j＋1到i－1]也是回文串
+                if (s.charAt(i) == s.charAt(j) && (i - j < 2 || dp[j + 1][i - 1])) {
+                    dp[j][i] = true;
+                    if (maxlen < i - j + 1) {
+                        beginIndex = j;
+                        lastIndex = i + 1;
+                        maxlen = i - j + 1;
+                    }
+                }
+                j--;
+            }
+        }
+        return s.substring(beginIndex, lastIndex);
+    }
+
     @Test
     public void test() {
         System.out.println(longestPalindrome("babad"));
         System.out.println(longestPalindrome("cbbd"));
         System.out.println("01234".substring(1, 3));
     }
+
 }
