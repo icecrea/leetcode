@@ -1,5 +1,7 @@
 package com.example.leetcode.sort;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -35,6 +37,7 @@ public class LeetCode56_MergeIntervals {
 
         for (Interval interval : intervals) {
             if (interval.start <= end) {
+                //注意只修改end值，不新增
                 end = Math.max(end, interval.end);
             } else {
                 result.add(new Interval(start, end));
@@ -71,5 +74,18 @@ public class LeetCode56_MergeIntervals {
             }
         }
         return res;
+    }
+
+    @Test
+    public void test() {
+        List<Interval> list = new ArrayList();
+        list.add(new Interval(1, 3));
+        list.add(new Interval(2, 6));
+        list.add(new Interval(8, 10));
+        list.add(new Interval(12, 15));
+        List<Interval> merge = merge(list);
+        for (Interval interval : merge) {
+            System.out.println(interval);
+        }
     }
 }
