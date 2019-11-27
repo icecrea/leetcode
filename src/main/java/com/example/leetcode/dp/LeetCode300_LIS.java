@@ -3,7 +3,7 @@ package com.example.leetcode.dp;
 import java.util.Arrays;
 
 /**
- * 最长上升子序列 LIS问题
+ * 最长上升子序列 LIS问题 LongestIncreasingSubsequence
  * 给定一个无序的整数数组，找到其中最长上升子序列的长度。
  *
  * 示例:
@@ -17,7 +17,7 @@ import java.util.Arrays;
  * 你算法的时间复杂度应该为 O(n2) 。
  * 进阶: 你能将算法的时间复杂度降低到 O(n log n) 吗?
  */
-public class LeetCode300_LongestIncreasingSubsequence {
+public class LeetCode300_LIS {
 
     /**
      * dp[i]： 以i结尾的最长递增子序列长度  O(N^2)

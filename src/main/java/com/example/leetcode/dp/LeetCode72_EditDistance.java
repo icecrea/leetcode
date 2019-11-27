@@ -40,7 +40,7 @@ public class LeetCode72_EditDistance {
      * 递归方法，超时
      * 方便理解可以先看下LCS问题 对于字符串动态规划设置双指针从后往前遍历
      *
-     * @see LeetCode1143_LongestCommonSubsequence
+     * @see LeetCode1143_LCS
      * 核心操作3种，增删换，构建状态转移方程
      * 注意结束条件，指针i或者j遍历结束，如果另一方没结束，相当于添加/删除另一方剩余长度。
      */

@@ -19,7 +19,7 @@ import java.util.Arrays;
  * 解释: 最长递增子序列的长度是1，并且存在5个子序列的长度为1，因此输出5。
  * 注意: 给定的数组长度不超过 2000 并且结果一定是32位有符号整数。
  */
-public class LeetCode673_NumberOfLongestIncreasingSubsequence {
+public class LeetCode673_NumberOfLIS {
 
     /**
      * dpLen[i] : 以第i个数结尾的最长序列的个数
