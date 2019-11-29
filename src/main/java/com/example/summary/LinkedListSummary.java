@@ -1,6 +1,7 @@
 package com.example.summary;
 
 import com.example.leetcode.linkedlist.pojo.ListNode;
+import org.junit.Test;
 
 /**
  * 链表题目小结
@@ -79,6 +80,137 @@ public class LinkedListSummary {
         head.next.next = head;
         head.next = nNext;
         return last;
+    }
+
+    /**
+     * 3.反转链表后n个节点 非递归
+     */
+    public ListNode reverseLastN(ListNode head, int n) {
+        ListNode slow = head;
+        ListNode fast = head;
+        for (int i = 0; i < n; i++) {
+            fast = fast.next;
+        }
+        while (fast.next != null) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+
+        ListNode cur = slow.next;
+        ListNode pre = null;
+        ListNode next;
+        while (cur != null) {
+            next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
+        }
+
+        slow.next = pre;
+        return head;
+    }
+
+    /**
+     * 4.反转链表其中一部分 从第from个节点到第to个节点的部分
+     */
+    public static ListNode reversePart(ListNode head, int from, int to) {
+        int len = 0;
+        ListNode cur = head;
+        ListNode startPre = null;
+        ListNode end = null;
+        while (cur != null) {
+            len++;
+            if (len == from - 1) {
+                startPre = cur;
+            }
+            if (len == to) {
+                end = cur;
+            }
+            cur = cur.next;
+        }
+
+        //考虑from是1的情况
+        ListNode start = startPre == null ? head : startPre.next;
+        ListNode endNext = end.next;
+
+        cur = start;
+        ListNode pre = null;
+        ListNode next;
+        while (cur != endNext) {
+            next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
+        }
+
+        if (startPre != null) {
+            startPre.next = pre;
+        } else {
+            head = pre;
+        }
+        start.next = endNext;
+        return head;
+    }
+
+    /**
+     * 5.反转链表相邻节点 非递归
+     */
+    public ListNode reverseInPairs(ListNode head) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode cur = dummy;
+        while (cur.next != null && cur.next.next != null) {
+            ListNode p = cur.next;
+            ListNode q = cur.next.next;
+
+            cur.next = q;
+            p.next = q.next;
+            q.next = p;
+            cur = p;
+        }
+        return dummy.next;
+    }
+
+
+    /**
+     * 5.反转链表相邻节点 递归
+     */
+    public ListNode reverseInPairsRecur(ListNode head) {
+        if ((head == null) || (head.next == null)) {
+            return head;
+        }
+        ListNode next = head.next;
+        head.next = reverseInPairsRecur(head.next.next);
+        next.next = head;
+        return next;
+    }
+
+    @Test
+    public void test() {
+        ListNode head = new ListNode(1);
+        addNode(head, new ListNode(2));
+        addNode(head, new ListNode(3));
+        addNode(head, new ListNode(4));
+        addNode(head, new ListNode(5));
+//        head = reverseAllList(head);
+//        head = reverseAllListRecur(head);
+//        head = reverseN(head, 3);
+//        head = reverseNRecur(head, 3);
+//        head = reverseLastN(head, 3);
+//        head = reversePart(head, 3, 5);
+//        head = reverseInPairsRecur(head);
+        head = reverseInPairs(head);
+        while (head != null) {
+            System.out.println(head.val);
+            head = head.next;
+        }
+    }
+
+    public void addNode(ListNode head, ListNode node) {
+        while (head.next != null) {
+            head = head.next;
+        }
+        head.next = node;
     }
 
 

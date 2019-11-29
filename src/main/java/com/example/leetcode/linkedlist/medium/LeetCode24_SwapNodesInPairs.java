@@ -47,7 +47,7 @@ public class LeetCode24_SwapNodesInPairs {
             return head;
         }
         ListNode n = head.next;
-        head.next = swapPairs(head.next.next);
+        head.next = swapPairsRecur(head.next.next);
         n.next = head;
         return n;
     }

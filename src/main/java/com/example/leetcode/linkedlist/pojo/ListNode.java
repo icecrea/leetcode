@@ -2,7 +2,6 @@ package com.example.leetcode.linkedlist.pojo;
 
 /**
  * @description: 方便起见，设置Public
- *
  * @author: icecrea
  * @create: 2018-12-18 17:44
  **/
