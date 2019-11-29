@@ -1,4 +1,4 @@
-package com.example.sortalgorithm;
+package com.example.summary.sortalgorithm;
 
 /**
  * @description: 冒泡排序

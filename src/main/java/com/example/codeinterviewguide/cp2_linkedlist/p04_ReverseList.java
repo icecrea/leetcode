@@ -34,7 +34,7 @@ public class p04_ReverseList {
      */
     public static ListNode reverse(ListNode head) {
         //递归终止条件： 找到链表最后一个节点
-        if (head.next == null) {
+        if (head == null || head.next == null) {
             return head;
         }
         ListNode last = reverse(head.next);

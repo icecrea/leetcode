@@ -1,4 +1,4 @@
-package com.example.sortalgorithm;
+package com.example.summary.sortalgorithm;
 
 /**
  * @description: 直接选择排序

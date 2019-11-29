@@ -1,4 +1,4 @@
-package com.example.sortalgorithm;
+package com.example.summary.sortalgorithm;
 
 import org.junit.Test;
 
