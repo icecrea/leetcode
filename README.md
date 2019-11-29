@@ -3,73 +3,75 @@
 
 ## 剑指offer: 
  
-> 1.二维数组查找  
-2.替换空格  
-3.从尾到头打印链表  
-4.给某二叉树的前序遍历和中序遍历的结果，重建二叉树  
-5.用两个栈实现队列  
-6.旋转数组的最小数字  
-7.斐波那契数列  
-8.青蛙跳台阶  
-9.变态跳台阶  
-10.矩形覆盖  
-11.二进制中1的个数  
-12.浮点数值的整数次方   
-13.调整数组顺序使奇数位于偶数前面  
-14.链表中倒数第k个节点  
-15.反转链表  
-16.合并两个排序的链表  
-17.树的子结构  
-18.二叉树的镜像  
-19.顺时针打印矩阵  
-20.包含Min的栈  
-21.栈的压入、弹出序列  
-22.从上往下打印二叉树  
-23.二叉树的后续遍历列表  
-24.二叉树中和为某一值的路径  
-25.复杂链表的复制  
-26.二叉搜索树转换成一个排序的双向链表  
-27.字符串排列  
-28.数组中超过一半的数字  
-29.最小的K个数  
-30.连续子数组最大和  
-31.数组中1出现的次数  
-32.把数组排成最小的数  
-33.丑数 只包含质因子2、3和5的数称作丑数，求按从小到大的顺序的第N个丑数  
-34.第一个只出现一次的字符  
-35.数组中的逆序对  
-36.两个链表的第一个公共节点  
-37.数字在排序数组中出现的次数  
-38.二叉树树的深度  
-39.是否平衡二叉树  
-40.数组中两个只出现一次的数字  
-41.和为S的连续正数序列  
-42.和为S的两个数字  
-43.左旋转字符串  
-44.反转单词序列  
-45.扑克牌顺子  
-46.圆圈中最后剩下的数  
-47.求1+2+3+...+n  
-48.不用加减乘除做加法 TODO
-49.字符串转整数  
-50.数组中重复的数字  
-51.不用除法构建乘积数组
-52.正则表达式匹配  
-53.表示数值的字符串  
-54.字符流中第一个不重复的字符  
-55.链表中环的入口结点  
-56.删除链表中重复的结点  
-57.二叉树的下一个结点  
-58.对称的二叉树  
-59.按之字形顺序打印二叉树  
-60.把二叉树打印成多行  
-61.序列化二叉树  
-62.二叉搜索树的第k个结点  
-63.数据流中的中位数  
-64.滑动窗口的最大值  
-65.矩阵中的路径  
-66.机器人的运动范围  
-67.剪绳子  
+- [01.二维数组查找  ](./src/main/java/com/example/swordoffer/Sword01_FindInArray.java)
+- [02.替换空格  ](./src/main/java/com/example/swordoffer/Sword02_ReplaceSpace.java)
+- [03.从尾到头打印链表  ](./src/main/java/com/example/swordoffer/Sword03_printLinkedList.java)
+- [04.给某二叉树的前序遍历和中序遍历的结果，重建二叉树  ](./src/main/java/com/example/swordoffer/Sword04_RebuildBinaryTree.java)
+- [05.用两个栈实现队列  ](./src/main/java/com/example/swordoffer/Sword05_QueuingWithTwoStacks.java)
+- [06.旋转数组的最小数字  ](./src/main/java/com/example/swordoffer/Sword06_MinNumberInRotateArray.java)
+- [07.斐波那契数列  ](./src/main/java/com/example/swordoffer/Sword07_Fibonacci.java)
+- [08.青蛙跳台阶  ](./src/main/java/com/example/swordoffer/Sword08_JumpFloor.java)
+- [09.变态跳台阶  ](./src/main/java/com/example/swordoffer/Sword09_JumpFloorII.java)
+- [10.矩形覆盖  ](./src/main/java/com/example/swordoffer/Sword10_RectCover.java)
+- [11.二进制中1的个数  ](./src/main/java/com/example/swordoffer/Sword11_NumberOf1.java)
+- [12.浮点数值的整数次方   ](./src/main/java/com/example/swordoffer/Sword12_Power.java)
+- [13.调整数组顺序使奇数位于偶数前面  ](./src/main/java/com/example/swordoffer/Sword13_ReOrderArray.java)
+- [14.链表中倒数第k个节点  ](./src/main/java/com/example/swordoffer/Sword14_FindKthToTail.java)
+- [15.反转链表  ](./src/main/java/com/example/swordoffer/Sword15_ReverseList.java)
+- [16.合并两个排序的链表  ](./src/main/java/com/example/swordoffer/Sword16_MergeSortedLinkedList.java)
+- [17.树的子结构  ](./src/main/java/com/example/swordoffer/Sword17_HasSubtree.java)
+- [18.二叉树的镜像  ](./src/main/java/com/example/swordoffer/Sword18_Mirror.java)
+- [19.顺时针打印矩阵  ](./src/main/java/com/example/swordoffer/Sword19_PrintMatrix.java)
+- [20.包含Min的栈  ](./src/main/java/com/example/swordoffer/Sword20_StackWithMin.java)
+- [21.栈的压入、弹出序列  ](./src/main/java/com/example/swordoffer/Sword21_IsPopOrder.java)
+- [22.从上往下打印二叉树  ](./src/main/java/com/example/swordoffer/Sword22_PrintFromTopToBottom.java)
+- [23.二叉树的后续遍历列表  ](./src/main/java/com/example/swordoffer/Sword23_VerifySquenceOfBST.java)
+- [24.二叉树中和为某一值的路径  ](./src/main/java/com/example/swordoffer/Sword24_FindPath.java)
+- [25.复杂链表的复制  ](./src/main/java/com/example/swordoffer/Sword25_Clone.java)
+- [26.二叉搜索树转换成一个排序的双向链表  ](./src/main/java/com/example/swordoffer/Sword26_BSTToDoubleLinkedList.java)
+- [27.字符串排列  ](./src/main/java/com/example/swordoffer/Sword27_Permutation.java)
+- [28.数组中超过一半的数字  ](./src/main/java/com/example/swordoffer/Sword28_MoreThanHalfNum.java)
+- [29.最小的K个数  ](./src/main/java/com/example/swordoffer/Sword29_LeastKNumber.java)
+- [30.连续子数组最大和  ](./src/main/java/com/example/swordoffer/Sword30_FindGreatestSumOfSubArray.java)
+- [31.数组中1出现的次数  ](./src/main/java/com/example/swordoffer/Sword31_NumberOf1.java)
+- [32.把数组排成最小的数  ](./src/main/java/com/example/swordoffer/Sword32_PrintMinNumber.java)
+- [33.丑数 只包含质因子2、3和5的数称作丑数，求按从小到大的顺序的第N个丑数  ](./src/main/java/com/example/swordoffer/Sword33_UglyNumber.java)
+- [34.第一个只出现一次的字符  ](./src/main/java/com/example/swordoffer/Sword34_FirstNotRepeatChar.java)
+- [35.数组中的逆序对  ](./src/main/java/com/example/swordoffer/Sword35_InversePairs.java)
+- [36.两个链表的第一个公共节点  ](./src/main/java/com/example/swordoffer/Sword36_FindFirstCommonNode.java)
+- [37.数字在排序数组中出现的次数  ](./src/main/java/com/example/swordoffer/Sword37_GetNumberOfK.java)
+- [38.二叉树树的深度  ](./src/main/java/com/example/swordoffer/Sword38_TreeDepth.java)
+- [39.是否平衡二叉树  ](./src/main/java/com/example/swordoffer/Sword39_IsBalancedTree.java)
+- [40.数组中两个只出现一次的数字  ](./src/main/java/com/example/swordoffer/Sword40_FindNumberAppearOnce.java)
+- [41.和为S的连续正数序列  ](./src/main/java/com/example/swordoffer/Sword41_ConitunuousSequence.java)
+- [42.和为S的两个数字  ](./src/main/java/com/example/swordoffer/Sword42_FindNumbersWithSum.java)
+- [43.左旋转字符串  ](./src/main/java/com/example/swordoffer/Sword43_LeftRotateString.java)
+- [44.反转单词序列  ](./src/main/java/com/example/swordoffer/Sword44_ReverseSentence.java)
+- [45.扑克牌顺子  ](./src/main/java/com/example/swordoffer/Sword45_isContinuous.java)
+- [46.圆圈中最后剩下的数  ](./src/main/java/com/example/swordoffer/Sword46_LastRemaining.java)
+- [47.求1+2+3+...+n  ](./src/main/java/com/example/swordoffer/Sword47_Sum.java)
+- [48.不用加减乘除做加法 TODO](./src/main/java/com/example/swordoffer/Sword48_Add.java)
+- [49.字符串转整数  ](./src/main/java/com/example/swordoffer/Sword49_StrToInt.java)
+- [50.数组中重复的数字  ](./src/main/java/com/example/swordoffer/Sword50_Duplicate.java)
+- [51.不用除法构建乘积数组](./src/main/java/com/example/swordoffer/Sword51_Multiply.java)
+- [52.正则表达式匹配  ](./src/main/java/com/example/swordoffer/Sword52_Match.java)
+- [53.表示数值的字符串  ](./src/main/java/com/example/swordoffer/Sword53_IsNumberic.java)
+- [54.字符流中第一个不重复的字符  ](./src/main/java/com/example/swordoffer/Sword54_FirstAppearingOnce.java)
+- [55.链表中环的入口结点  ](./src/main/java/com/example/swordoffer/Sword55_EntryNodeOfLoop.java)
+- [56.删除链表中重复的结点  ](./src/main/java/com/example/swordoffer/Sword56_DeleteDuplication.java)
+- [57.二叉树的下一个结点  ](./src/main/java/com/example/swordoffer/Sword57_GetNext.java)
+- [58.对称的二叉树  ](./src/main/java/com/example/swordoffer/Sword58_isSymmetrical.java)
+- [59.按之字形顺序打印二叉树  ](./src/main/java/com/example/swordoffer/Sword59_PrintZigZag.java)
+- [60.把二叉树打印成多行  ](./src/main/java/com/example/swordoffer/Sword60_PrintMultiLines.java)
+- [61.序列化二叉树  ](./src/main/java/com/example/swordoffer/Sword61_SerializeTreeNode.java)
+- [62.二叉搜索树的第k个结点  ](./src/main/java/com/example/swordoffer/Sword62_KthNode.java)
+- [63.数据流中的中位数  ](./src/main/java/com/example/swordoffer/Sword63_StreamMid.java)
+- [64.滑动窗口的最大值  ](./src/main/java/com/example/swordoffer/Sword64_MaxInWindow.java)
+- [65.矩阵中的路径  ](./src/main/java/com/example/swordoffer/Sword65_MatrixPath.java)
+- [66.机器人的运动范围  ](./src/main/java/com/example/swordoffer/Sword66_MovingCount.java)
+- [67.剪绳子  ](./src/main/java/com/example/swordoffer/Sword67_CutRope.java)
+
+
 
 ## 程序员代码面试指南 : 
 

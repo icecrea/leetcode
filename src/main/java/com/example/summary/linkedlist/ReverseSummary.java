@@ -1,7 +1,9 @@
-package com.example.summary;
+package com.example.summary.linkedlist;
 
 import com.example.leetcode.linkedlist.pojo.ListNode;
 import org.junit.Test;
+
+import java.util.Stack;
 
 /**
  * 链表题目小结
@@ -12,8 +14,9 @@ import org.junit.Test;
  * 3.反转链表后n个节点
  * 4.反转链表其中一部分
  * 5.反转链表相邻节点
+ * 6.反转链表k个一组
  */
-public class LinkedListSummary {
+public class ReverseSummary {
 
     /**
      * 1.反转整个链表 非递归
@@ -183,6 +186,45 @@ public class LinkedListSummary {
         head.next = reverseInPairsRecur(head.next.next);
         next.next = head;
         return next;
+    }
+
+    /**
+     * k个一组反转链表
+     */
+    public ListNode reverseK(ListNode head, int k) {
+        if (k < 2) {
+            return head;
+        }
+        Stack<ListNode> stack = new Stack<>();
+        ListNode newHead = head;
+        ListNode cur = head;
+        ListNode pre = null;
+        ListNode next;
+        while (cur != null) {
+            next = cur.next;
+            stack.push(cur);
+            if (stack.size() == k) {
+                pre = resign1(stack, pre, next);
+                newHead = newHead == head ? cur : newHead;
+            }
+            cur = next;
+        }
+        return newHead;
+    }
+
+    public static ListNode resign1(Stack<ListNode> stack, ListNode left, ListNode right) {
+        ListNode cur = stack.pop();
+        if (left != null) {
+            left.next = cur;
+        }
+        ListNode next;
+        while (!stack.isEmpty()) {
+            next = stack.pop();
+            cur.next = next;
+            cur = next;
+        }
+        cur.next = right;
+        return cur;
     }
 
     @Test
