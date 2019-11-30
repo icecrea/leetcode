@@ -1,5 +1,11 @@
-刷题笔记
-=================================
+# 算法笔记
+
+## 介绍：
+个人算法学习笔记。目前分为四部分：
+- 第一部分：《剑指offer》题解，共67道题已完结。
+- 第二部分：《程序员笔试面试指南》题解
+- 第三部分：《LeetCode》题解
+- 第四部分：《算法题型分类总结》
 
 ## 剑指offer: 
  
@@ -76,26 +82,25 @@
 ## 程序员代码面试指南 : 
 
 ### chapter2 : 链表部分题目：
-> 01.打印两个有续链表公共部分  
-02.在单链表和双链表中删除倒数第K个节点  
-03.删除链表中间节点和a/b节点  
-04.反转链表  
-05.反转部分链表  
-06.约瑟夫环问题-链表解法  
-07.判断链表是否回文结构  
-08.将单向链表按某值划分成左边小、中间相等、右边大的形式  
-09.复制含有随机指针节点的链表  
-10.两个单链表生成相加链表  
-11.两个链表相交的第一个节点
-12.将单链表每K个节点之间逆序  
-13.删除无序单链表中值重复出现的节点  
-14.在单链表中删除指定值的节点  
-15.将搜索二叉树转换成双向链表  
-16.单链表的选择排序  
-17.怪异的删除方式  
-18.单链表的选择排序  
-19.合并两个有序的单链表  
-20.按照左右半区的方式重新组合单链表  
+- [01.打印两个有续链表公共部分](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p02_RemoveLastKthNode.java)
+- [02.在单链表和双链表中删除倒数第K个节点](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p03_RemoveNodeByRatio.java)
+- [03.删除链表中间节点和a/b节点](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p04_ReverseList.java)
+- [04.反转链表](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p05_ReversePartList.java)
+- [05.反转部分链表](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p06_JosephusProblem.java)
+- [06.约瑟夫环问题-链表解法](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p07_IsPalindromeList.java)
+- [07.判断链表是否回文结构](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p08_SmallerEqualBigger.java)
+- [08.将单向链表按某值划分成左边小、中间相等、右边大的形式](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p09_CopyListWithRandom.java)
+- [09.复制含有随机指针节点的链表](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p10_AddTwoLinkedList.java)
+- [10.两个单链表生成相加链表](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p11_FindFirstIntersectNode.java)
+- [11.两个链表相交的第一个节点 12.将单链表每K个节点之间逆序](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p12_ConvertEveryKNodesInList.java)
+- [13.删除无序单链表中值重复出现的节点](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p13_RemoveRepetition.java)
+- [14.在单链表中删除指定值的节点](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p14_RemoveGivenValue.java)
+- [15.将搜索二叉树转换成双向链表](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p15_BSTtoDoubleLinkedList.java)
+- [16.单链表的选择排序](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p16_ListSelectionSort.java)
+- [17.怪异的删除方式](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p17_RemoveNodeWeird.java)
+- [18.单链表的选择排序](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p18_InsertNumToCircularList.java)
+- [19.合并两个有序的单链表](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p19_MergeTwoLinkedLists.java)
+- [20.按照左右半区的方式重新组合单链表](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p20_RelocateLinkedList.java)
 
 ## Leetcode: 
 
@@ -149,6 +154,7 @@
 
 
 
+## 算法题型分类总结
 
 
 #### 基础排序算法：
