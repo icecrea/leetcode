@@ -9,9 +9,6 @@ import com.example.leetcode.linkedlist.pojo.ListNode;
  * 现有一个链表 -- head = [4,5,1,9]，它可以表示为:
  *
  *
- *
- *
- *
  * 示例 1:
  *
  * 输入: head = [4,5,1,9], node = 5

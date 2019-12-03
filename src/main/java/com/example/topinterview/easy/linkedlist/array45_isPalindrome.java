@@ -22,7 +22,7 @@ import org.junit.Test;
  **/
 public class array45_isPalindrome {
     /**
-     * 不能对整个链表进行反转 这样会改变原链表的结构 无法后续匹配比较
+     * 对链表后半部分反转
      *
      * @param head
      * @return
@@ -61,13 +61,5 @@ public class array45_isPalindrome {
         return newNode;
     }
 
-    @Test
-    public void test() {
-        ListNode node = new ListNode(0);
-        ListNode node2 = new ListNode(0);
-        node.next = node2;
-        node2.next = null;
-        isPalindrome(node);
-    }
 
 }

@@ -17,22 +17,22 @@ import org.junit.Test;
 public class array44_mergeTwoLists {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode dummy = new ListNode(0);
-        ListNode n = dummy;
+        ListNode cur = dummy;
         while (l1 != null && l2 != null) {
             if (l1.val <= l2.val) {
-                n.next = l1;
+                cur.next = l1;
                 l1 = l1.next;
             } else {
-                n.next = l2;
+                cur.next = l2;
                 l2 = l2.next;
             }
-            n = n.next;
+            cur = cur.next;
         }
         if (l1 != null) {
-            n.next = l1;
+            cur.next = l1;
         }
         if (l2 != null) {
-            n.next = l2;
+            cur.next = l2;
         }
         return dummy.next;
     }

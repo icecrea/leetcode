@@ -18,15 +18,15 @@ package com.example.topinterview.easy.dp;
 public class array56_maxSubArray {
     public int maxSubArray(int[] nums) {
         int maxToCur = 0;
-        int maxSoFar = Integer.MIN_VALUE;
+        int max = Integer.MIN_VALUE;
         for (int i = 0; i < nums.length; i++) {
             if (maxToCur >= 0) {
                 maxToCur += nums[i];
             } else {
                 maxToCur = nums[i];
             }
-            maxSoFar = Math.max(maxToCur, maxSoFar);
+            max = Math.max(max, maxToCur);
         }
-        return maxSoFar;
+        return max;
     }
 }

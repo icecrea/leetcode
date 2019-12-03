@@ -1,7 +1,10 @@
 package com.example.topinterview.easy.array;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
- * @description: 两数之和 （做过）
+ * @description: 两数之和
  * 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
  *
  * 你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。
@@ -26,4 +29,23 @@ public class array29_twoSum {
         }
         return null;
     }
+
+    public int[] twoSum2(int[] nums, int target) {
+        int n = nums.length;
+        Map<Integer, Integer> map = new HashMap<>();
+        // 构造一个哈希表：元素映射到相应的索引 key是值 value是索引下标
+        for (int i = 0; i < n; i++) {
+            map.put(nums[i], i);
+        }
+
+        for (int i = 0; i < n; i++) {
+            int other = target - nums[i];
+            // 如果 other 存在且不是 nums[i] 本身
+            if (map.containsKey(other) && map.get(other) != i)
+                return new int[]{i, map.get(other)};
+        }
+
+        return new int[]{-1, -1};
+    }
+
 }
