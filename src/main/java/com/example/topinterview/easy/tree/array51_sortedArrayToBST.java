@@ -3,7 +3,7 @@ package com.example.topinterview.easy.tree;
 import com.example.leetcode.linkedlist.pojo.TreeNode;
 
 /**
- * @description:将有序数组转换为二叉搜索树
+ * @description: 将有序数组转换为二叉搜索树
  * 将一个按照升序排列的有序数组，转换为一棵高度平衡二叉搜索树。
  *
  * 本题中，一个高度平衡二叉树是指一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过 1。
@@ -32,6 +32,7 @@ public class array51_sortedArrayToBST {
     }
 
     public TreeNode helper(int[] num, int low, int high) {
+        //注意终止条件是大于 不是大于等于
         if (low > high) {
             return null;
         }

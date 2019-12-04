@@ -1,5 +1,7 @@
 package com.example.topinterview.easy.other;
 
+import org.junit.Test;
+
 /**
  * @description: 颠倒二进制位
  * 颠倒给定的 32 位无符号整数的二进制位。
@@ -30,18 +32,20 @@ package com.example.topinterview.easy.other;
  **/
 public class array66_reverseBits {
     /**
-     * 错误
      * @param n
      * @return
      */
     public int reverseBits(int n) {
-        int ans = 0;
-        while (n != 0) {
-            ans = ans * 2;
-            ans += (n & 1);
-            n = n >>> 1;
+        int res = 0;
+        for (int i = 0; i < 32; i++) {
+            //每次都处理二进制的最低位, 这样方便进行&操作
+            int cur = n & 1;
+            //直接把二进制的最低位安排到最终位置上
+            res = res + (cur << (31 - i));
+            //update
+            n = n >> 1;
         }
-        return ans;
+        return res;
     }
 
     public int reverseBits2(int n) {
@@ -54,5 +58,10 @@ public class array66_reverseBits {
             }
         }
         return result;
+    }
+
+    @Test
+    public void test() {
+        System.out.println(reverseBits(2));
     }
 }

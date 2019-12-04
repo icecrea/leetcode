@@ -22,11 +22,28 @@ import org.junit.Test;
  * @create: 2019-02-21 22:19
  **/
 public class array27_plusOne {
+
+    /**
+     * 优化简洁版
+     */
+    public int[] plusOne2(int[] digits) {
+        for (int i = digits.length - 1; i >= 0; i--) {
+            //走到此处就说明有进位 需要+1
+            digits[i]++;
+            digits[i] = digits[i] % 10;
+            //没进位 直接返回
+            if (digits[i] != 0) {
+                return digits;
+            }
+        }
+        //如果有超过数组长度的进位，只有9,99,99..这种情况，所以结果必然是100...
+        digits = new int[digits.length + 1];
+        digits[0] = 1;
+        return digits;
+    }
+
     /**
      * 注意溢出问题
-     * 其实就是字符串转整数问题
-     * 但是这里是一个数组 所以思路可能有变化
-     *
      * @see Sword49_StrToInt
      */
     public int[] plusOne(int[] digits) {
@@ -50,26 +67,6 @@ public class array27_plusOne {
             }
             return res;
         }
-        return digits;
-    }
-
-
-    /**
-     * 优化简洁版
-     */
-    public int[] plusOne2(int[] digits) {
-        for (int i = digits.length - 1; i >= 0; i--) {
-            //走到此处就说明有进位 需要+1
-            digits[i]++;
-            digits[i] = digits[i] % 10;
-            //没进位 直接返回
-            if (digits[i] != 0) {
-                return digits;
-            }
-        }
-        //如果有超过数组长度的进位，只有9,99,99..这种情况，所以结果必然是100...
-        digits = new int[digits.length + 1];
-        digits[0] = 1;
         return digits;
     }
 
