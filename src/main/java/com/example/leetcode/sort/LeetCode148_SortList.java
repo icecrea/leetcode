@@ -31,9 +31,6 @@ public class LeetCode148_SortList {
     }
 
     private ListNode getMid(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
         ListNode slow = head, quick = head;
         while (quick.next != null && quick.next.next != null) {
             slow = slow.next;

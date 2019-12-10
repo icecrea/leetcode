@@ -55,6 +55,10 @@ public class p08_SmallerEqualBigger {
         nodeArr[b] = tmp;
     }
 
+    /**
+     * 将链表划按某值划分成左边小，中间相等，右边大的形式
+     * 进阶解法：保持相对顺序不变且时间复杂度O(1)
+     */
     public static ListNode listPartition2(ListNode head, int pivot) {
         ListNode sH = null; // small head
         ListNode sT = null; // small tail
