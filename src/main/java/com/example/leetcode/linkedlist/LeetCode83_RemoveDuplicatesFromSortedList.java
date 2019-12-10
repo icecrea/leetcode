@@ -3,7 +3,7 @@ package com.example.leetcode.linkedlist;
 import com.example.leetcode.linkedlist.pojo.ListNode;
 
 /**
- * @description: 删除链表重复元素
+ * @description: 删除排序链表中的重复元素
  * 给定一个排序链表，删除所有重复的元素，使得每个元素只出现一次。
  * <p>
  * 示例 1:

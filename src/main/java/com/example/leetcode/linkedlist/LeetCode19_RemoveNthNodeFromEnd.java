@@ -3,7 +3,8 @@ package com.example.leetcode.linkedlist;
 import com.example.leetcode.linkedlist.pojo.ListNode;
 
 /**
- * @description: 给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。
+ * @description: 删除链表的倒数第N个节点
+ * 给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。
  * <p>
  * 示例：
  * <p>

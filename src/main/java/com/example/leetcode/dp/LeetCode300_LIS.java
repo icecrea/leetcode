@@ -3,7 +3,8 @@ package com.example.leetcode.dp;
 import java.util.Arrays;
 
 /**
- * 最长上升子序列 LIS问题 LongestIncreasingSubsequence
+ * 最长上升子序列
+ * LIS问题 LongestIncreasingSubsequence
  * 给定一个无序的整数数组，找到其中最长上升子序列的长度。
  *
  * 示例:

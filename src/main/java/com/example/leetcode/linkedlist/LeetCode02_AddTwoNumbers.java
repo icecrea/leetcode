@@ -3,7 +3,8 @@ package com.example.leetcode.linkedlist;
 import com.example.leetcode.linkedlist.pojo.ListNode;
 
 /**
- * @description: 给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，
+ * @description: 两数相加
+ * 给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，
  * 并且它们的每个节点只能存储 一位 数字。
  * <p>
  * 如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。

@@ -3,9 +3,12 @@
 ## 介绍：
 个人算法学习笔记。目前分为四部分：
 - 第一部分：《剑指offer》题解，共67道题已完结。
-- 第二部分：《程序员笔试面试指南》题解
-- 第三部分：《LeetCode》题解
-- 第四部分：《算法题型分类总结》
+
+- 第二部分：《LeetCode》题解，更新中，初级算法49题已完结。
+
+- 第三部分：《程序员笔试面试指南》题解，更新中。
+
+- 第四部分：《算法题型分类总结》，更新中。
 
 ## 剑指offer: 
  
@@ -77,30 +80,6 @@
 - [66.机器人的运动范围  ](./src/main/java/com/example/swordoffer/Sword66_MovingCount.java)
 - [67.剪绳子  ](./src/main/java/com/example/swordoffer/Sword67_CutRope.java)
 
-
-
-## 程序员代码面试指南 : 
-
-### chapter2 : 链表部分题目：
-- [01.打印两个有续链表公共部分](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p02_RemoveLastKthNode.java)
-- [02.在单链表和双链表中删除倒数第K个节点](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p03_RemoveNodeByRatio.java)
-- [03.删除链表中间节点和a/b节点](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p04_ReverseList.java)
-- [04.反转链表](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p05_ReversePartList.java)
-- [05.反转部分链表](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p06_JosephusProblem.java)
-- [06.约瑟夫环问题-链表解法](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p07_IsPalindromeList.java)
-- [07.判断链表是否回文结构](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p08_SmallerEqualBigger.java)
-- [08.将单向链表按某值划分成左边小、中间相等、右边大的形式](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p09_CopyListWithRandom.java)
-- [09.复制含有随机指针节点的链表](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p10_AddTwoLinkedList.java)
-- [10.两个单链表生成相加链表](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p11_FindFirstIntersectNode.java)
-- [11.两个链表相交的第一个节点 12.将单链表每K个节点之间逆序](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p12_ConvertEveryKNodesInList.java)
-- [13.删除无序单链表中值重复出现的节点](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p13_RemoveRepetition.java)
-- [14.在单链表中删除指定值的节点](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p14_RemoveGivenValue.java)
-- [15.将搜索二叉树转换成双向链表](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p15_BSTtoDoubleLinkedList.java)
-- [16.单链表的选择排序](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p16_ListSelectionSort.java)
-- [17.怪异的删除方式](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p17_RemoveNodeWeird.java)
-- [18.单链表的选择排序](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p18_InsertNumToCircularList.java)
-- [19.合并两个有序的单链表](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p19_MergeTwoLinkedLists.java)
-- [20.按照左右半区的方式重新组合单链表](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p20_RelocateLinkedList.java)
 
 ## LeetCode: 
 
@@ -179,55 +158,110 @@
 - [ 缺失数字](./src/main/java/com/example/topinterview/easy/array69_missingNumber.java)
 
 
-#### 链表问题 ：
-##### 简单：
-> 21.将两个有序链表合并为一个新的有序链表并返回  
-83.删除链表重复元素  
-141.判断链表中是否有环  
-160.找到两个单链表相交的起始节点  
-203.移除链表元素  
-206.反转链表  
-234.回文链表  
-237.删除链表中的节点  
-876.链表中间节点  
+## LeetCode专题训练
+#### 链表专题 ：
 
-##### 中等：
-> 2.两个链表用来表示两个非负的整数。逆序存储，将两个数相加起来，返回新链表  
-19.删除链表的倒数第n个节点  
-24.两两交换链表中的节点  
-61.旋转链表  
-82.删除链表重复元素2  
-92.反转链表2  
-109.有序链表转换二叉搜索树(undo)    
-138.复制带随机指针的链表    
-142.环形链表2  
-143.重排链表  
-147.对链表进行插入排序  
-148.排序链表  
-328.奇偶链表  
-445.两数相加2  
-725.分隔链表  
+- [02.两数相加](./src/main/java/com/example/leetcode/linkedlist/LeetCode02_AddTwoNumbers.java)
+- [19.删除链表的倒数第N个节点](./src/main/java/com/example/leetcode/linkedlist/LeetCode19_RemoveNthNodeFromEnd.java)
+- [21.合并两个有序链表](./src/main/java/com/example/leetcode/linkedlist/LeetCode21_MergeTwoSortedLists.java)
+- [23.合并k个排序链表](./src/main/java/com/example/leetcode/linkedlist/LeetCode23_MergeKSortedLists.java)
+- [24.两两交换链表中的节点](./src/main/java/com/example/leetcode/linkedlist/LeetCode24_SwapNodesInPairs.java)
+- [61.旋转链表](./src/main/java/com/example/leetcode/linkedlist/LeetCode61_RotateList.java)
+- [82.删除排序链表中的重复元素2](./src/main/java/com/example/leetcode/linkedlist/LeetCode82_RemoveDuplicatesFromSortedList2.java)
+- [83.删除排序链表中的重复元素](./src/main/java/com/example/leetcode/linkedlist/LeetCode83_RemoveDuplicatesFromSortedList.java)
+- [86.分隔链表](./src/main/java/com/example/leetcode/linkedlist/LeetCode86_PartitionList.java)
+- [92.反转链表2](./src/main/java/com/example/leetcode/linkedlist/LeetCode92_ReverseLinkedList2.java)
+- [109.有序链表转换二叉搜索树](./src/main/java/com/example/leetcode/linkedlist/LeetCode109_ConvertSortedListToBinarySearchTree.java)
+- [138.复制带随机指针的链表](./src/main/java/com/example/leetcode/linkedlist/LeetCode138_CopyListWithRandomPointer.java)
+- [141.环形链表](./src/main/java/com/example/leetcode/linkedlist/LeetCode141_LinkedListCycle.java)
+- [142.环形链表2](./src/main/java/com/example/leetcode/linkedlist/LeetCode142_LinkedListCycle2.java)
+- [143.重排链表](./src/main/java/com/example/leetcode/linkedlist/LeetCode143_ReorderList.java)
+- [147.对链表进行插入排序](./src/main/java/com/example/leetcode/linkedlist/LeetCode147_InsertionSortList.java)
+- [148.排序链表](./src/main/java/com/example/leetcode/linkedlist/LeetCode148_SortList.java)
+- [160.相交链表](./src/main/java/com/example/leetcode/linkedlist/LeetCode160_IntersectionOfTwoLists.java)
+- [203.移除链表元素](./src/main/java/com/example/leetcode/linkedlist/LeetCode203_RemoveLinkedListElements.java)
+- [206.反转链表](./src/main/java/com/example/leetcode/linkedlist/LeetCode206_ReverseLinkedList.java)
+- [234.回文链表](./src/main/java/com/example/leetcode/linkedlist/LeetCode234_PalindromeLinkedList.java)
+- [237.删除链表中的节点](./src/main/java/com/example/leetcode/linkedlist/LeetCode237_DeleteNodeInLinkedList.java)
+- [328.奇偶链表](./src/main/java/com/example/leetcode/linkedlist/LeetCode328_OddEvenLinkedList.java)
+- [445.两数相加2](./src/main/java/com/example/leetcode/linkedlist/LeetCode445_AddTwoNumbers2.java)
+- [725.分隔链表](./src/main/java/com/example/leetcode/linkedlist/LeetCode725_SplitLinkedListInParts.java)
+- [876.链表中间节点](./src/main/java/com/example/leetcode/linkedlist/LeetCode876_MiddleOfTheLinkedList.java)
 
-#### 排序问题 ：
+#### 动态规划专题：
 
-> 56.合并区间     
-57.插入区间     
-75.颜色分类    
-147.链表插入排序    
-148.排序链表    
-164.最大间距    
-215.数组中第K个最大元素    
-274.H指数    
-324.摆动排序2    
-349.两个数组交集    
-524.通过删除字母匹配到字典里最长单词    
-767.重构字符串,两相邻的字符不同    
-922.按奇偶排序数组2    
-969.煎饼排序  
-973.最接近原点的K个点   
-976.三角形最大周长   
+- [05.最长回文子串](./src/main/java/com/example/leetcode/dp/LeetCode05_LongestPalindromicSubstring.java)
+- [10.正则表达式匹配](./src/main/java/com/example/leetcode/dp/LeetCode10_RegularExpressionMatching.java)
+- [32.最长有效括号](./src/main/java/com/example/leetcode/dp/LeetCode32_LongestValidParantheses.java)
+- [53.最大连续子序列和](./src/main/java/com/example/leetcode/dp/LeetCode53_MaximumSubarray.java)
+- [62.不同路径](./src/main/java/com/example/leetcode/dp/LeetCode62_UniquePaths.java)
+- [63.不同路径2](./src/main/java/com/example/leetcode/dp/LeetCode63_UniquePaths2.java)
+- [64.最小路径和](./src/main/java/com/example/leetcode/dp/LeetCode64_MinimumPathSum.java)
+- [70.爬楼梯](./src/main/java/com/example/leetcode/dp/LeetCode70_ClimbingStairs.java)
+- [72.编辑距离](./src/main/java/com/example/leetcode/dp/LeetCode72_EditDistance.java)
+- [79.单词搜索](./src/main/java/com/example/leetcode/dp/LeetCode79_SearchWord.java)
+- [84.柱状图中最大的矩形](./src/main/java/com/example/leetcode/dp/LeetCode84_LargestRectangleInHistogram.java)
+- [85.最大矩形](./src/main/java/com/example/leetcode/dp/LeetCode85_MaximalRectangle.java)
+- [87.扰乱字符串](./src/main/java/com/example/leetcode/dp/LeetCode87_ScrambleString.java)
+- [95.不同的二叉搜索树2](./src/main/java/com/example/leetcode/dp/LeetCode95_UniqueBST2.java)
+- [96.不同的二叉搜索树](./src/main/java/com/example/leetcode/dp/LeetCode96_UniqueBST.java)
+- [120.三角形最小路径和](./src/main/java/com/example/leetcode/dp/LeetCode120_TriangleMinPath.java)
+- [121.买卖股票的最佳时机](./src/main/java/com/example/leetcode/dp/LeetCode121_BestTimeToBuyAndSellStock.java)
+- [122.买卖股票的最佳时机2](./src/main/java/com/example/leetcode/dp/LeetCode122_BestTimeToBuyAndSellStock2.java)
+- [123.买卖股票的最佳时机3](./src/main/java/com/example/leetcode/dp/LeetCode123_BestTimeToBuyAndSellStock3.java)
+- [198.打家劫舍](./src/main/java/com/example/leetcode/dp/LeetCode198_HouseRobber.java)
+- [213.打家劫舍2](./src/main/java/com/example/leetcode/dp/LeetCode213_HouseRobber2.java)
+- [300.最长上升子序列LIS](./src/main/java/com/example/leetcode/dp/LeetCode300_LIS.java)
+- [322.零钱兑换](./src/main/java/com/example/leetcode/dp/LeetCode322_CoinChange.java)
+- [474.一和零](./src/main/java/com/example/leetcode/dp/LeetCode474_OnesAndZeros.java)
+- [516.最长回文子序列](./src/main/java/com/example/leetcode/dp/LeetCode516_LongestPalindromicSubsequence.java)
+- [651.四键键盘](./src/main/java/com/example/leetcode/dp/LeetCode651_4KeysKeyboard.java)
+- [673.最长递增子序列的个数](./src/main/java/com/example/leetcode/dp/LeetCode673_NumberOfLIS.java)
+- [1143.最长公共子序列LCS](./src/main/java/com/example/leetcode/dp/LeetCode1143_LCS.java)
 
+#### 排序专题：
 
+- [56.合并区间](./src/main/java/com/example/leetcode/sort/LeetCode56_MergeIntervals.java)
+- [57.插入区间](./src/main/java/com/example/leetcode/sort/LeetCode57_InsertInterval.java)
+- [75.颜色分类](./src/main/java/com/example/leetcode/sort/LeetCode75_SortColors.java)
+- [147.链表插入排序](./src/main/java/com/example/leetcode/sort/LeetCode147_InsertionSortList.java)
+- [148.排序链表](./src/main/java/com/example/leetcode/sort/LeetCode148_SortList.java)
+- [164.最大间距](./src/main/java/com/example/leetcode/sort/LeetCode164_MaximumGap.java)
+- [179.最大数](./src/main/java/com/example/leetcode/sort/LeetCode179_LargestNumber.java)
+- [215.数组中第K个最大元素](./src/main/java/com/example/leetcode/sort/LeetCode215_KthLargestElementInAnArray.java)
+- [274.H指数](./src/main/java/com/example/leetcode/sort/LeetCode274_HIndex.java)
+- [324.摆动排序2](./src/main/java/com/example/leetcode/sort/LeetCode324_WiggleSort2.java)
+- [349.两个数组交集](./src/main/java/com/example/leetcode/sort/LeetCode349_IntersectionOfTwoArrays.java)
+- [524.通过删除字母匹配到字典里最长单词](./src/main/java/com/example/leetcode/sort/LeetCode524_LongestWordInDictionaryThroughDeleting.java)
+- [710.黑名单中随机数](./src/main/java/com/example/leetcode/sort/LeetCode710_RandomPickWithBlackList.java)
+- [767.重构字符串](./src/main/java/com/example/leetcode/sort/LeetCode767_ReorganizeString.java)
+- [922.按奇偶排序数组2](./src/main/java/com/example/leetcode/sort/LeetCode922_sortArrayByParity2.java)
+- [969.煎饼排序](./src/main/java/com/example/leetcode/sort/LeetCode969_PancakeSorting.java)
+- [973.最接近原点的K个点](./src/main/java/com/example/leetcode/sort/LeetCode973_KClosestPointsToOrigin.java)
+- [976.三角形最大周长](./src/main/java/com/example/leetcode/sort/LeetCode976_LargestTriangle.java)
+
+## 程序员代码面试指南 : 
+
+### chapter2 : 链表部分题目：
+- [01.打印两个有续链表公共部分](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p02_RemoveLastKthNode.java)
+- [02.在单链表和双链表中删除倒数第K个节点](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p03_RemoveNodeByRatio.java)
+- [03.删除链表中间节点和a/b节点](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p04_ReverseList.java)
+- [04.反转链表](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p05_ReversePartList.java)
+- [05.反转部分链表](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p06_JosephusProblem.java)
+- [06.约瑟夫环问题-链表解法](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p07_IsPalindromeList.java)
+- [07.判断链表是否回文结构](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p08_SmallerEqualBigger.java)
+- [08.将单向链表按某值划分成左边小、中间相等、右边大的形式](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p09_CopyListWithRandom.java)
+- [09.复制含有随机指针节点的链表](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p10_AddTwoLinkedList.java)
+- [10.两个单链表生成相加链表](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p11_FindFirstIntersectNode.java)
+- [11.两个链表相交的第一个节点 12.将单链表每K个节点之间逆序](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p12_ConvertEveryKNodesInList.java)
+- [13.删除无序单链表中值重复出现的节点](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p13_RemoveRepetition.java)
+- [14.在单链表中删除指定值的节点](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p14_RemoveGivenValue.java)
+- [15.将搜索二叉树转换成双向链表](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p15_BSTtoDoubleLinkedList.java)
+- [16.单链表的选择排序](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p16_ListSelectionSort.java)
+- [17.怪异的删除方式](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p17_RemoveNodeWeird.java)
+- [18.单链表的选择排序](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p18_InsertNumToCircularList.java)
+- [19.合并两个有序的单链表](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p19_MergeTwoLinkedLists.java)
+- [20.按照左右半区的方式重新组合单链表](./src/main/java/com/example/codeinterviewguide/cp2_linkedlist/p20_RelocateLinkedList.java)
 
 ## 算法题型分类总结
 
