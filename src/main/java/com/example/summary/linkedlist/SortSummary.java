@@ -19,24 +19,27 @@ public class SortSummary {
      * @see p16_ListSelectionSort
      */
     public static ListNode selectionSort(ListNode head) {
-        ListNode tail = null;
+        //排序部分尾部
+        ListNode end = null;
+        //未排序部分头部
         ListNode cur = head;
         ListNode smallPre;
         ListNode small;
         while (cur != null) {
             small = cur;
-            smallPre = getSmallestPreListNode(cur);
+            smallPre = getsmallPreListNode(cur);
+            //删除最小节点
             if (smallPre != null) {
                 small = smallPre.next;
                 smallPre.next = small.next;
             }
             cur = cur == small ? cur.next : cur;
-            if (tail == null) {
+            if (end == null) {
                 head = small;
             } else {
-                tail.next = small;
+                end.next = small;
             }
-            tail = small;
+            end = small;
         }
         return head;
     }
@@ -45,7 +48,7 @@ public class SortSummary {
      * 返回以head为头节点的链表，最小节点的前置节点
      * 如果最小节点是头节点 返回的是null
      */
-    public static ListNode getSmallestPreListNode(ListNode head) {
+    public static ListNode getsmallPreListNode(ListNode head) {
         ListNode smallPre = null;
         ListNode small = head;
         ListNode pre = head;
@@ -60,4 +63,6 @@ public class SortSummary {
         }
         return smallPre;
     }
+
+
 }
