@@ -46,7 +46,7 @@ import java.util.Random;
  * @author: icecrea
  * @create: 2019-04-15 09:42
  **/
-public class LeetCde710_RandomPickWithBlackList {
+public class LeetCode710_RandomPickWithBlackList {
     // N: [0, N)
     // B: blacklist
     // B1: < N
@@ -62,7 +62,7 @@ public class LeetCde710_RandomPickWithBlackList {
      * @param N
      * @param blacklist
      */
-    public LeetCde710_RandomPickWithBlackList(int N, int[] blacklist) {
+    public LeetCode710_RandomPickWithBlackList(int N, int[] blacklist) {
         map = new HashMap();
         for (int b : blacklist) {
             map.put(b, -1);

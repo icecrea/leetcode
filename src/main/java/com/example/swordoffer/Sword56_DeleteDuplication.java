@@ -1,6 +1,6 @@
 package com.example.swordoffer;
 
-import com.example.leetcode.linkedlist.medium.LeetCode82_RemoveDuplicatesFromSortedList2;
+import com.example.leetcode.linkedlist.LeetCode82_RemoveDuplicatesFromSortedList2;
 import com.example.leetcode.linkedlist.pojo.ListNode;
 
 /**

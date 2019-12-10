@@ -1,4 +1,4 @@
-package com.example.leetcode.linkedlist.hard;
+package com.example.leetcode.linkedlist;
 
 import com.example.leetcode.linkedlist.pojo.ListNode;
 

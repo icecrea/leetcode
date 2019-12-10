@@ -1,6 +1,6 @@
 package com.example.swordoffer;
 
-import com.example.leetcode.linkedlist.medium.LeetCode142_LinkedListCycle2;
+import com.example.leetcode.linkedlist.LeetCode142_LinkedListCycle2;
 import com.example.leetcode.linkedlist.pojo.ListNode;
 
 /**

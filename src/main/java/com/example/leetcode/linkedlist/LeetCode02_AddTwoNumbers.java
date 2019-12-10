@@ -1,4 +1,4 @@
-package com.example.leetcode.linkedlist.medium;
+package com.example.leetcode.linkedlist;
 
 import com.example.leetcode.linkedlist.pojo.ListNode;
 
@@ -18,7 +18,7 @@ import com.example.leetcode.linkedlist.pojo.ListNode;
  * @author: icecrea
  * @create: 2018-12-24 19:12
  **/
-public class LeetCode2_AddTwoNumbers {
+public class LeetCode02_AddTwoNumbers {
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode dummyHead = new ListNode(0);
