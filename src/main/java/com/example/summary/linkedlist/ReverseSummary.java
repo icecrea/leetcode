@@ -1,19 +1,20 @@
 package com.example.summary.linkedlist;
 
+import com.example.leetcode.linkedlist.LeetCode234_PalindromeLinkedList;
 import com.example.leetcode.linkedlist.pojo.ListNode;
 import org.junit.Test;
 
 
 /**
- * 链表题目小结
+ * 链表反转专题总结
  *
- * 反转系列：
  * 1.反转整个链表
  * 2.反转链表前n个节点
  * 3.反转链表后n个节点
  * 4.反转链表其中一部分
  * 5.反转链表相邻节点
  * 6.反转链表k个一组
+ * 7.判断链表是否回文结构
  */
 public class ReverseSummary {
 
@@ -115,7 +116,7 @@ public class ReverseSummary {
     /**
      * 4.反转链表其中一部分 从第from个节点到第to个节点的部分
      */
-    public static ListNode reversePart(ListNode head, int from, int to) {
+    public ListNode reversePart(ListNode head, int from, int to) {
         int len = 0;
         ListNode cur = head;
         ListNode startPre = null;
@@ -188,7 +189,7 @@ public class ReverseSummary {
     }
 
     /**
-     * k个一组反转链表
+     * 6.k个一组反转链表
      */
     public ListNode reverseKGroup(ListNode head, int k) {
         ListNode dummy = new ListNode(0);
@@ -219,6 +220,41 @@ public class ReverseSummary {
         return dummy.next;
     }
 
+    /**
+     * 7.判断链表是否回文结构
+     * 反转后半部分链表，判断完成后反转回去
+     * @see LeetCode234_PalindromeLinkedList
+     */
+    public boolean isPalindrome(ListNode head) {
+        if (head == null || head.next == null) {
+            return true;
+        }
+        ListNode fast = head;
+        ListNode slow = head;
+        // 根据快慢指针，找到链表的中点
+        while (fast.next != null && fast.next.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+
+        boolean result = true;
+
+        ListNode rHead = reverseAllList(slow.next);
+        ListNode cur = rHead;
+        while (cur != null) {
+            if (head.val != cur.val) {
+                result = false;
+                break;
+            }
+            head = head.next;
+            cur = cur.next;
+        }
+
+        //将后半部分链表反转回来，并拼接
+        slow.next = reverseAllList(rHead);
+        return result;
+    }
+
 
     @Test
     public void test() {
@@ -235,7 +271,8 @@ public class ReverseSummary {
 //        head = reversePart(head, 3, 5);
 //        head = reverseInPairsRecur(head);
 //        head = reverseInPairs(head);
-        head = reverseKGroup(head, 3);
+//        head = reverseKGroup(head, 3);
+        isPalindrome(head);
         while (head != null) {
             System.out.println(head.val);
             head = head.next;
