@@ -1,5 +1,6 @@
 package com.example.summary.sortalgorithm;
 
+import com.example.topinterview.easy.sort.array53_firstBadVersion;
 import org.junit.Test;
 
 /**
@@ -12,6 +13,11 @@ import org.junit.Test;
  * 4.查找最后一个小于等于给定值的元素
  * <p>
  * 再进阶：循环有序数组何如二分查找？
+ *
+ * 其他二分相关题目：
+ * 第一个错误版本
+ * @see array53_firstBadVersion
+ *
  * @author: icecrea
  * @create: 2019-10-24
  * @see com.example.leetcode.array.LeetCode33_SearchInRotatedSortedArray

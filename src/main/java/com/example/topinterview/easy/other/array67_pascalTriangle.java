@@ -8,13 +8,9 @@ import java.util.List;
 /**
  * @description: 帕斯卡三角形
  * 定一个非负整数 numRows，生成杨辉三角的前 numRows 行。
- * <p>
- * <p>
- * <p>
  * 在杨辉三角中，每个数是它左上方和右上方的数的和。
- * <p>
+ *
  * 示例:
- * <p>
  * 输入: 5
  * 输出:
  * [
@@ -29,22 +25,22 @@ import java.util.List;
  **/
 public class array67_pascalTriangle {
     public List<List<Integer>> generate(int numRows) {
-        List<List<Integer>> allrows = new ArrayList<List<Integer>>();
-        ArrayList<Integer> row = new ArrayList<Integer>();
+        List<List<Integer>> allrows = new ArrayList<>();
+        ArrayList<Integer> row = new ArrayList<>();
         for (int i = 0; i < numRows; i++) {
             row.add(0, 1);
             for (int j = 1; j < row.size() - 1; j++) {
                 row.set(j, row.get(j) + row.get(j + 1));
             }
-            allrows.add(new ArrayList<Integer>(row));
+            allrows.add(new ArrayList<>(row));
         }
         return allrows;
-
     }
 
     @Test
-    public void test(){
-        generate(4);
+    public void test() {
+        System.out.println(generate(4));
+        System.out.println(generate(5));
     }
 
 }

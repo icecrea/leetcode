@@ -1,5 +1,7 @@
 package com.example.topinterview.easy.sort;
 
+import org.junit.Test;
+
 /**
  * @description: 第一个错误版本
  * 你是产品经理，目前正在带领一个团队开发新的产品。不幸的是，你的产品的最新版本没有通过质量检测。
@@ -25,19 +27,53 @@ package com.example.topinterview.easy.sort;
 public class array53_firstBadVersion {
 
     private boolean isBadVersion(int version) {
-        return true;
+        if (version >= 3) {
+            return true;
+        }
+        return false;
     }
 
     public int firstBadVersion(int n) {
         int start = 1, end = n;
+        while (start <= end) {
+            int mid = start + ((end - start) >> 1);
+            if (isBadVersion(mid)) {
+                if (mid == 1 || !isBadVersion(mid - 1)) {
+                    return mid;
+                } else {
+                    end = mid;
+                }
+            } else {
+                start = mid + 1;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 根据题意，前提条件：当前数字n内必然是存在错误版本的
+     * 和常规二分解法有区别 返回的是start 同时判断条件是 start < end
+     * 可以结合123 分别为false true true 和 false false true情况分析
+     */
+    public int firstBadVersion2(int n) {
+        int start = 1;
+        int end = n;
         while (start < end) {
             int mid = start + (end - start) / 2;
-            if (!isBadVersion(mid)) {
-                start = mid + 1;
-            } else {
+            if (isBadVersion(mid)) {
                 end = mid;
+            } else {
+                start = mid + 1;
             }
         }
         return start;
     }
+
+
+    @Test
+    public void test() {
+        System.out.println(firstBadVersion(3));
+        System.out.println(firstBadVersion2(3));
+    }
+
 }

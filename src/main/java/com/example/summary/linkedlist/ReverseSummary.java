@@ -3,7 +3,6 @@ package com.example.summary.linkedlist;
 import com.example.leetcode.linkedlist.pojo.ListNode;
 import org.junit.Test;
 
-import java.util.Stack;
 
 /**
  * 链表题目小结
@@ -49,7 +48,7 @@ public class ReverseSummary {
     /**
      * 2.反转链表前n个节点 非递归
      */
-    public ListNode reverseN(ListNode head, int n) {
+    public ListNode reverseFirstN(ListNode head, int n) {
         ListNode nNext = head;
         for (int i = 0; i < n; i++) {
             nNext = nNext.next;
@@ -73,13 +72,13 @@ public class ReverseSummary {
     /**
      * 2.反转链表前n个节点 递归
      */
-    public ListNode reverseNRecur(ListNode head, int n) {
+    public ListNode reverseFirstNRecur(ListNode head, int n) {
         // n==1则走到了第n个节点，找到第n+1个节点
         if (n == 1) {
             nNext = head.next;
             return head;
         }
-        ListNode last = reverseNRecur(head.next, n - 1);
+        ListNode last = reverseFirstNRecur(head.next, n - 1);
         head.next.next = head;
         head.next = nNext;
         return last;
@@ -191,41 +190,35 @@ public class ReverseSummary {
     /**
      * k个一组反转链表
      */
-    public ListNode reverseK(ListNode head, int k) {
-        if (k < 2) {
-            return head;
-        }
-        Stack<ListNode> stack = new Stack<>();
-        ListNode newHead = head;
-        ListNode cur = head;
-        ListNode pre = null;
-        ListNode next;
-        while (cur != null) {
-            next = cur.next;
-            stack.push(cur);
-            if (stack.size() == k) {
-                pre = resign1(stack, pre, next);
-                newHead = newHead == head ? cur : newHead;
+    public ListNode reverseKGroup(ListNode head, int k) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+
+        ListNode pre = dummy;
+        ListNode end = dummy;
+
+        //k个为一组，分为子链表。pre记录子链表的头节点的前驱节点，end记录子链表尾节点
+        while (end.next != null) {
+            for (int i = 0; i < k && end != null; i++) {
+                end = end.next;
             }
-            cur = next;
+            if (end == null) {
+                break;
+            }
+            ListNode start = pre.next;
+            ListNode endNext = end.next;
+            end.next = null;
+            pre.next = reverseAllList(start);
+
+            //重新续上反转后的子链表
+            //start此时反转后，变成尾节点
+            start.next = endNext;
+            pre = start;
+            end = start;
         }
-        return newHead;
+        return dummy.next;
     }
 
-    public static ListNode resign1(Stack<ListNode> stack, ListNode left, ListNode right) {
-        ListNode cur = stack.pop();
-        if (left != null) {
-            left.next = cur;
-        }
-        ListNode next;
-        while (!stack.isEmpty()) {
-            next = stack.pop();
-            cur.next = next;
-            cur = next;
-        }
-        cur.next = right;
-        return cur;
-    }
 
     @Test
     public void test() {
@@ -236,12 +229,13 @@ public class ReverseSummary {
         addNode(head, new ListNode(5));
 //        head = reverseAllList(head);
 //        head = reverseAllListRecur(head);
-//        head = reverseN(head, 3);
-//        head = reverseNRecur(head, 3);
+//        head = reverseFirstN(head, 3);
+//        head = reverseFirstNRecur(head, 3);
 //        head = reverseLastN(head, 3);
 //        head = reversePart(head, 3, 5);
 //        head = reverseInPairsRecur(head);
-        head = reverseInPairs(head);
+//        head = reverseInPairs(head);
+        head = reverseKGroup(head, 3);
         while (head != null) {
             System.out.println(head.val);
             head = head.next;

@@ -26,77 +26,27 @@ import org.junit.Test;
  **/
 public class array57_rob {
     public int rob(int[] nums) {
-        //此数组maxToCur指的是 到当前位置的最大值
-        int[] maxToCur = new int[nums.length];
-        int maxSoFar = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i >= 2) {
-                maxSoFar = Math.max(maxToCur[i - 2] + nums[i], maxSoFar);
-                maxToCur[i] = maxSoFar;
-            } else {
-                maxToCur[i] = nums[i];
-                if (i == 1) {
-                    maxToCur[i] = Math.max(nums[0], nums[1]);
-                }
-                maxSoFar = Math.max(maxToCur[i], maxSoFar);
-            }
-        }
-        return maxSoFar;
-    }
-
-    /**
-     * 上面方法的maxSoFar可以省略
-     *
-     * @param nums
-     * @return
-     */
-    public int rob2(int[] nums) {
-        if (nums.length == 0) {
+        if (nums == null || nums.length == 0) {
             return 0;
         }
-        //此数组maxToCur指的是 到当前位置的最大值
-        int[] maxToCur = new int[nums.length];
-        for (int i = 0; i < nums.length; i++) {
-            if (i >= 2) {
-                maxToCur[i] = Math.max(maxToCur[i - 2] + nums[i], maxToCur[i - 1]);
-            } else {
-                maxToCur[i] = nums[i];
-                if (i == 1) {
-                    maxToCur[i] = Math.max(nums[0], nums[1]);
-                }
-            }
+        if (nums.length == 1) {
+            return nums[0];
         }
-        return maxToCur[nums.length - 1];
-    }
-
-
-    /**
-     * 大神解法 更简化
-     *
-     * @param num
-     * @return
-     */
-    public int rob4(int[] num) {
-        //max monney can get if rob current house
-        int rob = 0;
-        //max money can get if not rob current house
-        int notrob = 0;
-        for (int i = 0; i < num.length; i++) {
-            //if rob current value, previous house must not be robbed
-            int currob = notrob + num[i];
-            //if not rob ith house, take the max value of robbed (i-1)th house and not rob (i-1)th house
-            notrob = Math.max(notrob, rob);
-            rob = currob;
+        int[] dp = new int[nums.length];
+        dp[0] = nums[0];
+        dp[1] = Math.max(nums[0], nums[1]);
+        for (int i = 2; i < nums.length; i++) {
+            dp[i] = Math.max(dp[i - 2] + nums[i], dp[i - 1]);
         }
-        return Math.max(rob, notrob);
+        return dp[nums.length - 1];
     }
 
     @Test
     public void test() {
         // 1 2 4 4
-        int rob = rob(new int[]{1, 2, 3, 1});
+//        int rob = rob(new int[]{1, 2, 3, 1});
         // 2 2 3 4
-//        int rob = rob(new int[]{2,1,1,2});
+        int rob = rob(new int[]{2, 1, 1, 2});
         System.out.println(rob);
     }
 }

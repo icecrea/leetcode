@@ -5,7 +5,6 @@ import com.example.leetcode.linkedlist.pojo.TreeNode;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 
 /**
  * @description: 二叉树层次遍历
@@ -14,46 +13,47 @@ import java.util.Queue;
  * 例如:
  * 给定二叉树: [3,9,20,null,null,15,7],
  *
- *     3
- *    / \
- *   9  20
- *     /  \
- *    15   7
+ * 3
+ * / \
+ * 9  20
+ * /  \
+ * 15   7
  * 返回其层次遍历结果：
  *
  * [
- *   [3],
- *   [9,20],
- *   [15,7]
+ * [3],
+ * [9,20],
+ * [15,7]
  * ]
  * @author: icecrea
  * @create: 2019-03-18 12:04
  **/
 public class array50_levelOrder {
+
     public List<List<Integer>> levelOrder(TreeNode root) {
-        Queue<TreeNode> queue = new LinkedList<>();
-        List<List<Integer>> wrapList = new LinkedList<>();
+        List<List<Integer>> all = new ArrayList<>();
+        LinkedList<TreeNode> q = new LinkedList<>();
 
         if (root == null) {
-            return wrapList;
+            return all;
         }
-
-        queue.offer(root);
-        while (!queue.isEmpty()) {
-            int levelNum = queue.size();
-            List<Integer> subList = new LinkedList<Integer>();
-            for (int i = 0; i < levelNum; i++) {
-                if (queue.peek().left != null) {
-                    queue.offer(queue.peek().left);
+        q.add(root);
+        while (!q.isEmpty()) {
+            int len = q.size();
+            List<Integer> list = new ArrayList();
+            for (int i = 0; i < len; i++) {
+                TreeNode poll = q.poll();
+                if (poll.left != null) {
+                    q.add(poll.left);
                 }
-                if (queue.peek().right != null) {
-                    queue.offer(queue.peek().right);
+                if (poll.right != null) {
+                    q.add(poll.right);
                 }
-                subList.add(queue.poll().val);
+                list.add(poll.val);
             }
-            wrapList.add(subList);
+            all.add(list);
         }
-        return wrapList;
+        return all;
     }
 
     public List<List<Integer>> levelOrder2(TreeNode root) {
@@ -80,4 +80,6 @@ public class array50_levelOrder {
         levelHelper(res, root.left, height + 1);
         levelHelper(res, root.right, height + 1);
     }
+
+
 }
