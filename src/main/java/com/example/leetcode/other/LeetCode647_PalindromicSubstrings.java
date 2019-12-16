@@ -1,5 +1,6 @@
 package com.example.leetcode.other;
 
+import com.example.leetcode.dp.LeetCode05_LongestPalindromicSubstring;
 import org.junit.Test;
 
 /**
@@ -20,6 +21,14 @@ import org.junit.Test;
  * @date: 2019/12/16
  */
 public class LeetCode647_PalindromicSubstrings {
+    /**
+     * 动态规划
+     * dp[i][j] 代表str[i] - str[j]是否是回文子串
+     * 考虑单字符和双字符的特殊情况
+     * 状态转移方程：dp[i][j] = dp[i+1][j-1] && str[i]==str[j]
+     * 可以类比
+     * @see LeetCode05_LongestPalindromicSubstring
+     */
     public int countSubstrings(String s) {
         int res = 0;
         boolean dp[][] = new boolean[s.length()][s.length()];
@@ -35,7 +44,7 @@ public class LeetCode647_PalindromicSubstrings {
     }
 
     @Test
-    public void test(){
+    public void test() {
         System.out.println(countSubstrings("aaa"));
     }
 }
