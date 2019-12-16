@@ -14,7 +14,7 @@ import org.junit.Test;
  * 4.反转链表其中一部分
  * 5.反转链表相邻节点
  * 6.反转链表k个一组
- * 7.判断链表是否回文结构
+ * 7.回文链表
  */
 public class ReverseSummary {
 
