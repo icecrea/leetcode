@@ -24,18 +24,16 @@ import org.junit.Test;
 public class LeetCode516_LongestPalindromicSubsequence {
 
     /**
-     * 在子串 s[i..j] 中，最长回文子序列的长度为 dp[i][j]
+     * dp[i][j] : 在子串 s[i..j] 中，最长回文子序列的长度
      * 我们需要的是 dp[0][n - 1]
-     *
+     * 注意遍历顺序，i 从最后一个字符开始往前遍历，j 从 i + 1 开始往后遍历，这样可以保证每个子问题都已经算好了。
      */
     public int longestPalindromeSubseq(String s) {
         int n = s.length();
         int[][] dp = new int[s.length()][s.length()];
-        //单个字符初始化 回文为1
-        for (int i = 0; i < n; i++) {
-            dp[i][i] = 1;
-        }
         for (int i = n - 1; i >= 0; i--) {
+            //单个字符初始化 回文为1
+            dp[i][i] = 1;
             for (int j = i + 1; j < n; j++) {
                 if (s.charAt(i) == s.charAt(j)) {
                     dp[i][j] = dp[i + 1][j - 1] + 2;
