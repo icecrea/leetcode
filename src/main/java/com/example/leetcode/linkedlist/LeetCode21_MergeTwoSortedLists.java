@@ -14,6 +14,7 @@ import com.example.leetcode.linkedlist.pojo.ListNode;
 public class LeetCode21_MergeTwoSortedLists {
     /**
      * 合并两个有序链表
+     *
      * @param l1
      * @param l2
      * @return
@@ -31,11 +32,7 @@ public class LeetCode21_MergeTwoSortedLists {
             }
             cur = cur.next;
         }
-        if (l1 != null) {
-            cur.next = l1;
-        } else {
-            cur.next = l2;
-        }
+        cur.next = l1 == null ? l2 : l1;
         return dummy.next;
     }
 }
