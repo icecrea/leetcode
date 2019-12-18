@@ -1,5 +1,7 @@
 package com.example.summary.sortalgorithm;
 
+import com.example.leetcode.binarysearch.LeetCode33_SearchInRotatedSortedArray;
+import com.example.leetcode.other.LeetCode069_Sqrtx;
 import com.example.topinterview.easy.sort.array53_firstBadVersion;
 import org.junit.Test;
 
@@ -11,16 +13,15 @@ import org.junit.Test;
  * 2.查找最后一个值等于给定值的元素
  * 3.查找第一个大于等于给定值的元素
  * 4.查找最后一个小于等于给定值的元素
- * <p>
- * 再进阶：循环有序数组何如二分查找？
- *
- * 其他二分相关题目：
- * 第一个错误版本
+ * 相关题目：
+ * 1.循环有序数组何如二分查找？
+ * @see LeetCode33_SearchInRotatedSortedArray
+ * 2.求一个数的平方根，要求精确到小数点后6位
+ * @see LeetCode069_Sqrtx
+ * 3.第一个错误版本
  * @see array53_firstBadVersion
- *
  * @author: icecrea
  * @create: 2019-10-24
- * @see com.example.leetcode.array.LeetCode33_SearchInRotatedSortedArray
  **/
 public class BinarySearch {
 
@@ -175,8 +176,8 @@ public class BinarySearch {
     }
 
     @Test
-    public void test(){
-        int a[] = new int[]{-1,1,2,3,4,5,10};
+    public void test() {
+        int a[] = new int[]{-1, 1, 2, 3, 4, 5, 10};
         System.out.println(bsearch3(a, a.length, 3));
     }
 
