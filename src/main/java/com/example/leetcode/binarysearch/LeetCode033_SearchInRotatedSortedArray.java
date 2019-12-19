@@ -18,7 +18,7 @@ import org.junit.Test;
  * @auther: icecrea
  * @date: 2019/12/18
  */
-public class LeetCode33_SearchInRotatedSortedArray {
+public class LeetCode033_SearchInRotatedSortedArray {
     public int search(int[] nums, int target) {
         if (nums == null || nums.length == 0) {
             return -1;

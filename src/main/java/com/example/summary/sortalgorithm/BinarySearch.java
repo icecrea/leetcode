@@ -1,7 +1,7 @@
 package com.example.summary.sortalgorithm;
 
-import com.example.leetcode.binarysearch.LeetCode33_SearchInRotatedSortedArray;
-import com.example.leetcode.other.LeetCode069_Sqrtx;
+import com.example.leetcode.binarysearch.LeetCode033_SearchInRotatedSortedArray;
+import com.example.leetcode.binarysearch.LeetCode069_Sqrtx;
 import com.example.topinterview.easy.sort.array53_firstBadVersion;
 import org.junit.Test;
 
@@ -15,7 +15,7 @@ import org.junit.Test;
  * 4.查找最后一个小于等于给定值的元素
  * 相关题目：
  * 1.循环有序数组何如二分查找？
- * @see LeetCode33_SearchInRotatedSortedArray
+ * @see LeetCode033_SearchInRotatedSortedArray
  * 2.求一个数的平方根，要求精确到小数点后6位
  * @see LeetCode069_Sqrtx
  * 3.第一个错误版本

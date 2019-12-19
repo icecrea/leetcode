@@ -1,4 +1,4 @@
-package com.example.leetcode.other;
+package com.example.leetcode.binarysearch;
 
 import org.junit.Test;
 
@@ -20,12 +20,37 @@ import org.junit.Test;
  */
 public class LeetCode069_Sqrtx {
 
+
+    /**
+     * 二分查找模板
+     * 注意选择右中位数的逻辑： 需要使区间能够收缩
+     * 1、如果分支的逻辑，在选择左边界的时候，不能排除中位数，那么中位数就选“右中位数”，只有这样区间才会收缩，否则进入死循环；
+     * 2、同理，如果分支的逻辑，在选择右边界的时候，不能排除中位数，那么中位数就选“左中位数”，只有这样区间才会收缩，否则进入死循环。
+     * 可参考： https://leetcode-cn.com/problems/search-insert-position/solution/te-bie-hao-yong-de-er-fen-cha-fa-fa-mo-ban-python-/
+     */
+    public int mySqrt(int x) {
+        if (x == 0 || x == 1) {
+            return x;
+        }
+        int left = 1, right = x / 2;
+        while (left < right) {
+            //右中位数
+            int mid = (left + right + 1) >>> 1;
+            if (mid > x / mid) {
+                right = mid - 1;
+            } else {
+                left = mid;
+            }
+        }
+        return left;
+    }
+
     /**
      * 思路：二分查找
      * 根据习惯我们推测，一个数的平方根一般不超过它的一般 求解这 a <= (a/2)^2 得 a>=4或a<=0
      * 所以0123这四个属于边界值，需要特别注意。他们开根号分别为0111。
      */
-    public int mySqrt(int x) {
+    public int mySqrt2(int x) {
         if (x == 0 || x == 1) {
             return x;
         }
@@ -46,6 +71,7 @@ public class LeetCode069_Sqrtx {
         }
         return mid;
     }
+
 
     @Test
     public void test() {
