@@ -24,8 +24,10 @@ public class SortSummary {
 
     /**
      * 链表归并排序
+     * 归并排序的思路是要找到中点，再分解成子问题递归。
      */
     public ListNode sortList(ListNode head) {
+        //递归终止条件： 只有一个元素
         if (head == null || head.next == null) {
             return head;
         }
@@ -43,8 +45,8 @@ public class SortSummary {
 
 
     private ListNode mergeSort(ListNode left, ListNode right) {
-        ListNode preHead = new ListNode(0);
-        ListNode cur = preHead;
+        ListNode dummy = new ListNode(0);
+        ListNode cur = dummy;
         while (left != null && right != null) {
             if (left.val < right.val) {
                 cur.next = left;
@@ -56,7 +58,7 @@ public class SortSummary {
             cur = cur.next;
         }
         cur.next = left == null ? right : left;
-        return preHead.next;
+        return dummy.next;
     }
 
     /**
