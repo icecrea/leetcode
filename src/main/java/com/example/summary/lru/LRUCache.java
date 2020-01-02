@@ -53,7 +53,7 @@ public class LRUCache<K, V> {
     }
 
     public void addLast(Node newNode) {
-        if(newNode == null){
+        if (newNode == null) {
             return;
         }
         if (head == null) {
@@ -105,11 +105,11 @@ public class LRUCache<K, V> {
     public void printAll() {
         ArrayList<K> list = new ArrayList<>();
         Node cur = head;
-        while (cur != tail && cur!= null) {
+        while (cur != tail && cur != null) {
             list.add(cur.k);
             cur = cur.next;
         }
-        if(cur != null) {
+        if (cur != null) {
             list.add(cur.k);
         }
         System.out.println(list);
@@ -130,13 +130,13 @@ public class LRUCache<K, V> {
     public static void main(String[] args) {
         LRUCache cache = new LRUCache(10);
 
-        cache.put(1,11);
-        cache.put(2,242);
-        cache.put(3,3);
-        cache.put(4,4);
+        cache.put(1, 11);
+        cache.put(2, 242);
+        cache.put(3, 3);
+        cache.put(4, 4);
 
-        cache.put(2,91);
-        cache.put(1,111);
+        cache.put(2, 91);
+        cache.put(1, 111);
         cache.printAll();
 
     }

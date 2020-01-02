@@ -9,14 +9,14 @@ import java.util.*;
  * @author: icecrea
  * @create: 2019-10-16
  **/
-public class LRULinkedHashMap<K, V> extends LinkedHashMap<K, V>   {
+public class LRULinkedHashMap<K, V> extends LinkedHashMap<K, V> {
 
     private int capacity;
 
-    LRULinkedHashMap(int capacity){
-        super(capacity,0.75f,true);
+    LRULinkedHashMap(int capacity) {
+        super(capacity, 0.75f, true);
         //传入指定的缓存最大容量
-        this.capacity=capacity;
+        this.capacity = capacity;
     }
 
     /**
@@ -41,9 +41,9 @@ public class LRULinkedHashMap<K, V> extends LinkedHashMap<K, V>   {
         }
 
         LRULinkedHashMap lruLinkedHashMap = new LRULinkedHashMap(3);
-        lruLinkedHashMap.put(3,11);
-        lruLinkedHashMap.put(1,12);
-        lruLinkedHashMap.put(5,23);
+        lruLinkedHashMap.put(3, 11);
+        lruLinkedHashMap.put(1, 12);
+        lruLinkedHashMap.put(5, 23);
         lruLinkedHashMap.put(2, 22);
         lruLinkedHashMap.put(3, 26);
         lruLinkedHashMap.get(5);
