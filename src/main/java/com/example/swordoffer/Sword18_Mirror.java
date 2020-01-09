@@ -5,7 +5,8 @@ import com.example.leetcode.linkedlist.pojo.TreeNode;
 import java.util.Stack;
 
 /**
- * @description: 二叉树的镜像
+ * @description: 二叉树的镜像 翻转二叉树
+ * leetCode226
  * 操作给定的二叉树，将其变换为源二叉树的镜像。
  * 输入描述:
  * 二叉树的镜像定义：源二叉树
@@ -34,26 +35,32 @@ public class Sword18_Mirror {
         if (root == null) {
             return;
         }
-        //左子树和右子树都为空，不需要交换
-        if (root.left == null && root.right == null) {
-            return;
-        }
-
         TreeNode pTemp = root.left;
         root.left = root.right;
         root.right = pTemp;
 
-        if (root.left != null) {
-            Mirror(root.left);
-        }
-        if (root.right != null) {
-            Mirror(root.right);
-        }
+        Mirror(root.left);
+        Mirror(root.right);
     }
 
+    public TreeNode invertTree(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+
+        // 左子树和右子树交换，即使左右子树都空也不影响正确性
+        TreeNode temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+
+        // 递归翻转左右子树
+        invertTree(root.left);
+        invertTree(root.right);
+        return root;
+    }
 
     /**
-     * 非递归解法
+     * 非递归解法 队列和栈都可以
      * @param root
      */
     public void Mirror(TreeNode root) {
