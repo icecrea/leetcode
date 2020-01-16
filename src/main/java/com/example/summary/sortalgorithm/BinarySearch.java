@@ -15,13 +15,13 @@ import org.junit.Test;
  * 4.查找最后一个小于等于给定值的元素
  * 相关题目：
  * 1.循环有序数组何如二分查找？
+ * @author: icecrea
+ * @create: 2019-10-24
  * @see LeetCode033_SearchInRotatedSortedArray
  * 2.求一个数的平方根，要求精确到小数点后6位
  * @see LeetCode069_Sqrtx
  * 3.第一个错误版本
  * @see array53_firstBadVersion
- * @author: icecrea
- * @create: 2019-10-24
  **/
 public class BinarySearch {
 
@@ -40,7 +40,7 @@ public class BinarySearch {
         int high = n - 1;
 
         while (low <= high) {
-            int mid = low + ((high - low) >> 1);
+            int mid = (low + high) >>> 1;
             if (a[mid] == value) {
                 return mid;
             } else if (a[mid] < value) {
@@ -83,7 +83,7 @@ public class BinarySearch {
         int low = 0;
         int high = n - 1;
         while (low <= high) {
-            int mid = low + ((high - low) >> 1);
+            int mid = (low + high) >>> 1;
             if (a[mid] > value) {
                 high = mid - 1;
             } else if (a[mid] < value) {
@@ -109,13 +109,13 @@ public class BinarySearch {
         int low = 0;
         int high = n - 1;
         while (low <= high) {
-            int mid = low + ((high - low) >> 1);
+            int mid = (low + high) >>> 1;
             if (a[mid] > value) {
                 high = mid - 1;
             } else if (a[mid] < value) {
                 low = mid + 1;
             } else {
-                //此处区别在于，当a[mid]等于需要的值时，还需要确认是不是第一个值等于给定值的元素.当遍历到数组第一个数，或者左边值不同时，必定是第一个，直接返回
+                //此处区别在于，当a[mid]等于需要的值时，还需要确认是不是最后一个值等于给定值的元素.当遍历到数组最后一位，或者右边值不同时，符合要求直接返回
                 if ((mid == n - 1) || (a[mid + 1] != value)) {
                     return mid;
                 } else {
@@ -137,7 +137,7 @@ public class BinarySearch {
         int low = 0;
         int high = n - 1;
         while (low <= high) {
-            int mid = low + ((high - low) >> 1);
+            int mid = (low + high) >>> 1;
             if (a[mid] >= value) {
                 if ((mid == 0) || (a[mid - 1] < value)) {
                     return mid;
@@ -161,7 +161,7 @@ public class BinarySearch {
         int low = 0;
         int high = n - 1;
         while (low <= high) {
-            int mid = low + ((high - low) >> 1);
+            int mid = (low + high) >>> 1;
             if (a[mid] > value) {
                 high = mid - 1;
             } else {
