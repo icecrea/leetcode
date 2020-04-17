@@ -33,7 +33,7 @@ public class Sword64_MaxInWindow {
         for (int i = 0; i < num.length; i++) {
             //队列左边元素最大
             while (!qmax.isEmpty() && num[qmax.peekLast()] < num[i]) {
-                qmax.pollLast();
+                qmax.pollLast();//从右往左遍历，比新来元素小的移除队列
             }
             qmax.addLast(i);
             //判断队首元素是否已经在窗口之外
@@ -76,6 +76,13 @@ public class Sword64_MaxInWindow {
 
     @Test
     public void test() {
+        LinkedList<Integer> qmax = new LinkedList<>();
+        qmax.addLast(1);
+        qmax.addLast(2);
+        qmax.addLast(3);
+        System.out.println(qmax);
+        qmax.pollLast();
+        System.out.println(qmax);
         maxInWindows2(new int[]{1, 3, -1, -3, 5, 3, 6, 7}, 3);
     }
 }

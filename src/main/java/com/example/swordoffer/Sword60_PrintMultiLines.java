@@ -24,33 +24,33 @@ public class Sword60_PrintMultiLines {
      * @see Sword22_PrintFromTopToBottom
      */
     ArrayList<ArrayList<Integer>> Print(TreeNode pRoot) {
-        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+        ArrayList<ArrayList<Integer>> all = new ArrayList<>();
         if (pRoot == null) {
-            return result;
+            return all;
         }
-        Queue<TreeNode> layer = new LinkedList<>();
-        ArrayList<Integer> layerList = new ArrayList<>();
-        layer.add(pRoot);
+        Queue<TreeNode> q = new LinkedList<>();
+        ArrayList<Integer> list = new ArrayList<>();
+        q.add(pRoot);
         int start = 0, end = 1;
-        while (!layer.isEmpty()) {
-            TreeNode cur = layer.remove();
-            layerList.add(cur.val);
+        while (!q.isEmpty()) {
+            TreeNode cur = q.poll();
+            list.add(cur.val);
             start++;
             if (cur.left != null) {
-                layer.add(cur.left);
+                q.add(cur.left);
             }
             if (cur.right != null) {
-                layer.add(cur.right);
+                q.add(cur.right);
             }
             if (start == end) {
-                //end每次更新成下一行的总个数
-                end = layer.size();
+                //end每次更新成下一行的总个数 重置start end list
+                end = q.size();
                 start = 0;
-                result.add(layerList);
-                layerList = new ArrayList<>();
+                all.add(list);
+                list = new ArrayList<>();
             }
         }
-        return result;
+        return all;
     }
 
     ArrayList<ArrayList<Integer>> Print2(TreeNode pRoot) {
