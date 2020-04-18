@@ -28,30 +28,6 @@ public class Sword09_JumpFloorII {
      * @return
      */
     public int JumpFloorII(int target) {
-        if (target == 1) {
-            return 1;
-        }
-        if (target == 2) {
-            return 2;
-        }
-        int p = 1;
-        int q = 2;
-        int sum = 0;
-        for (int i = 3; i <= target; i++) {
-            sum = 2 * q;
-            p = q;
-            q = sum;
-        }
-        return sum;
-    }
-
-    /**
-     * 每个台阶都有跳与不跳两种情况（除了最后一个台阶），最后一个台阶必须跳。所以共用2^(n-1)中情况
-     *
-     * @param target
-     * @return
-     */
-    public int JumpFloorIINB(int target) {
         return 1 << (target - 1);
     }
 }

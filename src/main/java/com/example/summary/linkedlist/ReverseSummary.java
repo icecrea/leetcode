@@ -115,6 +115,9 @@ public class ReverseSummary {
 
     /**
      * 4.反转链表其中一部分 从第from个节点到第to个节点的部分
+     * from=2 to=4
+     * 1 2 3 4 5
+     * 1 4 3 2 5
      */
     public ListNode reversePart(ListNode head, int from, int to) {
         int len = 0;
@@ -157,6 +160,8 @@ public class ReverseSummary {
 
     /**
      * 5.反转链表相邻节点 非递归
+     * d-1234
+     * d-2143
      */
     public ListNode reverseInPairs(ListNode head) {
         ListNode dummy = new ListNode(0);
@@ -177,6 +182,8 @@ public class ReverseSummary {
 
     /**
      * 5.反转链表相邻节点 递归
+     * 12 34
+     * 21 43
      */
     public ListNode reverseInPairsRecur(ListNode head) {
         if ((head == null) || (head.next == null)) {

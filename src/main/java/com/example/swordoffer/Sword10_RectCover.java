@@ -14,7 +14,8 @@ public class Sword10_RectCover {
      * 2 2
      * 3 3
      * 4 5
-     *
+     * target = 1大矩形为2*1，只有一种摆放方法，return1；
+     * target = 2 大矩形为2*2，有两种摆放方法，return2；
      * target = n 分为两步考虑：
      * 1.第一次摆放一块 2*1 的小矩阵，则摆放方法总共为f(target - 1)
      * 2.第一次摆放一块1*2的小矩阵，则摆放方法总共为f(target-2)
