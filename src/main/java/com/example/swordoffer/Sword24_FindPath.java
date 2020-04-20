@@ -13,7 +13,6 @@ import java.util.ArrayList;
  **/
 public class Sword24_FindPath {
 
-
     private ArrayList<ArrayList<Integer>> listAll = new ArrayList<>();
     private ArrayList<Integer> list = new ArrayList<>();
 

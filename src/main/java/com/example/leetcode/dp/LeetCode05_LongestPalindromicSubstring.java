@@ -53,7 +53,7 @@ public class LeetCode05_LongestPalindromicSubstring {
     /**
      * 动态规划方法
      * dp[i][j] str[i] - str[j]是否是回文子串
-     * dp[i][j] = dp[i+1][j-1] && str[i]==str[j]
+     * dp[i][j] = dp[i-1][j+1] && str[i]==str[j]
      * 初始化：对角线为单个字符，设为0
      * 初始化一字母和二字母的回文，然后找到所有三字母回文，并依此类推
      */
@@ -61,13 +61,13 @@ public class LeetCode05_LongestPalindromicSubstring {
         if (s.length() == 0) {
             return s;
         }
-        //用于标记dp[i][j]即从j到i是否是回文串，如dp[1][5]＝＝true则表示字符串索引位置从1到5的子串是回文串。
+        //用于标记dp[i][j]即从i到j是否是回文串，如dp[1][5]＝＝true则表示字符串索引位置从1到5的子串是回文串。
         boolean dp[][] = new boolean[s.length()][s.length()];
         int max = 0, start = 0, end = 0;
         for (int j = 0; j < s.length(); j++) {
             for (int i = j; i >= 0; i--) {
                 //满足上述的第三个条件，即当前s.charAt(i)==s.charAt(j)并且s[j＋1到i－1]也是回文串
-                //i-j<2 是考虑单个字符+两个字符的回文串情况
+                //j-i<2 是考虑单个字符+两个字符的回文串情况
                 if (s.charAt(i) == s.charAt(j) && (j - i < 2 || dp[i + 1][j - 1])) {
                     dp[i][j] = true;
                     if (j - i + 1 > max) {

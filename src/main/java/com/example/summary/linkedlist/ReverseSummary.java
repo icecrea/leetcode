@@ -7,7 +7,6 @@ import org.junit.Test;
 
 /**
  * 链表反转专题总结
- *
  * 1.反转整个链表
  * 2.反转链表前n个节点
  * 3.反转链表后n个节点
@@ -35,8 +34,10 @@ public class ReverseSummary {
 
     /**
      * 1.反转整个链表 递归
+     * reverseAllListRecur 定义：反转以head为头节点的链表，并返回反转之后的头节点
      */
     public ListNode reverseAllListRecur(ListNode head) {
+        //base case : head.next == null
         if (head == null || head.next == null) {
             return head;
         }
@@ -228,8 +229,56 @@ public class ReverseSummary {
     }
 
     /**
+     * k个一组反转链表 递归解法
+     *
+     * @param head
+     * @param k
+     * @return
+     */
+    public ListNode reverseKGroupRecur(ListNode head, int k) {
+        if (head == null) {
+            return null;
+        }
+        // 区间 [a, b) 包含 k 个待反转元素
+        ListNode a = head, b = head;
+        for (int i = 0; i < k; i++) {
+            // 不足 k 个，不需要反转，base case
+            if (b == null) {
+                return head;
+            }
+            b = b.next;
+        }
+        // 反转前 k 个元素
+        ListNode newHead = reverseFromAToB(a, b);
+        // 递归反转后续链表并连接起来
+        a.next = reverseKGroup(b, k);
+        return newHead;
+    }
+
+    /**
+     * 反转a到b之间的节点 左闭右开
+     *
+     * @param a
+     * @param b
+     * @return
+     */
+    private ListNode reverseFromAToB(ListNode a, ListNode b) {
+        ListNode pre = null;
+        ListNode next;
+        while (a.next != b) {
+            next = a.next;
+            a.next = pre;
+            pre = a;
+            a = next;
+        }
+        return pre;
+    }
+
+
+    /**
      * 7.判断链表是否回文结构
      * 反转后半部分链表，判断完成后反转回去
+     *
      * @see LeetCode234_PalindromeLinkedList
      */
     public boolean isPalindrome(ListNode head) {

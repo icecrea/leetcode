@@ -5,14 +5,11 @@ import org.junit.Test;
 /**
  * 编辑距离
  * 给定两个单词 word1 和 word2，计算出将 word1 转换成 word2 所使用的最少操作数 。
- *
  * 你可以对一个单词进行如下三种操作：
- *
  * 插入一个字符
  * 删除一个字符
  * 替换一个字符
  * 示例 1:
- *
  * 输入: word1 = "horse", word2 = "ros"
  * 输出: 3
  * 解释:
@@ -20,7 +17,6 @@ import org.junit.Test;
  * rorse -> rose (删除 'r')
  * rose -> ros (删除 'e')
  * 示例 2:
- *
  * 输入: word1 = "intention", word2 = "execution"
  * 输出: 5
  * 解释:
@@ -54,9 +50,7 @@ public class LeetCode72_EditDistance {
         if (s1[i] == s2[j]) {//跳过
             return dp(s1, s2, i - 1, j - 1);
         } else {
-            return Math.min(
-                    Math.min(dp(s1, s2, i, j - 1) + 1, dp(s1, s2, i - 1, j) + 1),//插入，删除
-                    dp(s1, s2, i - 1, j - 1) + 1);//替换
+            return min(dp(s1, s2, i, j - 1) + 1, dp(s1, s2, i - 1, j) + 1, dp(s1, s2, i - 1, j - 1) + 1);
         }
     }
 
@@ -81,9 +75,7 @@ public class LeetCode72_EditDistance {
                 if (s1[i - 1] == s2[j - 1]) {
                     dp[i][j] = dp[i - 1][j - 1];
                 } else {
-                    dp[i][j] = Math.min(
-                            Math.min(dp[i - 1][j] + 1, dp[i][j - 1] + 1),
-                            dp[i - 1][j - 1] + 1);
+                    dp[i][j] = min(dp[i - 1][j] + 1, dp[i][j - 1] + 1, dp[i - 1][j - 1] + 1);
                 }
             }
         }
@@ -94,5 +86,9 @@ public class LeetCode72_EditDistance {
     public void test() {
         System.out.println(minDistance("rad", "apple"));
         System.out.println(minDistance2("rad", "apple"));
+    }
+
+    private int min(int a, int b, int c) {
+        return Math.min(a, Math.min(b, c));
     }
 }
