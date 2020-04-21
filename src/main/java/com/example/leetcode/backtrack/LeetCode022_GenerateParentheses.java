@@ -30,8 +30,8 @@ public class LeetCode022_GenerateParentheses {
      * 做选择
      * backtrack(...)
      * 撤销选择
-     *
      * n个左括号，n个右括号的组合
+     *
      * @param n
      * @return
      */
@@ -44,8 +44,29 @@ public class LeetCode022_GenerateParentheses {
         // 回溯过程中的路径
         StringBuilder track = new StringBuilder();
         // 可用的左括号和右括号数量初始化为 n
-        backtrack(0, 0, track, res, n);
+//        backtrack(0, 0, track, res, n);
+        backtrack(0, 0, "", res, n);
         return res;
+    }
+
+
+    void backtrack(int left, int right, String track, List<String> res, int n) {
+        // 左括号数量应该大于右括号
+        if (right > left) {
+            return;
+        }
+        if (left > n || right > n) {
+            return;
+        }
+        // 当所有括号都恰好用完时，得到一个合法的括号组合
+        if (left == n && right == n) {
+            res.add(track.toString());
+            return;
+        }
+
+        //string不会通过传参改变值，所以可以打到do undo的效果
+        backtrack(left + 1, right, track + "(", res, n);
+        backtrack(left, right + 1, track + ")", res, n);
     }
 
     void backtrack(int left, int right, StringBuilder track, List<String> res, int n) {
@@ -75,6 +96,7 @@ public class LeetCode022_GenerateParentheses {
 
     @Test
     public void test() {
+        //[(((()))), ((()())), ((())()), ((()))(), (()(())), (()()()), (()())(), (())(()), (())()(), ()((())), ()(()()), ()(())(), ()()(()), ()()()()]
         System.out.println(generateParenthesis(4));
     }
 

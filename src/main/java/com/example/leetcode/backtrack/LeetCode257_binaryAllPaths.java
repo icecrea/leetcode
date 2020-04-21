@@ -43,12 +43,12 @@ public class LeetCode257_binaryAllPaths {
             res.add(track);
             return;
         }
-        track += node.val + "->";
+//        track += node.val + "->";
         if (node.left != null) {
-            backTrack(node.left, res, track);
+            backTrack(node.left, res, track + node.val + "->");
         }
         if (node.right != null) {
-            backTrack(node.right, res, track);
+            backTrack(node.right, res, track + node.val + "->");
         }
     }
 

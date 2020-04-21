@@ -50,12 +50,12 @@ public class LeetCode017_LetterCombinationsPhoneNumber {
         //先找到数字，再找到对应的可选择范围
         String letters = phoneMap.get(digits.charAt(index));
         for (int i = 0; i < letters.length(); i++) {
-            track += letters.charAt(i);
-            backTrack(res, digits, index + 1, track);
-            track = track.substring(0, track.length() - 1);
+//            track += letters.charAt(i);
+//            backTrack(res, digits, index + 1, track);
+//            track = track.substring(0, track.length() - 1);
 
-            // 等同下面
-//            backTrack(res, digits, index + 1, track + letters.charAt(i));
+//             等同下面
+            backTrack(res, digits, index + 1, track + letters.charAt(i));
         }
     }
 
