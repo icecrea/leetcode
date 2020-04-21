@@ -59,6 +59,8 @@ public class LeetCode047_Permutations2 {
 
     @Test
     public void test() {
+        //[[1, 1, 2], [1, 2, 1], [2, 1, 1]]
+        //[[1, 1, 2], [1, 2, 1], [1, 1, 2], [1, 2, 1], [2, 1, 1], [2, 1, 1]]
         List<List<Integer>> lists = permuteUnique(new int[]{1, 1, 2});
         System.out.println(lists);
     }

@@ -32,18 +32,18 @@ public class LeetCode257_binaryAllPaths {
         if (root == null) {
             return res;
         }
-        StringBuilder track = new StringBuilder();
+        String track = "";
         backTrack(root, res, track);
         return res;
     }
 
-    void backTrack(TreeNode node, List<String> res, StringBuilder track) {
+    void backTrack(TreeNode node, List<String> res, String track) {
         if (node.right == null && node.left == null) {
-            track.append(node.val);
-            res.add(track.toString());
+            track += node.val;
+            res.add(track);
             return;
         }
-        track.append(node.val).append("->");
+        track += node.val + "->";
         if (node.left != null) {
             backTrack(node.left, res, track);
         }
