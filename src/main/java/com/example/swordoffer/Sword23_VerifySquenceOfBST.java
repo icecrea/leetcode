@@ -1,7 +1,7 @@
 package com.example.swordoffer;
 
 /**
- * @description: 二叉树的后续遍历列表
+ * @description: 二叉树的后序遍历列表
  * 输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。
  * 如果是则输出Yes,否则输出No。假设输入的数组的任意两个数字都互不相同。
  * @author: icecrea
@@ -47,6 +47,7 @@ public class Sword23_VerifySquenceOfBST {
     /**
      * 循环遍历
      * 后序遍历是左右中。左边的小于最后一个元素，右边的大于最后一个元素。
+     *
      * @param sequence
      * @return
      */

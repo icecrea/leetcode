@@ -25,6 +25,32 @@ import java.util.List;
  **/
 public class LeetCode56_MergeIntervals {
 
+    /**
+     * 对于几个相交区间合并后的结果区间x，x.start一定是这些相交区间中start最小的，x.end一定是这些相交区间中end最大的
+     *
+     * @param intervals
+     * @return
+     */
+    public List<Interval> merge3(List<Interval> intervals) {
+        if (intervals.size() <= 1) {
+            return intervals;
+        }
+        intervals.sort((i1, i2) -> Integer.compare(i1.start, i2.start));
+        List<Interval> res = new ArrayList<>();
+        res.add(intervals.get(0));
+        for (int i = 1; i < intervals.size(); i++) {
+            Interval cur = intervals.get(i);
+            Interval last = res.get(res.size() - 1);
+            if (cur.start <= last.end) {
+                last.end = Math.max(cur.end, last.end);
+            } else {
+                res.add(cur);
+            }
+        }
+        return res;
+    }
+
+
     public List<Interval> merge(List<Interval> intervals) {
         if (intervals.size() <= 1) {
             return intervals;
@@ -83,9 +109,12 @@ public class LeetCode56_MergeIntervals {
         list.add(new Interval(2, 6));
         list.add(new Interval(8, 10));
         list.add(new Interval(12, 15));
-        List<Interval> merge = merge(list);
+//        List<Interval> merge = merge(list);
+        List<Interval> merge = merge3(list);
         for (Interval interval : merge) {
             System.out.println(interval);
         }
+
+
     }
 }
