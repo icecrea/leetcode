@@ -53,4 +53,29 @@ public class Sword38_TreeDepth {
         }
         return depth;
     }
+
+    public int TreeDepth3(TreeNode pRoot) {
+        if (pRoot == null) {
+            return 0;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(pRoot);
+        int depth = 0;
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode top = queue.poll();
+                if (top.left != null) {
+                    queue.add(top.left);
+                }
+                if (top.right != null) {
+                    queue.add(top.right);
+                }
+                if (i == size - 1) {
+                    depth++;
+                }
+            }
+        }
+        return depth;
+    }
 }

@@ -10,20 +10,15 @@ import com.example.leetcode.linkedlist.pojo.ListNode;
  **/
 public class Sword15_ReverseList {
     public ListNode ReverseList(ListNode head) {
-        if (head == null) {
-            return null;
-        }
-        ListNode p = head;
-        ListNode q = head.next;
-        head.next = null;
+        ListNode pre = null;
         ListNode next;
-        while (q != null) {
-            next = q.next;
-            q.next = p;
-            p = q;
-            q = next;
+        while (head != null) {
+            next = head.next;
+            head.next = pre;
+            pre = head;
+            head = next;
         }
-        return p;
+        return pre;
     }
 
     private ListNode reverse(ListNode head) {

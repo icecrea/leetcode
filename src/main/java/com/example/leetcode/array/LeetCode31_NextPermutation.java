@@ -3,16 +3,12 @@ package com.example.leetcode.array;
 /**
  * @description: 下一个排列
  * 实现获取下一个排列的函数，算法需要将给定数字序列重新排列成字典序中下一个更大的排列。
- * <p>
  * 如果不存在下一个更大的排列，则将数字重新排列成最小的排列（即升序排列）。
- * <p>
  * 必须原地修改，只允许使用额外常数空间。
- * <p>
  * 以下是一些例子，输入位于左侧列，其相应输出位于右侧列。
  * 1,2,3 → 1,3,2
  * 3,2,1 → 1,2,3
  * 1,1,5 → 1,5,1
- * <p>
  * 链接：https://leetcode-cn.com/problems/next-permutation/solution/xia-yi-ge-pai-lie-by-leetcode/
  * @author: icecrea
  * @create: 2019-10-24
@@ -25,6 +21,11 @@ public class LeetCode31_NextPermutation {
      * 如何排列创建下一个更大数字？我们需要将数字 a[i] 替换为位于其右侧区域的数字中比它更大的数字,注意是最小的比它大的数字
      * 从a[i+1]-a[n-1]中，找到比a[i]大的最小数a[j]，进行交换。此时i处是正确的数字，还需要在右侧进行反转，变更为升序排列。
      *
+     * 12354
+     * 12435
+     *
+     * 125976
+     * 126579
      * @param nums
      */
     public void nextPermutation(int[] nums) {

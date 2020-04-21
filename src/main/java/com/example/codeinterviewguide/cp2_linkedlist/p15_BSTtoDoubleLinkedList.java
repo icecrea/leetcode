@@ -22,7 +22,7 @@ public class p15_BSTtoDoubleLinkedList {
         head = queue.poll();
         TreeNode pre = head;
         pre.left = null;
-        TreeNode cur = null;
+        TreeNode cur;
         while (!queue.isEmpty()) {
             cur = queue.poll();
             pre.right = cur;
