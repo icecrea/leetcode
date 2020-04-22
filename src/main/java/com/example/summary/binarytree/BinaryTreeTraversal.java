@@ -186,6 +186,29 @@ public class BinaryTreeTraversal {
         return res;
     }
 
+    /**
+     * 逆时针打印二叉树边缘节点
+     * 左边缘的节点从根节点开始，一直访问左孩子，直到左孩子为空；
+     * 底部节点实际上是二叉树的所有叶子节点；
+     * 右边缘节点是从根节点开始，一直访问右节点，直到右孩子为空；
+     * https://blog.csdn.net/tyler_download/article/details/73381940
+     */
+//    public List<TreeNode> AntiClockWiseTravel(TreeNode root) {
+//        List<TreeNode> res = new ArrayList<>();
+//        TreeNode node = root;
+//        //加入左节点
+//        while (node != null) {
+//            res.add(node);
+//            node = node.left;
+//        }
+//
+//    }
+//
+//    private List<TreeNode> getBottomNodes(TreeNode root) {
+//        TreeNode node = root;
+//        List<TreeNode> res = new ArrayList<>();
+//    }
+
 
     @Test
     public void test() {

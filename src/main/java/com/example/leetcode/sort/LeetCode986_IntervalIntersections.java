@@ -47,6 +47,7 @@ public class LeetCode986_IntervalIntersections {
         while (i < A.size() && j < B.size()) {
             int aStart = A.get(i).start, aEnd = A.get(i).end;
             int bStart = B.get(i).start, bEnd = B.get(i).end;
+            //两者end都大于对方的start时，说明有交集
             if (bEnd >= aStart && aEnd >= bStart) {
                 res.add(new Interval(Math.max(aStart, bStart), Math.min(aEnd, bEnd)));
             }

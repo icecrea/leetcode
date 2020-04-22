@@ -41,7 +41,6 @@ public class Sword61_SerializeTreeNode {
             node.left = Deserialize(str);
             node.right = Deserialize(str);
         }
-
         return node;
     }
 }

@@ -31,6 +31,7 @@ public class LeetCode123_BestTimeToBuyAndSellStock3 {
 
     /**
      * 原始的动态转移方程，没有可化简的地方
+     * 第 i 天，第 k 笔， 1持有，0不持有
      * dp[i][k][0] = max(dp[i-1][k][0], dp[i-1][k][1] + prices[i])
      * dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i])
      *
@@ -44,7 +45,7 @@ public class LeetCode123_BestTimeToBuyAndSellStock3 {
         // 初始化 dp 数组,第 i 天，第 k 笔 交易，是否持有股票,1 持有，0 不持有
         int[][][] mp = new int[prices.length][3][2];
         // 初始化第一天数据，买入股票
-        for (int i = 1; i < 3; i++) {
+        for (int i = 1; i <= 2; i++) {
             mp[0][i][1] = -prices[0];
         }
         for (int i = 1; i < prices.length; i++) {

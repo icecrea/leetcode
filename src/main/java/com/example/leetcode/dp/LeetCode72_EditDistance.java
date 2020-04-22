@@ -50,13 +50,15 @@ public class LeetCode72_EditDistance {
         if (s1[i] == s2[j]) {//跳过
             return dp(s1, s2, i - 1, j - 1);
         } else {
-            return min(dp(s1, s2, i, j - 1) + 1, dp(s1, s2, i - 1, j) + 1, dp(s1, s2, i - 1, j - 1) + 1);
+            return min(dp(s1, s2, i, j - 1) + 1, // 插入 直接在 s1[i] 插入一个和 s2[j] 一样的字符,那么 s2[j] 就被匹配了，前移 j，继续跟 i 对比，操作数+1
+                    dp(s1, s2, i - 1, j) + 1, // 删除 直接删除s[i]这个字符， 前移i继续对比
+                    dp(s1, s2, i - 1, j - 1) + 1); //替换 把s[i]直接替换成和s[j]相同，都前移，继续对比
         }
     }
 
     /**
      * dp数组优化
-     * dp(i, j)对应s1[0..i] 和 s2[0..j] 的最小编辑距离
+     * dp(i, j)对应s1[0..i-1] 和 s2[0..j-1] 的最小编辑距离
      * dp[..][0]和dp[0][..]对应 basecase
      */
     public int minDistance2(String word1, String word2) {

@@ -8,8 +8,8 @@ import com.example.leetcode.sort.LeetCode148_SortList;
 
 /**
  * 链表排序专题总结
- *
  * 1.链表归并排序
+ *
  * @see LeetCode148_SortList
  * 2.链表选择排序
  * @see p16_ListSelectionSort
@@ -18,6 +18,7 @@ import com.example.leetcode.sort.LeetCode148_SortList;
  * 4.按照左右半区的方式重新组合单链表
  * @see p20_RelocateLinkedList
  * 5.一个链表，奇数位升序偶数位降序，让链表变成升序的
+ * 6.链表奇偶节点排序。偶数位节点在前，奇数位在后
  */
 public class SortSummary {
 
@@ -209,4 +210,32 @@ public class SortSummary {
 
         return index;
     }
+
+    /**
+     * 链表奇偶节点排序。奇数位节点在前，偶数位在后
+     * o e
+     * a b c d e
+     * a c e b d
+     *
+     * @param head
+     * @return
+     */
+    public ListNode oddEvenSort(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode odd = head;
+        ListNode even = head.next;
+        ListNode temp = even;
+        while (odd.next != null && odd.next.next != null) {
+            odd.next = odd.next.next;
+            even.next = even.next.next;
+            odd = odd.next;
+            even = even.next;
+        }
+        odd.next = temp;
+        return head;
+    }
+
+
 }
