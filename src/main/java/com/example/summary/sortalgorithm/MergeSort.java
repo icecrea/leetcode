@@ -9,21 +9,20 @@ import org.junit.Test;
  **/
 public class MergeSort {
     public static void mergeArray(int[] a, int first, int mid, int last) {
-        int[] temp = new int[a.length];
+        int[] temp = new int[last - first + 1];
         int i = first, j = mid + 1;
-        int m = mid, n = last;
         int k = 0;
-        while (i <= m && j <= n) {
+        while (i <= mid && j <= last) {
             if (a[i] < a[j]) {
                 temp[k++] = a[i++];
             } else {
                 temp[k++] = a[j++];
             }
         }
-        while (i <= m) {
+        while (i <= mid) {
             temp[k++] = a[i++];
         }
-        while (j <= n) {
+        while (j <= last) {
             temp[k++] = a[j++];
         }
         for (i = 0; i < k; i++) {

@@ -30,9 +30,6 @@ public class Sword05_QueuingWithTwoStacks {
     }
 
     public int pop() {
-        if (stack1.empty() && stack2.empty()) {
-            throw new RuntimeException("Queue is empty!");
-        }
         //当stack2为空时，一次压入stack1中全部全元素。 即栈1每次出栈时，弹出所有元素
         if (stack2.empty()) {
             while (!stack1.empty()) {
