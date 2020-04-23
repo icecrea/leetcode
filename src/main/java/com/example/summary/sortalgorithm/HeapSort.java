@@ -21,6 +21,7 @@ public class HeapSort {
 
     /**
      * 堆化操作 将数组a中，以i开始，n结束的数组调整为大根堆
+     * 堆化操作是自上而下堆化
      */
     private static void heapify(int[] a, int n, int i) {
         while (true) {

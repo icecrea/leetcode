@@ -8,7 +8,8 @@ import org.junit.Test;
  * @create: 2018-12-18 17:29
  **/
 public class MergeSort {
-    public static void mergeArray(int[] a, int first, int mid, int last, int[] temp) {
+    public static void mergeArray(int[] a, int first, int mid, int last) {
+        int[] temp = new int[a.length];
         int i = first, j = mid + 1;
         int m = mid, n = last;
         int k = 0;
@@ -30,22 +31,23 @@ public class MergeSort {
         }
     }
 
-    public static void mergeSort(int[] a, int first, int last, int[] temp) {
-        if (first < last) {
-            int mid = first + ((last - first) >> 1);
-            //左边有序
-            mergeSort(a, first, mid, temp);
-            //右边有序
-            mergeSort(a, mid + 1, last, temp);
-            //合并两个有序数列
-            mergeArray(a, first, mid, last, temp);
+    public static void mergeSort(int[] a, int first, int last) {
+        if (first >= last) {
+            return;
         }
+        int mid = first + ((last - first) >> 1);
+        //左边有序
+        mergeSort(a, first, mid);
+        //右边有序
+        mergeSort(a, mid + 1, last);
+        //合并两个有序数列
+        mergeArray(a, first, mid, last);
     }
 
     @Test
     public void test() {
         int a[] = new int[]{5, 1, 7, 88, 4};
-        mergeSort(a, 0, 4, new int[5]);
+        mergeSort(a, 0, 4);
         for (int i : a) {
             System.out.println(i);
         }

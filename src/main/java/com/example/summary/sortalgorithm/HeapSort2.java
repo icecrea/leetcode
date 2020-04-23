@@ -22,7 +22,7 @@ public class HeapSort2 {
     }
 
     /**
-     * 堆化操作 将数组a中，从下标i开始，到下标n结束的数组调整为大根堆
+     * 堆化操作 将数组a中，从下标i开始，到下标n结束的数组中对应的堆位置的数据调整为大根堆
      */
     private static void heapify(int[] a, int n, int i) {
         while (true) {
@@ -70,6 +70,16 @@ public class HeapSort2 {
     @Test
     public void test() {
         int[] a = new int[]{50, 7, 5, 19, 8, 4, 1, 20, 13, 16};
+        heapify(a, a.length-1, 0);
+        for (int i : a) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+        buildHeap(a, a.length - 1);
+        for (int i : a) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
         sort(a);
         for (int i : a) {
             System.out.println(i);
