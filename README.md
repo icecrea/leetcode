@@ -287,7 +287,7 @@
 
 - [归并排序](./src/main/java/com/example/summary/sortalgorithm/MergeSort.java)
 - [快速排序](./src/main/java/com/example/summary/sortalgorithm/QuickSort.java)
-- [堆排序](./src/main/java/com/example/summary/sortalgorithm/HeapSort.java)
+- [堆排序](./src/main/java/com/example/summary/sortalgorithm/HeapSort2.java)
 
 > 1.冒泡排序： 原地排序，稳定排序（相邻元素大小相等时不交换），最好O(N),最坏O(N^2),平均O(N^2)  
 2.插入排序： 原地排序，稳定排序（可以将后面出现的元素，插入到前面出现元素的后面），最好O(N),最坏O(N^2),平均O(N^2)

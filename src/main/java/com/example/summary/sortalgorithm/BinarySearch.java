@@ -178,19 +178,20 @@ public class BinarySearch {
     /**
      * 使用闭区间的二分，三种写法
      * 参考：https://mp.weixin.qq.com/s/M1KfTfNlu4OCK8i9PSAmug
+     *
      * @param nums
      * @param target
      * @return
      */
     int binary_search(int[] nums, int target) {
         int left = 0, right = nums.length - 1;
-        while(left <= right) {
+        while (left <= right) {
             int mid = left + (right - left) / 2;
             if (nums[mid] < target) {
                 left = mid + 1;
             } else if (nums[mid] > target) {
                 right = mid - 1;
-            } else if(nums[mid] == target) {
+            } else if (nums[mid] == target) {
                 // 直接返回
                 return mid;
             }
@@ -201,6 +202,7 @@ public class BinarySearch {
 
     /**
      * 最左边界
+     *
      * @param nums
      * @param target
      * @return
@@ -227,6 +229,7 @@ public class BinarySearch {
 
     /**
      * 最右边界
+     *
      * @param nums
      * @param target
      * @return

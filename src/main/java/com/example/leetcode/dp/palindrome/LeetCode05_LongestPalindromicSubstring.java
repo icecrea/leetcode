@@ -1,4 +1,4 @@
-package com.example.leetcode.dp;
+package com.example.leetcode.dp.palindrome;
 
 import org.junit.Test;
 

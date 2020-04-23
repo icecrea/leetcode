@@ -1,11 +1,14 @@
 package com.example.leetcode.slidingwindow;
 
+import org.junit.Test;
+
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 /**
- * @description: 无重复字符的最长子串
+ * @description: 最长无重复子串
  * 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
  * 示例 1:
  * 输入: "abcabcbb"
@@ -83,6 +86,34 @@ public class LeetCode003_LongestSubstringWithouRepeat {
             max = Math.max(max, i - left + 1);
         }
         return max;
+    }
+
+    public int lengthOfLongestSubstring4(String s) {
+        HashMap<Character, Integer> window = new HashMap();
+        int res = 0, left = 0, right = 0;
+        while (right < s.length()) {
+            char c = s.charAt(right);
+            right++;
+            window.merge(c, 1, (o, n) -> o + 1);
+            while (window.get(c) > 1) {
+                char d = s.charAt(left);
+                left++;
+                window.put(d, window.get(d) - 1);
+            }
+            res = Math.max(res, right - left);
+        }
+        return res;
+    }
+
+
+    @Test
+    public void test(){
+        System.out.println(lengthOfLongestSubstring3("abcabcbb"));
+        System.out.println(lengthOfLongestSubstring3("bbbbb"));
+        System.out.println(lengthOfLongestSubstring3("pwwkew"));
+        System.out.println(lengthOfLongestSubstring4("abcabcbb"));
+        System.out.println(lengthOfLongestSubstring4("bbbbb"));
+        System.out.println(lengthOfLongestSubstring4("pwwkew"));
     }
 
 
