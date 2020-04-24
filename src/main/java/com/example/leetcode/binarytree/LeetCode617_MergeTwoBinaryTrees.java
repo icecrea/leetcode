@@ -52,20 +52,20 @@ public class LeetCode617_MergeTwoBinaryTrees {
         Stack<TreeNode[]> stack = new Stack<>();
         stack.push(new TreeNode[]{t1, t2});
         while (!stack.isEmpty()) {
-            TreeNode[] t = stack.pop();
-            if (t[0] == null || t[1] == null) {
+            TreeNode[] nodes = stack.pop();
+            if (nodes[0] == null || nodes[1] == null) {
                 continue;
             }
-            t[0].val += t[1].val;
-            if (t[0].left == null) {
-                t[0].left = t[1].left;
+            nodes[0].val += nodes[1].val;
+            if (nodes[0].left == null) {
+                nodes[0].left = nodes[1].left;
             } else {
-                stack.push(new TreeNode[]{t[0].left, t[1].left});
+                stack.push(new TreeNode[]{nodes[0].left, nodes[1].left});
             }
-            if (t[0].right == null) {
-                t[0].right = t[1].right;
+            if (nodes[0].right == null) {
+                nodes[0].right = nodes[1].right;
             } else {
-                stack.push(new TreeNode[]{t[0].right, t[1].right});
+                stack.push(new TreeNode[]{nodes[0].right, nodes[1].right});
             }
         }
         return t1;

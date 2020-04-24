@@ -3,14 +3,15 @@ package com.example.swordoffer;
 import com.example.leetcode.linkedlist.pojo.TreeNode;
 import org.junit.Test;
 
+import java.util.Map;
 import java.util.Stack;
 
 /**
  * 二叉搜索树的第K小的节点
  * 给定一棵二叉搜索树，请找出其中的第k小的结点。例如， （5，3，7，2，4，6，8）    中，按结点数值大小顺序第三小结点的值为4。
- *    5
- *   3 7
- *  24 68
+ * 5
+ * 3 7
+ * 24 68
  */
 public class Sword62_KthNode {
     /**
@@ -70,6 +71,33 @@ public class Sword62_KthNode {
                 node = node.right;
             }
         } while (node != null || !stack.isEmpty());
+        return null;
+    }
+
+    /**
+     * TODO 验证
+     *
+     * @param root
+     * @param k
+     * @return
+     */
+    TreeNode KthNode3(TreeNode root, int k) {
+        TreeNode cur = root;
+        Stack<TreeNode> stack = new Stack<>();
+        int res = 0;
+        while (cur != null || !stack.isEmpty()) {
+            if (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            } else {
+                TreeNode poll = stack.pop();
+                res++;
+                if (res == k) {
+                    return poll;
+                }
+                cur = poll.right;
+            }
+        }
         return null;
     }
 

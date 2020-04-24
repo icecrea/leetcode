@@ -1,6 +1,10 @@
 package com.example.leetcode.dp;
 
+import org.junit.Test;
+
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -20,7 +24,7 @@ public class LeetCode300_LIS {
 
     /**
      * dp[i]： 以i结尾的最长递增子序列长度  O(N^2)
-     * 问题在于如何根据dp[0]...dp[i-1]，来推导dp[i]
+     * 问题在于如何根据已知的dp[0]...dp[i-1]，来推导dp[i]
      * 10,9,2,5,3,7,101,18
      * 1 ,1,1,2,2,3,4,  4
      */
@@ -28,56 +32,23 @@ public class LeetCode300_LIS {
         if (a == null || a.length == 0) {
             return 0;
         }
-        int[] dp = new int[a.length];
+        //dp[i] 以i结尾的最长递增子序列长度
+        int dp[] = new int[a.length];
         Arrays.fill(dp, 1);
-        for (int i = 1; i < a.length; i++) {
-            for (int j = 0; j < i; j++) {
-                if (a[i] > a[j]) {
-                    dp[i] = Math.max(dp[i], dp[j] + 1);
+        int max = Integer.MIN_VALUE;
+        for (int j = 1; j < a.length; j++) {
+            for (int i = 0; i < j; i++) {
+                if (a[j] > a[i]) {
+                    dp[j] = Math.max(dp[j], dp[i] + 1);
                 }
             }
-        }
-        int max = Integer.MIN_VALUE;
-        for (int i : dp) {
-            max = Math.max(max, i);
+            max = Math.max(max, dp[j]);
         }
         return max;
     }
 
-    public static void main(String[] arg) {
-        int array[] = new int[]{1, 5, 3, 6, 4, 8, 9, 10};
-        int res[] = findMax(array);
-        for (int num : res) {
-            System.out.println(num);
-        }
-
+    @Test
+    public void test() {
+        System.out.println(lengthOfLIS(new int[]{10, 9, 2, 5, 3, 7, 101, 18}));
     }
-
-    /**
-     * 找到数组右侧第一个比它大的数字
-     * 1 5 3 6 4 8 9 10
-     * 0 1 2 3 4 5 6 7
-     *
-     * @param array
-     * @return
-     */
-    public static int[] findMax(int[] array) {
-        int len = array.length;
-        Stack<Integer> st = new Stack<>();
-        int res[] = new int[len];
-        int i = 0;
-        while (i < len) {
-            if (st.isEmpty() || array[i] <= array[st.peek()]) {
-                st.push(i);
-                i++;
-            } else {
-                res[st.pop()] = array[i];
-            }
-        }
-        while (!st.isEmpty()) {
-            res[st.pop()] = -1;
-        }
-        return res;
-    }
-
 }

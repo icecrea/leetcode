@@ -11,7 +11,7 @@ import com.example.leetcode.linkedlist.pojo.TreeNode;
  **/
 public class Sword17_HasSubtree {
 
-    public static boolean HasSubtree(TreeNode root1, TreeNode root2) {
+    public boolean HasSubtree(TreeNode root1, TreeNode root2) {
         boolean result = false;
         //当Tree1和Tree2都不为零的时候，才进行比较。否则直接返回false
         if (root2 == null || root1 == null) {
@@ -20,7 +20,7 @@ public class Sword17_HasSubtree {
         //如果找到了对应Tree2的根节点的点
         if (root1.val == root2.val) {
             //以这个根节点为为起点判断是否包含Tree2
-            result = doesTree1HaveTree2(root1, root2);
+            result = isSameTree(root1, root2);
         }
         //如果找不到，那么就再去root的左儿子当作起点，去判断时候包含Tree2
         if (!result) {
@@ -37,25 +37,21 @@ public class Sword17_HasSubtree {
 
     /**
      * 比较两颗树是否完全相同
-     * @param node1
-     * @param node2
-     * @return
      */
-    public static boolean doesTree1HaveTree2(TreeNode node1, TreeNode node2) {
-        //如果Tree2已经遍历完了都能对应的上，返回true
-        if (node2 == null) {
+    public boolean isSameTree(TreeNode root1, TreeNode root2) {
+        // 都为空的话，显然相同
+        if (root1 == null && root2 == null) {
             return true;
         }
-        //如果Tree2还没有遍历完，Tree1却遍历完了。返回false
-        if (node1 == null) {
+        // 一个为空，一个非空，显然不同
+        if (root1 == null || root2 == null) {
             return false;
         }
-        //如果其中有一个点没有对应上，返回false
-        if (node1.val != node2.val) {
+        // 两个都非空，但 val 不一样也不行
+        if (root1.val != root2.val) {
             return false;
         }
-
-        //如果根节点对应的上，那么就分别去子节点里面匹配
-        return doesTree1HaveTree2(node1.left, node2.left) && doesTree1HaveTree2(node1.right, node2.right);
+        // root1 和 root2 该比的都比完了
+        return isSameTree(root1.left, root2.left) && isSameTree(root1.right, root2.right);
     }
 }
