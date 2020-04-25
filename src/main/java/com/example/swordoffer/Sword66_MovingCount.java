@@ -1,5 +1,7 @@
 package com.example.swordoffer;
 
+import org.junit.Test;
+
 /**
  * @description: 机器人的运动范围
  * 地上有一个m行和n列的方格。一个机器人从坐标0,0的格子开始移动，每一次只能向左，右，上，下四个方向移动一格，但是不能进入行坐标和列坐标的数位之和大于k的格子。
@@ -31,5 +33,10 @@ public class Sword66_MovingCount {
             sum += i % 10;
         } while ((i = i / 10) > 0);
         return sum;
+    }
+
+    @Test
+    public void test() {
+        System.out.println(movingCount(18, 5, 5));
     }
 }

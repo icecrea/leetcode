@@ -6,7 +6,6 @@ import java.util.Stack;
 
 /**
  * @description: 对称的二叉树
- * <p>
  * 请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。
  * @author: icecrea
  * @create: 2019-09-11 13:00
@@ -14,30 +13,26 @@ import java.util.Stack;
 public class Sword58_isSymmetrical {
 
     /**
-     * 可以对比剑指offer17题分析
-     *
-     * @param pRoot
-     * @return
      * @see Sword18_Mirror
      */
-    boolean isSymmetrical(TreeNode pRoot) {
-        if (pRoot == null) {
+    boolean isSymmetrical(TreeNode root){
+        if(root ==null){
             return true;
         }
-        return comRoot(pRoot.left, pRoot.right);
+        return isSame(root.left, root.right);
     }
 
-    private boolean comRoot(TreeNode left, TreeNode right) {
-        if (left == null) {
-            return right == null;
+    boolean isSame(TreeNode left,TreeNode right){
+        if(left ==null && right == null){
+            return true;
         }
-        if (right == null) {
+        if(left == null || right == null){
             return false;
         }
-        if (left.val != right.val) {
+        if(left.val != right.val){
             return false;
         }
-        return comRoot(left.right, right.left) && comRoot(left.left, right.right);
+        return isSame(left.left, right.right) && isSame(left.right, right.left);
     }
 
 

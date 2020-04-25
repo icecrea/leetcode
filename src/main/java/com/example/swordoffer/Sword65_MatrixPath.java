@@ -49,7 +49,7 @@ public class Sword65_MatrixPath {
         if (i < 0 || j < 0 || i >= rows || j >= cols || matrix[index] != str[k] || flag[index] == true) {
             return false;
         }
-        //若k已经到达str末尾了，说明之前的都已经匹配成功了，直接返回true即可
+        //若k已经到达str末尾了，说明之前的都已经匹配成功了，直接返回true即可 (注：能走到这里就代表最后一位成功通过校验)
         if (k == str.length - 1) {
             return true;
         }

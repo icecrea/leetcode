@@ -3,14 +3,15 @@ package com.example.swordoffer;
 import com.example.leetcode.linkedlist.pojo.TreeNode;
 import org.junit.Test;
 
+import java.util.*;
 import java.util.Stack;
 
 /**
  * 二叉搜索树的第K小的节点
  * 给定一棵二叉搜索树，请找出其中的第k小的结点。例如， （5，3，7，2，4，6，8）    中，按结点数值大小顺序第三小结点的值为4。
- *    5
- *   3 7
- *  24 68
+ * 5
+ * 3 7
+ * 24 68
  */
 public class Sword62_KthNode {
     /**
@@ -48,31 +49,48 @@ public class Sword62_KthNode {
         return null;
     }
 
-
     TreeNode KthNode2(TreeNode root, int k) {
         if (root == null || k == 0) {
             return null;
         }
         Stack<TreeNode> stack = new Stack<>();
+        TreeNode cur = root;
         int count = 0;
-        TreeNode node = root;
-        do {
-            //左子树push到最左下节点
-            if (node != null) {
-                stack.push(node);
-                node = node.left;
+        while (cur != null || !stack.isEmpty()) {
+            if (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
             } else {
-                node = stack.pop();
-                count++;
-                if (count == k) {
-                    return node;
+                TreeNode pop = stack.pop();
+                if (++count == k) {
+                    return pop;
                 }
-                node = node.right;
+                cur = pop.right;
             }
-        } while (node != null || !stack.isEmpty());
+        }
         return null;
     }
 
+    TreeNode KthNode3(TreeNode root, int k) {
+        if (root == null || k == 0) {
+            return null;
+        }
+        List<TreeNode> l = new ArrayList();
+        inOrder(l, root);
+        if (k > l.size()) {
+            return null;
+        }
+        return l.get(k - 1);
+    }
+
+    void inOrder(List<TreeNode> l, TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        inOrder(l, root.left);
+        l.add(root);
+        inOrder(l, root.right);
+    }
 
     @Test
     public void test() {
@@ -86,6 +104,10 @@ public class Sword62_KthNode {
 
         TreeNode treeNode = KthNode(root, 1);
         System.out.println(treeNode);
+
+        treeNode = KthNode3(root, 0);
+        System.out.println(treeNode);
     }
+
 
 }
