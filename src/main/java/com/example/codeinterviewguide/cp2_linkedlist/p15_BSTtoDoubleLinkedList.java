@@ -13,7 +13,7 @@ import java.util.Queue;
 public class p15_BSTtoDoubleLinkedList {
 
 
-    public static TreeNode convert1(TreeNode head) {
+    public static TreeNode convert(TreeNode head) {
         Queue<TreeNode> queue = new LinkedList<TreeNode>();
         inOrderToQueue(head, queue);
         if (queue.isEmpty()) {
@@ -41,46 +41,4 @@ public class p15_BSTtoDoubleLinkedList {
         queue.offer(head);
         inOrderToQueue(head.right, queue);
     }
-
-    public static TreeNode convert2(TreeNode head) {
-        if (head == null) {
-            return null;
-        }
-        TreeNode last = process(head);
-        head = last.right;
-        last.right = null;
-        return head;
-    }
-
-    public static TreeNode process(TreeNode head) {
-        if (head == null) {
-            return null;
-        }
-        TreeNode leftE = process(head.left); // left end
-        TreeNode rightE = process(head.right); // right end
-        TreeNode leftS = leftE != null ? leftE.right : null; // left start
-        TreeNode rightS = rightE != null ? rightE.right : null; // right start
-        if (leftE != null && rightE != null) {
-            leftE.right = head;
-            head.left = leftE;
-            head.right = rightS;
-            rightS.left = head;
-            rightE.right = leftS;
-            return rightE;
-        } else if (leftE != null) {
-            leftE.right = head;
-            head.left = leftE;
-            head.right = leftS;
-            return head;
-        } else if (rightE != null) {
-            head.right = rightS;
-            rightS.left = head;
-            rightE.right = head;
-            return rightE;
-        } else {
-            head.right = head;
-            return head;
-        }
-    }
-
 }

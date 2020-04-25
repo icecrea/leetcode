@@ -26,7 +26,7 @@ public class LeetCode45_JumpGame2 {
 
     /**
      * 回溯 超时
-     *
+     * 能跳的都跳了
      * @param nums
      * @return
      */
@@ -83,6 +83,7 @@ public class LeetCode45_JumpGame2 {
         for (int i = 0; i < n - 1; i++) {
             //每次更新跳到的最远距离
             farthest = Math.max(nums[i] + i, farthest);
+            //走到end时候，将end置为最远距离farthest
             if (end == i) {
                 jumps++;
                 end = farthest;

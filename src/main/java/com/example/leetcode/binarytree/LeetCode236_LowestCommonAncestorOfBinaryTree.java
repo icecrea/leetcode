@@ -1,6 +1,7 @@
 package com.example.leetcode.binarytree;
 
 import com.example.leetcode.linkedlist.pojo.TreeNode;
+import org.junit.Test;
 
 /**
  * 二叉树最近公共父节点
@@ -43,4 +44,11 @@ public class LeetCode236_LowestCommonAncestorOfBinaryTree {
         return right == null ? left : right;
     }
 
+    @Test
+    public void test() {
+        TreeNode root = new TreeNode(0);
+        TreeNode right = new TreeNode(1);
+        root.left = null;
+        root.right = right;
+    }
 }

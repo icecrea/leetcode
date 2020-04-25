@@ -33,7 +33,7 @@ public class LeetCode55_JumpGame {
     public boolean canJump(int[] nums) {
         int max = 0;
         for (int i = 0; i < nums.length - 1; i++) {
-            // 计算能跳到的最远距离
+            // 计算从0到i为止能跳到的最远距离
             max = Math.max(max, i + nums[i]);
             if (max <= i) {
                 return false;
