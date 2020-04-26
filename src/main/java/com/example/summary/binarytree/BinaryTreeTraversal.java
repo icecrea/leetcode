@@ -1,6 +1,5 @@
 package com.example.summary.binarytree;
 
-import com.example.codeinterviewguide.cp3_binarytree.Node;
 import com.example.leetcode.linkedlist.pojo.TreeNode;
 import org.junit.Test;
 
