@@ -1,5 +1,6 @@
-package com.example.leetcode.other;
+package com.example.leetcode.slidingwindow;
 
+import com.example.swordoffer.Sword63_StreamMid;
 import org.junit.Test;
 
 import java.util.Comparator;
@@ -33,6 +34,9 @@ import java.util.PriorityQueue;
  * @create: 2020-01-03
  **/
 public class LeetCode480_SlidingWindowMedian {
+    /**
+     * @see Sword63_StreamMid
+     */
     PriorityQueue<Integer> maxheap = new PriorityQueue<>(Comparator.reverseOrder());
     PriorityQueue<Integer> minheap = new PriorityQueue<>();
 

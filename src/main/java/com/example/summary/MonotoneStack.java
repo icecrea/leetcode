@@ -76,6 +76,25 @@ public class MonotoneStack {
         return res;
     }
 
+    /**
+     * 排序一个栈（用辅助栈）
+     */
+    public static void sortStackByStack(Stack<Integer> stack) {
+        //辅助数组
+        Stack<Integer> help = new Stack<>();
+        while (!stack.isEmpty()) {
+            int cur = stack.pop();
+            //如果数据栈顶的元素比help栈顶元素小，那么直接压入，否则，选择合适的位置压入
+            while (!help.isEmpty() && cur > help.peek()) {
+                stack.push(help.pop());
+            }
+            help.push(cur);
+        }
+        //此时数据栈为空，辅助栈是逆序的，将辅助栈依次弹出，压入到数据栈中
+        while (!help.isEmpty()) {
+            stack.push(help.pop());
+        }
+    }
 
     @Test
     public void test() {

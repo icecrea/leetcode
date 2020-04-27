@@ -45,5 +45,6 @@ public class LeetCode647_PalindromicSubstrings {
     @Test
     public void test() {
         System.out.println(countSubstrings("aaa"));
+        System.out.println(countSubstrings("abc"));
     }
 }

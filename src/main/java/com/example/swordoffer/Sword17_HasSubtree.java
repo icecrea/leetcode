@@ -4,7 +4,7 @@ import com.example.leetcode.linkedlist.pojo.TreeNode;
 
 
 /**
- * @description: 树的子结构 TODO
+ * @description: 树的子结构
  * 输入两棵二叉树A，B，判断B是不是A的子结构。（ps：我们约定空树不是任意一个树的子结构）
  * @author: icecrea
  * @create: 2019-04-18 19:25

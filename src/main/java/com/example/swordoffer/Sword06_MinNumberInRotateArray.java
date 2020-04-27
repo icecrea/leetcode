@@ -25,13 +25,19 @@ public class Sword06_MinNumberInRotateArray {
                 low = mid + 1;
             } else if (array[mid] == array[high]) { //这一步可以转化成下面的方式， high = mid;
                 high = high - 1;
-            } else {
+            } else if(array[mid] < array[high]) {
                 high = mid;
             }
         }
         return array[low];
     }
 
+    /**
+     * 优化
+     * 34111
+     * 34555
+     * 12345
+     */
     public int minNumberInRotateArray2(int[] array) {
         int low = 0;
         int high = array.length - 1;
