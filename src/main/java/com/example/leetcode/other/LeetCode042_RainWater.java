@@ -1,5 +1,7 @@
 package com.example.leetcode.other;
 
+import org.junit.Test;
+
 /**
  * @description: 接雨水
  * 给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。
@@ -64,5 +66,10 @@ public class LeetCode042_RainWater {
             res += Math.min(lMax[i], rMax[i]) - height[i];
         }
         return res;
+    }
+
+    @Test
+    public void test() {
+        System.out.println(trap2(new int[]{2, 0, 2}));
     }
 }

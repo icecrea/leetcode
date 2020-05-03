@@ -51,11 +51,10 @@ public class LeetCode61_RotateList {
         cur.next = head;
 
         //链表小于size的 向右移动步数
-        k = k % size;
-        int step = size - k;
+        k = size - k % size;
 
         cur = head;
-        for (int i = 1; i < step; i++) {
+        for (int i = 1; i < k; i++) {
             cur = cur.next;
         }
         ListNode newHead = cur.next;

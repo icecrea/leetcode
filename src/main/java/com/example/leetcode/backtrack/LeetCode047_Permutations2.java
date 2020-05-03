@@ -3,6 +3,7 @@ package com.example.leetcode.backtrack;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -26,6 +27,7 @@ public class LeetCode047_Permutations2 {
     public List<List<Integer>> permuteUnique(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         List<Integer> track = new ArrayList<>();
+        Arrays.sort(nums);// 排序是剪枝的前提
         boolean[] visited = new boolean[nums.length];
         backTrack(res, track, nums, visited);
         return res;
@@ -42,6 +44,9 @@ public class LeetCode047_Permutations2 {
         }
 
         for (int i = 0; i < nums.length; i++) {
+            // 保证相同元素都是同一种遍历顺序 如1,1',1'' 保持这个顺序不变 此时visited[i-1] 或者!visited[i-1]都可以作为判断条件
+            // 但是!visited[i-1]更快 used[i - 1] 前面加不加感叹号的区别仅在于保留的是相同元素的顺序索引，还是倒序索引
+            // 画图可参考 ： https://leetcode-cn.com/problems/permutations-ii/solution/hui-su-suan-fa-python-dai-ma-java-dai-ma-by-liwe-2/
             if (i != 0 && nums[i] == nums[i - 1] && !visited[i - 1]) {
                 continue;
             }

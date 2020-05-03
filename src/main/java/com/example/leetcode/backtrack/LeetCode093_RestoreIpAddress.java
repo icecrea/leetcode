@@ -18,39 +18,42 @@ import java.util.List;
 public class LeetCode093_RestoreIpAddress {
 
     public List<String> restoreIpAddresses(String s) {
-        List<String> ans = new ArrayList<>();
-        doRestore(0, new StringBuilder(), ans, s);
-        return ans;
+        List<String> res = new ArrayList<>();
+        if (s == null || s.length() == 0) {
+            return res;
+        }
+        // 回溯
+        backTrack(s, 0, new ArrayList<>(), res);
+        return res;
     }
 
-    /**
-     * @param k         IP 地址的第 k 段
-     * @param tempAdd   IP 地址的第 k 段内容
-     * @param addresses IP 地址结果集合
-     * @param s         给定字符串的待处理部分
-     */
-    private void doRestore(int k, StringBuilder tempAdd, List<String> addresses, String s) {
-        if (k == 4 || s.length() == 0) {
-            if (k == 4 && s.length() == 0) {
-                addresses.add(tempAdd.toString());
+    // 中间两个参数解释：pos-当前遍历到 s 字符串中的位置，cur-当前存放已经确定好的 ip 段的数量
+    private void backTrack(String s, int pos, List<String> cur, List<String> res) {
+        if (cur.size() == 4) {
+            if (pos == s.length()) {
+                res.add(String.join(".", cur));
             }
-        } else {
-            for (int i = 0; i < s.length() && i <= 2; i++) {
-                if (i != 0 && s.charAt(0) == '0') {
-                    // 某一段如果大于 1 位，不能以 0 作为开头
-                    break;
-                }
-                String part = s.substring(0, i + 1);
-                if (Integer.valueOf(part) <= 255) {
-                    if (tempAdd.length() != 0) {
-                        // 不是第一部分就在前面加个 "."
-                        part = "." + part;
-                    }
-                    tempAdd.append(part);
-                    doRestore(k + 1, tempAdd, addresses, s.substring(i + 1));
-                    tempAdd.delete(tempAdd.length() - part.length(), tempAdd.length());
-                }
+            return;
+        }
+
+        // ip 地址每段最多有三个数字
+        for (int i = 1; i <= 3; i++) {
+            // 如果当前位置距离 s 末尾小于 3 就不用再分段了，直接跳出循环即可。
+            if (pos + i > s.length()) {
+                break;
             }
+
+            String segment = s.substring(pos, pos + i);
+            // 剪枝条件：段的起始位置不能为 0，段拆箱成 int 类型的长度不能大于 255
+            if (segment.startsWith("0") && segment.length() > 1 || (i == 3 && Integer.parseInt(segment) > 255)) {
+                continue;
+            }
+            cur.add(segment);
+            backTrack(s, pos + i, cur, res);
+            cur.remove(cur.size() - 1);
         }
     }
+
+
+
 }
