@@ -1,4 +1,4 @@
-package com.example.leetcode.dp;
+package com.example.leetcode.binarytree;
 
 import com.example.leetcode.linkedlist.pojo.TreeNode;
 
@@ -23,15 +23,13 @@ import java.util.List;
  * 解释:
  * 以上的输出对应以下 5 种不同结构的二叉搜索树：
  *
- *    1         3     3      2      1
- *     \       /     /      / \      \
- *      3     2     1      1   3      2
- *     /     /       \                 \
- *    2     1         2                 3
- *
- *
+ * 1         3     3      2      1
+ * \       /     /      / \      \
+ * 3     2     1      1   3      2
+ * /     /       \                 \
+ * 2     1         2                 3
  */
-public class LeetCode95_UniqueBST2 {
+public class LeetCode095_UniqueBST2 {
     /**
      * 选择第i个节点作为根，则左子树将包含元素1至i-1，而右子树将包含元素i + 1至n
      */
@@ -43,22 +41,24 @@ public class LeetCode95_UniqueBST2 {
     }
 
     private List<TreeNode> genTreeList(int start, int end) {
-        List<TreeNode> list = new ArrayList<>();
+        List<TreeNode> allTrees = new ArrayList<>();
         if (start > end) {
-            list.add(null);
+            allTrees.add(null);
+            return allTrees;
         }
         for (int i = start; i <= end; i++) {
             List<TreeNode> leftList = genTreeList(start, i - 1);
             List<TreeNode> rightList = genTreeList(i + 1, end);
+
             for (TreeNode left : leftList) {
                 for (TreeNode right : rightList) {
                     TreeNode root = new TreeNode(i);
                     root.left = left;
                     root.right = right;
-                    list.add(root);
+                    allTrees.add(root);
                 }
             }
         }
-        return list;
+        return allTrees;
     }
 }
