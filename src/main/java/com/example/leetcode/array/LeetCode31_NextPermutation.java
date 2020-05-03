@@ -26,6 +26,7 @@ public class LeetCode31_NextPermutation {
      *
      * 125976
      * 126579
+     *
      * @param nums
      */
     public void nextPermutation(int[] nums) {
@@ -33,16 +34,20 @@ public class LeetCode31_NextPermutation {
         while (i >= 0 && nums[i] >= nums[i + 1]) {
             i--;
         }
-        //此时a[i]到a[i+1]递增，a[i+1]到a[len-1]递减。需要找到交换节点a[j]，从后往前第一个大于a[i]的数
-        if (i >= 0) {
-            int j = nums.length - 1;
-            while (j >= 0 && nums[j] <= nums[i]) {
-                j--;
-            }
-            swap(nums, i, j);
+        if (i == -1) {
+            reverse(nums, 0);
+            return;
         }
-        //反转数组中，从i+1到最后的部分
-        reverse(nums, i + 1);
+        //此时a[i]到a[i+1]递增，a[i+1]到a[len-1]递减。需要找到交换节点a[j]，从后往前第一个大于a[i]的数
+        int j = nums.length - 1;
+        while (j >= 0) {
+            if (nums[j] > nums[i]) {
+                swap(nums, i, j);
+                reverse(nums, i + 1);
+                return;
+            }
+            j--;
+        }
     }
 
     private void reverse(int[] nums, int start) {

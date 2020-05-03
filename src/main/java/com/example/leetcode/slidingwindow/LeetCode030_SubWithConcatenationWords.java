@@ -1,8 +1,11 @@
 package com.example.leetcode.slidingwindow;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @description: 串联所有单词子串
@@ -27,50 +30,57 @@ import java.util.List;
  */
 public class LeetCode030_SubWithConcatenationWords {
 
-    /**
-     * 参考 ： https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/solution/xiang-xi-tong-su-de-si-lu-fen-xi-duo-jie-fa-by-w-6/
-     */
     public List<Integer> findSubstring(String s, String[] words) {
+        if (words == null || words.length == 0) {
+            return  new ArrayList();
+        }
         List<Integer> res = new ArrayList<>();
-        int wordNum = words.length;
-        if (wordNum == 0) {
-            return res;
-        }
-        int wordLen = words[0].length();
-        HashMap<String, Integer> allWords = new HashMap();
+        int size = words[0].length();
+        Map<String, Integer> need = new HashMap();
         for (String w : words) {
-            int value = allWords.getOrDefault(w, 0);
-            allWords.put(w, value + 1);
+            need.merge(w, 1, (o, n) -> o + 1);
         }
 
-
-        //遍历所有子串
-        for (int i = 0; i < s.length() - wordNum * wordLen + 1; i++) {
-            //HashMap2 存当前扫描的字符串含有的单词
-            HashMap<String, Integer> hasWordsMap = new HashMap();
-            int num = 0;
-            //判断该子串是否符合
-            while (num < wordNum) {
-                String word = s.substring(i + num * wordLen, i + (num + 1) * wordLen);
-                //判断该单词在 HashMap1 中
-                if (allWords.containsKey(word)) {
-                    int value = hasWordsMap.getOrDefault(word, 0);
-                    hasWordsMap.put(word, value + 1);
-                    //判断当前单词的 value 和 HashMap1 中该单词的 value
-                    if (hasWordsMap.get(word) > allWords.get(word)) {
-                        break;
+        for (int i = 0; i < size; i++) {
+            Map<String, Integer> window = new HashMap();
+            int left = i, right = i, valid = 0;
+            while (right <= s.length() - size) {
+                String rStr = s.substring(right, right + size);
+                right = right + size;
+                if (need.containsKey(rStr)) {
+                    window.merge(rStr, 1, (o, n) -> o + 1);
+                    if (window.get(rStr).equals(need.get(rStr))) {
+                        valid++;
                     }
-                } else {
-                    break;
                 }
-                num++;
-            }
-            //判断是不是所有的单词都符合条件
-            if (num == wordNum) {
-                res.add(i);
+
+                while (right - left >= words.length * size) {
+                    if (valid == need.size()) {
+                        res.add(left);
+                    }
+                    String lStr = s.substring(left, left + size);
+                    left = left + size;
+                    if (need.containsKey(lStr)) {
+                        if (window.get(lStr).equals(need.get(lStr))) {
+                            valid--;
+                        }
+                        window.put(lStr, window.get(lStr) - 1);
+                    }
+                }
             }
         }
+
         return res;
     }
 
+    @Test
+    public void test() {
+
+//        System.out.println("1234".substring(0, 4));
+        System.out.println(findSubstring("ababaab", new String[]{"ab", "ba", "ba"}));
+        System.out.println(findSubstring("barfoothefoobarman", new String[]{"foo", "bar"}));
+
+        System.out.println(findSubstring("wordgoodgoodgoodbestword", new String[]{"word", "good", "best", "good"}));
+        System.out.println(findSubstring("lingmindraboofooowingdingbarrwingmonkeypoundcake", new String[]{"fooo", "barr", "wing", "ding", "wing"})); //预期[13]
+    }
 }

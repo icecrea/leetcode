@@ -17,29 +17,10 @@ import java.util.Stack;
  * 输入: ")()())"
  * 输出: 4
  * 解释: 最长有效括号子串为 "()()"
+ *
+ * 输入：()(() 输出：2
  */
 public class LeetCode32_LongestValidParantheses {
-    /**
-     * 终止条件：）进来的时候，找不到能匹配的（
-     *
-     * 但是可能包含多组有效子串，需要找到最大的。所以需要对比多个连续有效的匹配串
-     * ")()())((()))"
-     */
-    public int longestValidParentheses(String s) {
-        int len = 0;
-        Stack<Character> stack = new Stack<>();
-        for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) == ')') {
-                if (!stack.isEmpty() && stack.peek() == '(') {
-                    stack.pop();
-                    len = len + 2;
-                }
-            } else {
-                stack.push(s.charAt(i));
-            }
-        }
-        return len;
-    }
 
     /**
      * 与找到每个可能的子字符串后再判断它的有效性不同，我们可以用栈在遍历给定字符串的过程中去判断到目前为止扫描的子字符串的有效性，同时能的都最长有效字符串的长度。我们首先将 -1−1 放入栈顶。
@@ -52,8 +33,8 @@ public class LeetCode32_LongestValidParantheses {
      * @param s
      * @return
      */
-    public int longestValidParentheses2(String s) {
-        int maxans = 0;
+    public int longestValidParentheses(String s) {
+        int max = 0;
         Stack<Integer> stack = new Stack<>();
         stack.push(-1);
         for (int i = 0; i < s.length(); i++) {
@@ -64,11 +45,11 @@ public class LeetCode32_LongestValidParantheses {
                 if (stack.empty()) {
                     stack.push(i);
                 } else {
-                    maxans = Math.max(maxans, i - stack.peek());
+                    max = Math.max(max, i - stack.peek());
                 }
             }
         }
-        return maxans;
+        return max;
     }
 
     /**
@@ -129,5 +110,6 @@ public class LeetCode32_LongestValidParantheses {
         System.out.println(i);
 
         System.out.println(longestValidParentheses("\"()(()\""));
+        System.out.println(longestValidParentheses(")()())((()))"));
     }
 }
