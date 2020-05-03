@@ -1,8 +1,4 @@
-package com.example.leetcode.forfun;
-
-import org.junit.Test;
-
-import java.util.HashMap;
+package com.example.leetcode.other;
 
 /**
  * @description:

@@ -2,6 +2,8 @@ package com.example.swordoffer;
 
 import com.example.leetcode.linkedlist.pojo.TreeNode;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -82,6 +84,36 @@ public class Sword26_BSTToDoubleLinkedList {
         }
         //更新last
         last = node;
+    }
+
+
+    public static TreeNode convert(TreeNode head) {
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        inOrderToQueue(head, queue);
+        if (queue.isEmpty()) {
+            return head;
+        }
+        head = queue.poll();
+        TreeNode pre = head;
+        pre.left = null;
+        TreeNode cur;
+        while (!queue.isEmpty()) {
+            cur = queue.poll();
+            pre.right = cur;
+            cur.left = pre;
+            pre = cur;
+        }
+        pre.right = null;
+        return head;
+    }
+
+    public static void inOrderToQueue(TreeNode head, Queue<TreeNode> queue) {
+        if (head == null) {
+            return;
+        }
+        inOrderToQueue(head.left, queue);
+        queue.offer(head);
+        inOrderToQueue(head.right, queue);
     }
 
 }

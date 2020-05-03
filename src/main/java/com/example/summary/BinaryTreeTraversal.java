@@ -1,4 +1,4 @@
-package com.example.summary.binarytree;
+package com.example.summary;
 
 import com.example.leetcode.linkedlist.pojo.TreeNode;
 import org.junit.Test;

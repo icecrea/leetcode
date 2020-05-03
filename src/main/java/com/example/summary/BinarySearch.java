@@ -1,4 +1,4 @@
-package com.example.summary.sortalgorithm;
+package com.example.summary;
 
 import com.example.leetcode.binarysearch.LeetCode033_SearchInRotatedSortedArray;
 import com.example.leetcode.binarysearch.LeetCode069_Sqrtx;

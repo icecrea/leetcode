@@ -1,9 +1,7 @@
 package com.example.summary;
 
-import com.alibaba.fastjson.JSON;
+import com.example.leetcode.dp.palindrome.*;
 import org.junit.Test;
-
-import java.util.Arrays;
 
 /**
  * @description: 回文系列
@@ -12,7 +10,16 @@ import java.util.Arrays;
  * @date: 2020/4/27
  * @see com.example.leetcode.dp.palindrome
  */
-public class PalindromeSummary {
+public class Palindrome {
+
+    /**
+     * @see LeetCode05_LongestPalindromicSubstring 最长回文子串
+     * @see LeetCode647_PalindromicSubstrings 回文子串个数
+     * @see LeetCode009_isPalindrome 回文数
+     * @see LeetCode131_PalindromePartitioning 分割回文串
+     * @see LeetCode516_LongestPalindromicSubsequence 最长回文子序列
+     *
+     */
 
     /**
      * 最长回文子串
