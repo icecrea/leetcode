@@ -63,14 +63,14 @@ public class LeetCode61_RotateList {
         return newHead;
     }
 
-    public ListNode rotateRight2(ListNode head, int k) {
-        ListNode fast = head;
-        ListNode slow = head;
-        for(int i=0;i<k;i++){
-            fast = fast.next;
-        }
-        while (head!=null && head.next!=null){
-            fast = fast.next;
-        }
-    }
+//    public ListNode rotateRight2(ListNode head, int k) {
+//        ListNode fast = head;
+//        ListNode slow = head;
+//        for(int i=0;i<k;i++){
+//            fast = fast.next;
+//        }
+//        while (head!=null && head.next!=null){
+//            fast = fast.next;
+//        }
+//    }
 }

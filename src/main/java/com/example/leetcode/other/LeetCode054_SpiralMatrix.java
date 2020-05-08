@@ -6,9 +6,7 @@ import java.util.List;
 /**
  * @description: 螺旋矩阵
  * 给定一个包含 m x n 个元素的矩阵（m 行, n 列），请按照顺时针螺旋顺序，返回矩阵中的所有元素。
- *
  * 示例 1:
- *
  * 输入:
  * [
  * [ 1, 2, 3 ],
@@ -17,7 +15,6 @@ import java.util.List;
  * ]
  * 输出: [1,2,3,6,9,8,7,4,5]
  * 示例 2:
- *
  * 输入:
  * [
  * [1, 2, 3, 4],
@@ -25,7 +22,6 @@ import java.util.List;
  * [9,10,11,12]
  * ]
  * 输出: [1,2,3,4,8,12,11,10,9,5,6,7]
- *
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/spiral-matrix
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
@@ -57,10 +53,37 @@ public class LeetCode054_SpiralMatrix {
                 list.add(matrix[j][(n - 1) - i]);
             }
 
-            for (int j = (n - 1) - (i + 1); j >= i && (m - 1 - i != i); j--) {
+            for (int j = (n - 1) - (i + 1); j >= i && (m - 1 - i != i); j--) {//这一行已经遍历过情况 m - 1 - i != i
                 list.add(matrix[(m - 1) - i][j]);
             }
-            for (int j = (m - 1) - (i + 1); j >= i + 1 && (n - 1 - i) != i; j--) {
+            for (int j = (m - 1) - (i + 1); j >= i + 1 && (n - 1 - i) != i; j--) { //这一列已经遍历过情况 (n - 1 - i) != i
+                list.add(matrix[j][i]);
+            }
+            i++;
+        }
+        return list;
+    }
+
+    public List<Integer> spiralOrder2(int[][] matrix) {
+        List<Integer> list = new ArrayList<>();
+        if (matrix == null || matrix.length == 0) {
+            return list;
+        }
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+        int i = 0;
+        int count = (Math.min(rows, cols) + 1) / 2;
+        while (i < count) {
+            for (int j = i; j < cols - 1; j++) {
+                list.add(matrix[i][j]);
+            }
+            for (int j = i + 1; j < rows; j++) {
+                list.add(matrix[j][cols - 1 - i]);
+            }
+            for (int j = cols - 1 - (i + 1); j >= i && (rows - 1 - i != i); j--) {
+                list.add(matrix[rows - 1 - i][j]);
+            }
+            for (int j = rows - 1 - (i + 1); j >= i + 1 && (cols - 1 - i != i); j--) {
                 list.add(matrix[j][i]);
             }
             i++;

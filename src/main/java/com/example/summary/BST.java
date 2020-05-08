@@ -1,7 +1,5 @@
 package com.example.summary;
 
-import com.example.leetcode.dp.LeetCode95_UniqueBST2;
-import com.example.leetcode.dp.LeetCode96_UniqueBST;
 import com.example.leetcode.linkedlist.pojo.ListNode;
 import com.example.leetcode.linkedlist.pojo.TreeNode;
 import com.example.swordoffer.Sword26_BSTToDoubleLinkedList;
